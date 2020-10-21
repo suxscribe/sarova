@@ -1,0 +1,181 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Melsytech';
+  - var description = 'Description';
+  - var pageClass = 'page--index';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  //- .ruler--right
+  section.intro
+    .intro__bg
+      //- img(src="./assets/intro-bg.jpg", alt="Melsytech")
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="./assets/intro-video.mp4")
+    .intro__content
+      .intro__content-1
+        | Разработка и&nbsp;поставка полупроводниковых 
+        span.intro__content-1-highlight лазерных систем 
+        | для эстетической медицины, промышленного применения и&nbsp;научных целей
+      .intro__content-2
+        | МеЛСиТек международный разработчик, производитель и&nbsp;поставщик лазерных систем промышленного и&nbsp;медицинского назначения
+      a(uk-scroll="offset: 72",href="#index-catalog").scrolldown
+        .scrolldown__icon
+          +svg({ name: 'arrow-down' })
+        span Прокрутите вниз
+  
+  section#index-catalog-small.index__catalog.section(class="uk-hidden@m")
+    .section__top 
+      .index__catalog-subtitle.section__subtitle Каталог
+    +product-catalog-section({title: 'Лазерные Системы MAGIC', catalogLink: true, navClass: 'slider__nav--offset'})
+
+  section#index-catalog.section.section--catalog(uk-scrollspy=scrollSpy, class="uk-visible@m")
+    .section__top
+      .section__subtitle Каталог
+    .section__left
+      h1.section__title Лазерные системы MAGIC
+      a(href="/").index__catalog-link.section__link Перейти в Каталог
+      a.catalog__showmore.button.catalog__products-item--hidden(href="#", uk-toggle="target: .catalog__products-item--hidden; cls: uk-hidden;animation: uk-animation-fade",ripple) 
+        | Показать все аппараты
+    .section__right
+      ul(uk-grid, uk-scrollspy="cls: uk-animation-fade; target: .catalog__products-item; delay: 100").catalog__products.scrollspy__container
+        li.catalog__products-item: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item.catalog__products-item--hidden.uk-hidden: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item.catalog__products-item--hidden.uk-hidden: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+        li.catalog__products-item.catalog__products-item--hidden.uk-hidden: +product-teaser('Magic Lite', 'magic-lite-teaser@2x.jpg')
+
+  section.section.section--advantages(uk-scrollspy=scrollSpy)
+    .section__subtitle Преимущества
+    .section__top
+      h1.section__title.advantages__title
+        | Благодаря новому 
+        span инженерному решению 
+        | и 
+        span передовым 
+        | технологиям, лазеры MAGIC 
+        span лишены недостатков 
+        | других косметологических лазеров
+    .section__left.advantages__nav
+      ul(uk-switcher="connect:.advantages__items; animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium").advantages__list
+        li: a(href="/").advantages__list-item Неограниченный ресурс
+          +svg({name: 'arrow-right'})
+        li: a(href="/").advantages__list-item Сервисная поддержка
+          +svg({name: 'arrow-right'})
+        li: a(href="/").advantages__list-item Надежность и безопасность
+          +svg({name: 'arrow-right'})
+        li: a(href="/").advantages__list-item Клиническое обучение
+          +svg({name: 'arrow-right'})
+        li: a(href="/").advantages__list-item Ценовая политика
+          +svg({name: 'arrow-right'})
+    .advantages__items.section__right.uk-switcher
+      li: +advantage-item('Без расходных материалов на оборудование', 'В отличие от аналогов, медицинские лазеры MAGIC не имеет сменных узлов, расходные материалы не требуются, а его стоимость в 2,5-3 раза дешевле. Благодаря этому вы получаете невероятно низкую себестоимость процедур при таком же спектре возможностей.', 'advantages-item-1.png')
+      li: +advantage-item('Сервисная поддержка', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe atque, autem accusantium sapiente quaerat facilis.', 'advantages-item-1.png')
+      li: +advantage-item('Надежность и безопасность', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe atque, autem accusantium sapiente quaerat facilis.', 'advantages-item-1.png')
+      li: +advantage-item('Клиническое обучение', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe atque, autem accusantium sapiente quaerat facilis.', 'advantages-item-1.png')
+      li: +advantage-item('Ценовая политика', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe atque, autem accusantium sapiente quaerat facilis.', 'advantages-item-1.png')
+  
+  section.section.section--procedures(uk-scrollspy=scrollSpy)
+    .section__subtitle Процедуры
+    +procedures-slider-section({class: '01', showDevices: true, navClass: 'slider__nav--offset'})
+
+  section.section.section--reviews(uk-scrollspy=scrollSpy)
+    .section__top 
+      .section__subtitle Отзывы
+    .reviews__left.section__left
+      h1.reviews__section-title.section__title Наши партнеры о&nbsp;нас
+      a(href="/").section__link Перейти в раздел
+
+    .reviews__right.section__right
+      +reviews-slider()
+    .reviews__slider-nav.slider__nav.slider__nav--offset
+      .slider__arrow.slider__arrow--left.reviews__slider-nav--left
+        +svg({ name: 'slider-arrow-left'})
+      .slider__arrow.slider__arrow--right.reviews__slider-nav--right
+        +svg({ name: 'slider-arrow-right'})
+
+  section.section.section--partners(uk-scrollspy=scrollSpy)
+    .section__top.partners__top
+      .section__subtitle Партнеры
+    .partners__left.section__left
+      h1.reviews__section-title.section__title Клиники использующие наши лазерные системы
+      a(href="/").section__link Перейти в раздел
+    .partners__right.section__right
+      div(data-simplebar).partners__list
+        ul.scrollspy__container(uk-scrollspy="cls: uk-animation-fade; target: .partners__item; delay: 100")
+          //- each item has data-region attribute with it's cities data. that data gets rendered into offcanvas on item click.
+          li.partners__item: a(href="#partners__offcanvas", uk-toggle, data-hover="moskovskaya", data-region='{"region":"moskovskaya","regionName":"Ленинградская область","cities":[{"city":"Александров","link":"aleksandrov.html"},{"city":"Владимир","link":"vladimir.html"}]}').partners__item-link.drop--01 
+            | Московская область 
+            sup 32
+          li.partners__item: a(href="#partners__offcanvas", uk-toggle, data-hover="leningradskaya", data-region='{"region":"leningradskaya","regionName":"Ленинградская область","cities":[{"city":"Санкт-Петербург","link":"spb.html"},{"city":"Владимир","link":"vladimir.html"}]}').partners__item-link.drop--02
+            | Ленинградская область 
+            sup 27
+          li.partners__item: a(href="#partners__offcanvas", uk-toggle, data-hover="nizhegorodskaya", data-region='{"region":"leningradskaya","regionName":"Нижегородская область","cities":[{"city":"Санкт-Петербург","link":"spb.html"},{"city":"Владимир","link":"vladimir.html"}]}').partners__item-link.drop--02
+            | Нижегородская область 
+            sup 27
+          li.partners__item: a(href="#partners__offcanvas", uk-toggle, data-hover="novgorodskaya", data-region='{"region":"leningradskaya","regionName":"Новгородская область","cities":[{"city":"Санкт-Петербург","link":"spb.html"},{"city":"Владимир","link":"vladimir.html"}]}').partners__item-link.drop--02
+            | Новгородская область 
+            sup 27
+          li.partners__item: a(href="#", data-hover="vladimirskaya").partners__item-link.drop--05 Владимирская область
+          li.partners__item: a(href="#", data-hover="smolenskaya").partners__item-link.drop--06 Смоленская область
+          li.partners__item: a(href="#", data-hover="leningradskaya").partners__item-link.drop--06 Свердловская область
+          li.partners__item: a(href="#", data-hover="leningradskaya").partners__item-link.drop--06 Оренбургская область
+          li.partners__item: a(href="#", data-hover="leningradskaya").partners__item-link.drop--06 Пензенская область
+          li.partners__item: a(href="#", data-hover="leningradskaya").partners__item-link.drop--06 Пермская область
+    .partners__map
+      picture
+        source(srcset="assets/partners-map-s.jpg", media="(max-width: 959px")
+        img(src="assets/partners-map.jpg", alt="")
+      svg.partners__map-markers#Layer_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 1483.4 863.2', style='enable-background:new 0 0 1483.4 863.2;', xml:space='preserve')
+        +map-marker({code: 'leningradskaya', href: '#leningradskaya', title: 'Ленинградская область', translate: '650 250'})
+        +map-marker({code: 'moskovskaya', href: '#moskovskaya', title: 'Московская область', translate: '650 300'})
+        +map-marker({code: 'nizhegorodskaya', href: '#nizhegorodskaya', title: 'Нижегородская область', translate: '750 350'})
+        +map-marker({code: 'novgorodskaya', href: '#novgorodskaya', title: 'Новгородская область', translate: '600 300'})
+  
+  section.section.section--news(uk-scrollspy=scrollSpy)
+    .section__top 
+      .news__subtitle.section__subtitle Новости
+    .news__left.section__left
+      h1.news__title.section__title События и деятель&shy;ность компании
+      a(href="/").news__link.section__link Перейти в раздел
+
+    .news__right.section__right
+      .news__slider.swiper-container
+        ul.swiper-wrapper
+          li.news__slider-item.swiper-slide: +news-teaser('Информированное согласие для оказания медицинских услуг','news-teaser-1.jpg','2020.07.20')
+          li.news__slider-item.swiper-slide: +news-teaser('Росздравнадзор наносит удар по подделкам в аппаратной косметологии','news-teaser-2.jpg','2020.07.20')
+          li.news__slider-item.swiper-slide: +news-teaser('Информированное согласие для оказания медицинских услуг','news-teaser-1.jpg','2020.07.20')
+          li.news__slider-item.swiper-slide: +news-teaser('Росздравнадзор наносит удар по подделкам в аппаратной косметологии','news-teaser-2.jpg','2020.07.20')
+      .news__slider-nav.slider__nav.slider__nav--offset
+        .slider__arrow.slider__arrow--left.news__slider-nav--left
+          +svg({ name: 'slider-arrow-left'})
+        .slider__arrow.slider__arrow--right.news__slider-nav--right
+          +svg({ name: 'slider-arrow-right'})
+
+
+
+  div(uk-offcanvas="overlay:true; flip:true")#partners__offcanvas
+    .uk-offcanvas-bar
+      button.uk-offcanvas-close
+        +svg({name: 'close'})
+      .offcanvas__inner
+        .partners__offcanvas
+          //- .partners__offcanvas-title.h1 Владимирская область
+          //- .partners__offcanvas-items
+            a.partners__offcanvas-item(href="") Александров
+            a.partners__offcanvas-item(href="") Владимир
+            a.partners__offcanvas-item(href="") Вязники
+            a.partners__offcanvas-item(href="") Гороховец
+            a.partners__offcanvas-item(href="") Гусь-Хрустальный
+            a.partners__offcanvas-item(href="") Камешково
+            a.partners__offcanvas-item(href="") Карабаново
+            a.partners__offcanvas-item(href="") Киржач
+            a.partners__offcanvas-item(href="") Ковров
+            a.partners__offcanvas-item(href="") Кольчугино
+    
+  script.
+    const partners = '{"regions":{"leningradskaya":{"region":"leningradskaya","regionName":"Ленинградская область","cities":[{"city":"Александров","link":"aleksandrov.html"},{"city":"Владимир","link":"vladimir.html"}]},"vladimirskaya":{"region":"vladimirskaya","regionName":"Владимирская область","cities":[{"city":"Санкт-Петербург","link":"spb.html"},{"city":"Владимир","link":"vladimir.html"}]}}}';
