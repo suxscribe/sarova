@@ -1,0 +1,79 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--product';
+  - var mainClass = 'main--content';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  .water__intro#first-screen
+    .water__bg
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4").water__bg-video
+    .water__title-wrap
+      .water__subtitle.content__subtitle Продукция
+      .water__title
+        | Природная 
+        br 
+        | минеральная вода
+    .water__bottles
+      +water-bottle({img: 'water-bottles-01.png', name: 'Негазированная'})
+      +water-bottle({img: 'water-bottles-02.png', name: 'Газированная'})
+      +water-bottle({img: 'water-bottles-03.png', name: 'Сарова Premium'})
+      
+    a.water__scrolldown.button--scrolldown
+      +svg({name: 'arrow-down'})
+
+  .water__section.water__section--uncarb#second-screen
+    .water__section-title Негазированная минеральная вода «Сарова»
+    .water__section-content(uk-grid, class="uk-child-width-1-3@s")
+      .water__section-bottle-mobile-text
+        p Столовая вода с&nbsp;необходимым уровнем солей (до&nbsp;1&nbsp;г/л) идеальна для питья и&nbsp;приготовления пищи. Представлена в&nbsp;трёх оптимальных форматах: &laquo;индивидуальный&raquo; (0,5&nbsp;л), &laquo;семейный&raquo; (1,5&nbsp;л), &laquo;бытовой&raquo; (5&nbsp;л).
+      .water__section-bottle.water__section-bottle--uncarb-05
+        .water__section-bottle-img
+          img(src="assets/water-uncarb-05.png", alt="")
+        .water__section-bottle-label Объем — 0.5 л, 1.5 л
+      .water__section-bottle.water__section-bottle--pull
+        .water__section-bottle-img
+          img(src="assets/water-uncarb-15.png", alt="")
+        .water__section-bottle-label Объем — 0.5 л, 1.5 л
+      .water__section-bottle.water__section-bottle--uncarb-50
+        .water__section-bottle-text(class="uk-visible@s")
+          p Столовая вода с&nbsp;необходимым уровнем солей (до&nbsp;1&nbsp;г/л) идеальна для питья и&nbsp;приготовления пищи. Представлена в&nbsp;трёх оптимальных форматах: &laquo;индивидуальный&raquo; (0,5&nbsp;л), &laquo;семейный&raquo; (1,5&nbsp;л), &laquo;бытовой&raquo; (5&nbsp;л).
+        .water__section-bottle-img
+          img(src="assets/water-uncarb-50.png", alt="")
+        .water__section-bottle-label Объем — 0.5 л, 1.5 л
+
+  .water__section.water__section--carb
+    .water__section-title Газированная минеральная вода «Сарова»
+    .water__section-content
+
+      .water__section-bottle.water__section-bottle--carb-15
+        .water__section-bottle-img
+          img(src="assets/water-carb-15.png", alt="")
+        .water__section-bottle-label Объем — 1.5 л
+      
+      .water__section-bottle.water__section-bottle--carb-05
+        .water__section-bottle-text
+          p Природные чистота и&nbsp;вкус в&nbsp;сочетании с&nbsp;бодрящими пузырьками. Отлично утолит жажду одного (0,5&nbsp;л) и&nbsp;освежит целую компанию (1,5&nbsp;л).
+        .water__section-bottle-img
+          img(src="assets/water-carb-05.png", alt="")
+        .water__section-bottle-label Объем — 0.5 л
+
+  .water__section.water__section--premium
+    .water__section-title Вода Сарова Premium
+    .water__section-content
+      .water__section-bottle
+        .water__section-bottle-img
+          img(src="assets/water-premium.png", alt="")
+        .water__section-bottle-text Для особых случаев и&nbsp;торжественных мероприятий к&nbsp;вашим услугам &laquo;Сарова Premium&raquo; в&nbsp;стекле. Удобно, элегантно, экологично.
+        .water__section-bottle-label Объем — 1.5 л
+
+  .related
+    h2.related__title.h2 Попробуйте также
+    .related__lead Разнообразие вкуса и&nbsp;цвета напитков &laquo;Сарова&raquo; хватит на&nbsp;всех товарищей.
+
+  .products.products--column
+    +product-time()
+    +product-classic()

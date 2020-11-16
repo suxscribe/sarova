@@ -1,0 +1,14 @@
+<svg id="ic_download" xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40">
+  <g id="Path_2646" data-name="Path 2646" fill="#ddf0f4">
+    <path d="M 29.4996452331543 39.5 L 0.5 39.5 L 0.5 0.5016758441925049 L 17.33103179931641 0.5579006671905518 L 29.48061752319336 12.72655773162842 L 29.4996452331543 39.5 Z" stroke="none"/>
+    <path d="M 1 1.003341674804688 L 1 39 L 28.99928855895996 39 L 28.98076438903809 12.93357467651367 L 17.12300491333008 1.057201385498047 L 1 1.003341674804688 M 0 0 L 17.53905868530273 0.05858993530273438 L 29.98047065734863 12.51952934265137 L 30 40 L 0 40 L 0 0 Z" stroke="none" fill="#70b9d9"/>
+  </g>
+  <path id="Path_2644" data-name="Path 2644" d="M0,0,12.5,12.5H0Z" transform="translate(17.5)" fill="#70b9d9"/>
+  <g id="Group_3221" data-name="Group 3221" transform="translate(11.25 17.5)">
+    <g id="Group_3220" data-name="Group 3220" transform="translate(0 8.281)">
+      <line id="Line_23" data-name="Line 23" x2="5.938" transform="translate(0 0) rotate(45)" fill="none" stroke="#70b9d9" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_24" data-name="Line 24" x2="5.938" transform="translate(8.397 0) rotate(135)" fill="none" stroke="#70b9d9" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+    <line id="Line_25" data-name="Line 25" y1="11.25" transform="translate(4.25)" fill="none" stroke="#70b9d9" stroke-linecap="round" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--product';
+  - var mainClass = 'main--time';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  .time__intro#first-screen
+    .time__bg
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4").time__bg-video
+    .time__title-wrap
+      .time__subtitle.content__subtitle Продукция
+      .time__title Сарова Time
+        
+    .time__bottles
+      .time__bottles-bg
+        img(src="assets/time-bottles-bg.svg", alt="")
+      +time-bottle({img: 'bottle-time-lemon.png', name: 'Лимон'})
+      +time-bottle({img: 'bottle-time-orange.png', name: 'Апельсин'})
+      +time-bottle({img: 'bottle-time-grapefruit.png', name: 'Грейпфрут'})
+      
+    a.time__scrolldown.button--scrolldown
+      +svg({name: 'arrow-down'})
+
+
+  .time__section#second-screen
+    .time__section-title.h3 Огненный апельсин, яркий лимон и&nbsp;взрывной грейпфрут! Крутые цитрусы в&nbsp;каждой бутылке Сарова TIME. Время утолить жажду со&nbsp;вкусом.
+
+    .time__block.time__block--lemon
+      .time__block-image
+        .time__block-bg
+          img(src="assets/time-block-bg.png", alt="")
+        .time__block-bottles
+          img(src="assets/time-block-bottles.png", alt="")
+      .time__block-content
+        .time__block-title.h2 Lemon
+        .time__block-text Кристальная чистота минеральной воды в&nbsp;сочетании с&nbsp;проверенным веками рецептом классического лимонада. Освежающая кислинка для заряда бодрости на&nbsp;целый день.
+        .time__block-label Объем — 0.5 л, 1.5 л
+
+    .time__block.time__block--orange
+      .time__block-image
+        .time__block-bg
+          img(src="assets/time-block-orange.png", alt="")
+        .time__block-bottles
+          img(src="assets/time-block-bottles-orange.png", alt="")
+      .time__block-content
+        .time__block-title.h2 Orange
+        .time__block-text Апельсин&nbsp;&mdash; &laquo;маленькое солнце&raquo;, которого порой так не&nbsp;хватает. Придаст сил и&nbsp;поднимет настроение в&nbsp;любой сезон и&nbsp;время суток.
+        .time__block-label Объем — 0.5 л, 1.5 л
+
+    .time__block.time__block--grapefruit
+      .time__block-image
+        .time__block-bg
+          img(src="assets/time-block-grapefruit.png", alt="")
+        .time__block-bottles
+          img(src="assets/time-block-bottles-grapefruit.png", alt="")
+      .time__block-content
+        .time__block-title.h2 Grapefruit
+        .time__block-text Сладость апельсина, кислота лимона, самобытный горьковатый привкус&nbsp;&mdash; это всё про грейпфрут. Лимонад, который хорош сам по&nbsp;себе и&nbsp;в&nbsp;составе коктейлей.
+        .time__block-label Объем — 0.5 л, 1.5 л
+
+  .related
+    h2.related__title.h2 Попробуйте также
+    .related__lead Разнообразие вкуса и&nbsp;цвета напитков &laquo;Сарова&raquo; хватит на&nbsp;всех товарищей.
+
+  .products.products--column
+    +product-water()
+    +product-classic()

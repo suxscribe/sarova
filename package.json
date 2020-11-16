@@ -3,19 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
-  "dependencies": {},
-  "devDependencies": {},
-  "author": "Sergey Birukoff",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-    "dependencies": {
+  "dependencies": {
+    "fullpage.js": "^3.0.9",
     "gsap": "^3.5.1",
+    "scrollmagic": "^2.0.7",
+    "scrollmagic-plugin-gsap": "^1.0.4",
     "splitting": "^1.0.6",
     "swiper": "^6.0.4",
-    "uikit": "^3.5.5"
+    "uikit": "^3.5.5",
+    "wavify": "^1.0.0",
+    "ymaps": "^0.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -44,5 +41,12 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
-  }
+  },
+  "author": "",
+  "scripts": {
+    "dev": "webpack -d",
+    "build": "webpack --mode production && prettier --parser html --write dist/*.html",
+    "start": "webpack-dev-server --mode development --open firefox"
+  },
+  "license": "ISC"
 }

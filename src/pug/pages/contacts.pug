@@ -1,0 +1,72 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--contacts';
+  - var mainClass = 'main--content';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  //- .content__title-wrap
+    //- .content__title Главный офис
+
+  .contacts__container#content
+    .content__subtitle Контакты
+    .contacts__title Главный офис
+    .contacts__section
+      .contacts__city Саров
+      .contacts__info
+        .contacts__info-title Адрес офиса
+        .contacts__info-data 607188, Нижегородская обл., г. Саров, ул. Димитрова, д. 62, стр. 21
+    
+        .contacts__info-title Телефоны
+        .contacts__info-data +7 (83130) 64-817, 64-728
+
+        .contacts__info-title E-mail
+        .contacts__info-data: a(href="mailto:sarova@sarova.ru") sarova@sarova.ru
+
+        a.contacts__info-contact(href) Написать нам
+      .contacts__map
+        script(type='text/javascript', charset='utf-8', async='', src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af43370b154e9c2faf3525066820a3e4ceeff17c384a1800f7c758e4fe26ebf08&width=100%25&height=400&lang=ru_RU&scroll=true')
+
+
+    .contacts__title Представительство
+    .contacts__section
+      .contacts__city Нижний Новгород
+      .contacts__info
+        .contacts__info-title Адрес офиса
+        .contacts__info-data 603140, г. Нижний Новгород, пер. Мотальный 10а, офис 24
+    
+        .contacts__info-title Телефоны
+        .contacts__info-data +7 (831) 217-78-98
+
+        .contacts__info-title E-mail
+        .contacts__info-data: a(href="mailto:nn@sarova.ru") nn@sarova.ru
+
+        a.contacts__info-contact(href) Написать нам
+      .contacts__map
+        script(type='text/javascript', charset='utf-8', async='', src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac6289a7e497448939b143f4c169ea28e8564133c413ed7a98414c7551b36fc4f&width=100%25&height=400&lang=ru_RU&scroll=true')
+
+
+    .contacts__title Дистрибьюторы
+    .distributor
+      .distributor__logo
+        img(src="assets/distributor-logo-01.png", alt="")
+      .distributor__title
+        .distributor__title-name Источник
+        .distrobutor__title-desc Крупнейший дистрибьютор продуктов питания по Нижегородской области с 1992 г.
+      .distributor__address
+          p 603034 г. Нижний Новгород, ул. Шмидта, 1б
+          p +7 (831) 257-82-56,  245-50-96,  245-22-62
+          p: a(href="mailto:afgroup@gmail.com") afgroup@gmail.com
+    .distributor
+      .distributor__logo
+        img(src="assets/distributor-logo-01.png", alt="")
+      .distributor__title
+        .distributor__title-name ИП Баженов С.В
+        .distrobutor__title-desc Первый поставщик минеральных вод и напитков по Нижнему Новгороду и области.
+      .distributor__address
+        p 603034, г. Нижний Новгород, ул. Лейтенанта Шмидта, д. 4 А.
+        p +7 (831) 257-82-56,  245-50-96,  245-22-62
+        p: a(href="mailto:bazhenovsv@mail.ru") bazhenovsv@mail.ru

@@ -45,3 +45,15 @@
     transform: translate(0);
   }
 }
+
+@keyframes hovering {
+  0% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: matrix(0.95, 0, 0, 0.95, 0, 3);
+    opacity: 1;
+  }
+}

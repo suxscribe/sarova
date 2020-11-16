@@ -58,11 +58,10 @@ ol > li > ul {
 
 html {
   font-size: 62.5%; // 1rem = 10px
-  // overflow-x: hidden;
+  max-width: 100vw;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
-// TODO add dynamic font size based on window width. eg TES
 
 body {
   // font-size: var(--font-size);
@@ -75,14 +74,19 @@ body {
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
+  background-color: $color-white;
+
+  &.page--index {
+    background-color: rgb(204, 225, 229);
+  }
 }
 
 .main {
   flex: 1 1 auto;
-  margin-top: calc(-1 * #{$header-height-small});
   // overflow: hidden;
-  @media (min-width: $breakpoint-medium) {
-    margin-top: calc(-1 * #{$header-height});
+
+  &--content {
+    margin-top: responsive-value(109px, 181px);
   }
 }
 

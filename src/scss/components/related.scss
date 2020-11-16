@@ -1,0 +1,14 @@
+.related {
+  @include container;
+  @media (min-width: $breakpoint-medium) {
+    width: calc(#{$column-width} * 4);
+  }
+  text-align: center;
+  margin-bottom: responsive-value(80px, 250px);
+
+  &__title {
+    margin-bottom: responsive-value(20px, 60px);
+  }
+  &__lead {
+  }
+}

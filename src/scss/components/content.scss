@@ -1,0 +1,170 @@
+.content {
+  &__title {
+    @include font-h1;
+    text-align: center;
+
+    &-wrap {
+      @include container;
+      text-align: center;
+      margin-bottom: responsive-value(60px, 121px);
+    }
+  }
+  &__subtitle {
+    @include font-subtitle;
+
+    color: $color-accent;
+  }
+
+  &__menu {
+    text-align: center;
+    margin-bottom: 52px;
+
+    &-item {
+      display: inline-block;
+      margin: 0 10px;
+      margin-bottom: 15px;
+      @include font-h1;
+      @include link-underline;
+
+      @media (min-width: $breakpoint-small) {
+        margin-bottom: 0;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-accent;
+      }
+
+      &--active {
+        color: $color-accent;
+        text-decoration-color: transparent;
+      }
+    }
+  }
+
+  &__lead {
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 4);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include font-lead;
+    margin-bottom: responsive-value(35px, 93px);
+    text-align: center;
+
+    &--fullwidth {
+      width: 100%;
+    }
+  }
+
+  &__scrolldown {
+    margin: 0 auto;
+    text-align: center;
+
+    border-color: rgba($color-accent, 0.6);
+
+    & svg {
+      stroke: $color-accent;
+    }
+  }
+
+  &__container {
+    @include container;
+
+    padding-top: responsive-value(50px, 104px);
+
+    &-wider {
+      @include container-wider;
+    }
+  }
+
+  &__section {
+    margin: 104px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-subtitle {
+      @include font-subtitle;
+      text-align: center;
+
+      color: $color-accent;
+      margin-bottom: responsive-value(30px, 57px);
+    }
+
+    &-title {
+      @include font-h2;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: responsive-value(50px, 107px);
+    }
+  }
+
+  &__video {
+    margin-bottom: responsive-value(40px, 80px);
+  }
+  &__image {
+    text-align: center;
+    margin-bottom: responsive-value(40px, 80px);
+
+    & img {
+      max-width: calc(#{$column-width} * 2.5);
+    }
+  }
+
+  &__text {
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 4);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    margin-bottom: responsive-value(40px, 80px);
+  }
+
+  &__article {
+    margin-bottom: responsive-value(40px, 60px);
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 5);
+    }
+
+    & h1,
+    & h2,
+    & h3,
+    & h4 {
+      font-family: $font-family;
+      font-weight: 700;
+      margin-bottom: responsive-value(20px, 30px);
+      margin-top: responsive-value(40px, 50px);
+    }
+  }
+
+  &__document {
+    margin-bottom: responsive-value(20px, 31px);
+    padding-left: 40px;
+    position: relative;
+
+    &-icon {
+      position: absolute;
+      width: 30px;
+      height: 40px;
+      left: 0;
+      top: 0;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-name {
+    }
+    &-file {
+      color: rgba($color-black, 0.4);
+    }
+  }
+}

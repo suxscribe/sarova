@@ -67,9 +67,9 @@ $offcanvas-bar-background: #fff;
 @import 'uikit/src/scss/components/breadcrumb.scss';
 // @import "uikit/src/scss/components/pagination.scss";
 
-@import 'uikit/src/scss/components/pagination'; //uikit pagination mod
+// @import 'uikit/src/scss/components/pagination'; //uikit pagination mod
 
-@import 'uikit/src/scss/components/tab.scss';
+// @import 'uikit/src/scss/components/tab.scss';
 // @import 'uikit/src/scss/components/slidenav.scss'; // After: Icon
 // @import 'uikit/src/scss/components/dotnav.scss';
 // @import 'uikit/src/scss/components/thumbnav.scss';
@@ -107,8 +107,8 @@ $offcanvas-bar-background: #fff;
 @import 'uikit/src/scss/components/column.scss';
 @import 'uikit/src/scss/components/cover.scss';
 @import 'uikit/src/scss/components/background.scss';
-@import 'uikit/src/scss/components/align.scss';
-@import 'uikit/src/scss/components/svg.scss';
+// @import 'uikit/src/scss/components/align.scss';
+// @import 'uikit/src/scss/components/svg.scss';
 // @import 'uikit/src/scss/components/utility.scss';
 @import 'uikit/src/scss/components/flex.scss'; // After: Utility
 @import 'uikit/src/scss/components/margin.scss';
@@ -149,8 +149,8 @@ $offcanvas-bar-background: #fff;
 @import 'vendor/splitting.scss';
 @import 'vendor/splitting-cells.scss';
 
-@import 'vendor/simplebar.scss'; //simplebar override
-@import 'vendor/readmore.scss'; //
+// @import 'vendor/simplebar.scss'; //simplebar override
+// @import 'vendor/readmore.scss'; //
 
 @import 'base/base';
 @import 'base/fonts';
@@ -161,33 +161,22 @@ $offcanvas-bar-background: #fff;
 @import 'layouts/page';
 @import 'layouts/footer';
 
-@import 'components/preloader';
+@import 'components/sidenav';
 @import 'components/button';
-@import 'components/intro.scss';
-@import 'components/section';
 @import 'components/slider';
-@import 'components/advantages';
-@import 'components/procedures';
-@import 'components/reviews';
-@import 'components/partners';
-@import 'components/news';
-@import 'components/breadcrumbs';
-@import 'components/catalog';
-@import 'components/scrolldown';
-@import 'components/offcanvas'; //override
-@import 'components/form';
-@import 'components/history';
-@import 'components/company';
-@import 'components/sidebar';
-@import 'components/choices';
-@import 'components/publications';
+@import 'components/section-2';
+@import 'components/section-3';
+@import 'components/section-4';
 @import 'components/content';
-@import 'components/results';
+@import 'components/related';
+@import 'components/company';
 
 @import 'pages/index';
-@import 'components/product.scss';
-@import 'pages/appliance.scss';
-@import 'pages/technology.scss';
-@import 'pages/about.scss';
-@import 'pages/partners.scss';
-@import 'pages/contacts.scss';
+@import 'pages/products';
+@import 'pages/water';
+@import 'pages/time';
+@import 'pages/classic';
+@import 'pages/history';
+@import 'pages/acheivements';
+@import 'pages/news';
+@import 'pages/contacts';

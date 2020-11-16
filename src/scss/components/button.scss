@@ -1,0 +1,56 @@
+.button {
+  &--round {
+    $button-round-size: 114px;
+    $button-round-size-s: 90px;
+
+    display: block;
+    color: $color-accent;
+    font-size: 1.4 * $base-font-size;
+    border: 1px rgba($color-accent-2, 0.4) solid;
+    border-radius: 50%;
+    text-align: center;
+    transition: all var(--transition);
+    margin: 0 auto;
+
+    width: $button-round-size-s;
+    height: $button-round-size-s;
+    line-height: $button-round-size-s;
+
+    @media (min-width: $breakpoint-small) {
+      width: $button-round-size;
+      height: $button-round-size;
+      line-height: $button-round-size;
+    }
+
+    animation-name: hovering;
+    animation-duration: 2.5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: paused;
+
+    &:hover {
+      border-color: transparent;
+      background-color: $color-accent;
+      color: $color-white;
+    }
+  }
+
+  &--scrolldown {
+    $button-size: 64px;
+
+    display: block;
+    width: $button-size;
+    height: $button-size;
+    line-height: $button-size;
+
+    border: 1px solid rgba($color-accent, 0.6);
+    border-radius: 50%;
+
+    & svg {
+      height: 33px;
+      width: 33px;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.section-3 {
+  position: relative;
+  min-height: 100vh;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    // background-color: $color-classic-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   top: 0;
+    //   bottom: 50%;
+    //   background: linear-gradient(
+    //     to bottom,
+    //     rgba(226, 191, 135, 1) 0%,
+    //     rgba(226, 191, 135, 0) 100%
+    //   );
+    // }
+    & svg {
+      position: absolute;
+      width: 180vw;
+      height: 180vh;
+      max-width: none;
+      max-height: none;
+    }
+    &-image {
+      position: absolute;
+      opacity: 0;
+
+      width: 100%;
+      flex: 0 0 auto;
+    }
+  }
+
+  &__content {
+    max-width: calc(#{$column-width} * 6);
+    margin: 0 auto;
+    color: $color-classic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: percent-view(230px);
+    padding-bottom: percent-view(60px);
+  }
+
+  &__title {
+    @include font-heading-large;
+    line-height: 0.8;
+    margin-bottom: percent-view(40px);
+  }
+  &__subtitle {
+    text-transform: uppercase;
+    margin-bottom: percent-view(65px);
+  }
+
+  &__button {
+    border-color: $color-classic;
+    color: $color-classic;
+    animation-play-state: running;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-classic;
+    }
+  }
+
+  &__bottle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+
+    &--1 {
+      & img {
+        position: absolute;
+        width: percent-view(117px);
+        // left: 50%;
+        bottom: 100%;
+        opacity: 0;
+      }
+    }
+    &--2 {
+      & img {
+        position: absolute;
+        width: percent-view(117px);
+
+        // left: 50%;
+        top: 100%;
+        opacity: 0;
+      }
+    }
+  }
+}

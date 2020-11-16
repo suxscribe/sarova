@@ -1,0 +1,224 @@
+.water {
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    margin: 0 auto;
+    transform-origin: center top;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 60);
+
+    @media (min-width: $breakpoint-medium) {
+      // width: calc(#{$column-width} * 8);
+      height: auto;
+    }
+
+    &-video {
+      // clip-path: url(#section-1-clip);
+      // -webkit-clip-path: url(#section-1-clip);
+      width: 100%;
+      height: 100%;
+
+      clip-path: ellipse(100% 90% at 50% 0%);
+      transition: all 2s ease;
+
+      @media (min-width: $breakpoint-medium) {
+        height: auto;
+      }
+    }
+  }
+
+  &__title-wrap {
+    @include container;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  &__subtitle {
+    @include font-subtitle;
+    color: $color-white;
+  }
+  &__title {
+    @include font-h1;
+    color: $color-white;
+  }
+
+  &__bottles {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: percent-view(60px);
+  }
+
+  &__bottle {
+    display: block;
+    text-align: center;
+
+    &-image {
+      margin-bottom: 30px;
+    }
+    &-title {
+      @include font-label;
+    }
+  }
+
+  &__scrolldown {
+    margin: 0 auto;
+    text-align: center;
+
+    border-color: rgba($color-accent, 0.6);
+
+    & svg {
+      stroke: $color-accent;
+    }
+  }
+
+  &__section {
+    @include container;
+    margin-bottom: responsive-value(70px, 144px);
+    margin-top: 120px; //logo height
+
+    &-title {
+      @include font-heading-large;
+      text-align: center;
+      margin-bottom: responsive-value(40px, 64px);
+    }
+
+    &-content {
+      display: flex;
+      // align-items: flex-end;
+      position: relative;
+
+      flex-direction: column;
+
+      @media (min-width: $breakpoint-small) {
+        flex-direction: row;
+      }
+    }
+
+    &-bottle {
+      text-align: center;
+
+      &-img {
+        margin-bottom: 30px;
+      }
+      &-label {
+        @include font-label;
+      }
+      &-text {
+        text-align: left;
+        margin-bottom: 30px;
+      }
+
+      &-mobile-text {
+        @media (min-width: $breakpoint-small) {
+          display: none;
+        }
+      }
+
+      &--pull {
+        margin-top: -22%;
+        order: -1;
+
+        @media (min-width: $breakpoint-small) {
+          order: 0;
+        }
+
+        & img {
+          width: responsive-value(107px, 226px);
+        }
+      }
+
+      &--uncarb-05 {
+        @media (max-width: $breakpoint-xsmall-max) {
+          width: responsive-value(200px, 363px);
+        }
+      }
+
+      &--uncarb-50 {
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        @media (max-width: $breakpoint-xsmall-max) {
+          width: responsive-value(140px, 178px);
+        }
+        @media (min-width: $breakpoint-small) {
+          position: static;
+        }
+
+        & .water__section-bottle-img,
+        & .water__section-bottle-label {
+          width: responsive-value(140px, 178px);
+        }
+      }
+
+      &--carb-15 {
+        @media (min-width: $breakpoint-small) {
+          flex: 0 0 60%;
+        }
+      }
+      &--carb-05 {
+        & .water__section-bottle-text {
+          @media (min-width: $breakpoint-small) {
+            margin-left: calc(#{$column-width-medium} / 4);
+          }
+          @media (min-width: $breakpoint-medium) {
+            margin-left: calc(#{$column-width} / 2);
+          }
+        }
+        & .water__section-bottle-img,
+        & .water__section-bottle-label {
+          @media (min-width: $breakpoint-small) {
+            width: $column-width-medium;
+          }
+          @media (min-width: $breakpoint-medium) {
+            width: $column-width;
+          }
+        }
+      }
+    }
+
+    &--uncarb {
+      & .water__section-title {
+      }
+    }
+
+    &--carb {
+      & .water__section-title {
+      }
+    }
+    &--premium {
+      & .water__section-bottle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      & .water__section-bottle-img {
+        @media (min-width: $breakpoint-small) {
+          width: calc(#{$column-width-medium} * 2.5);
+        }
+        @media (min-width: $breakpoint-medium) {
+          width: calc(#{$column-width} * 3.5);
+        }
+      }
+      & .water__section-content {
+        justify-content: center;
+      }
+      & .water__section-bottle-text {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+
+        @media (min-width: $breakpoint-small) {
+          width: calc(#{$column-width-medium} * 2);
+        }
+        @media (min-width: $breakpoint-medium) {
+          width: calc(#{$column-width} * 3);
+        }
+      }
+    }
+  }
+}

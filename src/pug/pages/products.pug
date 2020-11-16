@@ -1,0 +1,18 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--products';
+  - var mainClass = 'main--content';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  .content__title-wrap
+    .content__subtitle Продукция
+    .content__title Природная минеральная вода, цитрусовые газированные напитки, любимые фруктовые лимонады&nbsp;&mdash; своя &laquo;Сарова&raquo; для всех и&nbsp;для каждого.
+  .products
+    +product-water()
+    +product-time()
+    +product-classic()
+    

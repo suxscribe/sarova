@@ -1,0 +1,75 @@
+.acheivements {
+  &__list {
+  }
+
+  &__item {
+    display: block;
+    border-top: 1px solid $color-accent;
+    padding-top: responsive-value(25px, 56px);
+    padding-bottom: responsive-value(25px, 56px);
+
+    &:hover {
+      & .acheivements__item-title {
+        color: $color-accent;
+      }
+      & .acheivements__item-desc {
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $color-accent;
+    }
+
+    &-title {
+      @include font-h2;
+      text-align: center;
+      margin-bottom: responsive-value(5px, 17px);
+      transition: all var(--transition);
+    }
+    &-desc {
+      text-align: center;
+      transition: all var(--transition);
+      color: $color-black;
+    }
+  }
+
+  &__awards {
+    background-color: rgba($color-classic-bg, 0.2);
+
+    padding: responsive-value(50px, 115px) calc(#{$column-width-small} * 0.1);
+
+    margin-bottom: responsive-value(100px, 215px);
+
+    @media (min-width: $breakpoint-small) {
+      padding: responsive-value(50px, 115px) calc(#{$column-width-medium} * 0.3);
+    }
+    @media (min-width: $breakpoint-medium) {
+      padding: responsive-value(50px, 115px) $column-width;
+    }
+
+    &-subtitle {
+      @include font-subtitle;
+      color: $color-accent;
+      text-align: center;
+    }
+
+    &-title {
+      @include font-h2;
+      text-align: center;
+      margin-bottom: responsive-value(20px, 50px);
+    }
+
+    &-grid {
+    }
+
+    &-item {
+      &-image {
+        margin-bottom: responsive-value(25px, 50px);
+        text-align: center;
+      }
+      &-title {
+        text-align: center;
+      }
+    }
+  }
+}

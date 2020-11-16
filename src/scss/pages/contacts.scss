@@ -1,0 +1,115 @@
+.contacts {
+  &__container {
+    @include container;
+  }
+  &__section {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $color-accent;
+    padding-top: responsive-value(20px, 40px);
+    margin-bottom: responsive-value(90px, 180px);
+
+    @media (min-width: $breakpoint-medium) {
+      flex-direction: row;
+    }
+  }
+  &__title {
+    @include font-h1;
+    text-align: center;
+    margin-bottom: responsive-value(30px, 70px);
+  }
+
+  &__city {
+    @include font-lead;
+    font-weight: 700;
+
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 $column-width;
+    }
+  }
+  &__info {
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 calc(#{$column-width}* 2);
+      padding-right: $column-margin;
+    }
+
+    &-title {
+      @include font-small;
+      color: rgba($color-black, 0.6);
+    }
+    &-data {
+      margin-bottom: 32px;
+
+      & a {
+        color: $color-accent;
+
+        &:hover {
+          color: $color-accent-2;
+        }
+      }
+    }
+
+    &-contact {
+      text-transform: uppercase;
+      @include link-underline;
+    }
+  }
+  &__map {
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 calc(#{$column-width} * 3);
+    }
+
+    &-map {
+      height: 373px;
+      width: 100%;
+    }
+  }
+}
+
+.distributor {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $color-accent;
+  padding-top: responsive-value(40px, 85px);
+  padding-bottom: responsive-value(47px, 93px);
+
+  @media (min-width: $breakpoint-medium) {
+    flex-direction: row;
+  }
+
+  &__logo {
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 $column-width;
+      padding-right: $column-margin;
+    }
+  }
+  &__title {
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 calc(#{$column-width} * 3);
+      padding-right: $column-margin;
+    }
+
+    &-name {
+      @include font-lead;
+      font-weight: 700;
+      margin-bottom: responsive-value(5px, 17px);
+    }
+  }
+  &__address {
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 calc(#{$column-width} * 2);
+    }
+
+    & p {
+      margin-bottom: 7px;
+    }
+
+    & a {
+      color: $color-accent;
+
+      &:hover {
+        color: $color-accent-2;
+      }
+    }
+  }
+}

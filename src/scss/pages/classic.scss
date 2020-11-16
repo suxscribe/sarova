@@ -1,0 +1,293 @@
+@mixin num-reverse {
+  --block-direction: row-reverse;
+  .classic__block-num {
+    right: 14px;
+    left: auto;
+
+    @media (min-width: $breakpoint-medium) {
+      left: auto;
+      right: 24px;
+    }
+  }
+  .classic__block-image img {
+    @media (min-width: $breakpoint-small) {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.classic {
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: calc(var(--vh, 1vh) * 100); //todo minus main--content height
+    padding-bottom: responsive-value(30px, 60px);
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    text-align: center;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+      to bottom,
+      $color-classic-top 0%,
+      $color-classic-bg 50%
+    );
+
+    & img {
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+
+      width: 130vw;
+
+      @media (min-width: $breakpoint-medium) {
+        width: calc(#{$column-width} * 4);
+      }
+    }
+  }
+
+  &__title-wrap {
+    @include container;
+    margin-top: responsive-value(109px, 181px);
+    margin-bottom: responsive-value(40px, 80px);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    flex: 1 0 auto;
+    justify-content: space-around;
+    display: flex;
+  }
+  &__subtitle {
+    @include font-subtitle;
+    color: $color-white;
+  }
+  &__title {
+    @include font-heading-large;
+    color: $color-classic;
+  }
+  &__desc {
+    @include font-label;
+    color: $color-classic;
+  }
+
+  &__bottles {
+    position: absolute;
+  }
+  &__bottle {
+    position: absolute;
+    width: 117px;
+  }
+
+  &__scrolldown {
+    margin: 0 auto;
+    text-align: center;
+
+    border-color: rgba($color-time, 0.6);
+
+    & svg {
+      stroke: $color-time;
+    }
+  }
+
+  &__section {
+    @include container;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: responsive-value(60px, 250px);
+    margin-top: 120px; //logo height
+
+    &-title {
+      text-align: center;
+      margin-bottom: responsive-value(60px, 250px);
+
+      @media (min-width: $breakpoint-medium) {
+        width: calc(#{$column-width} * 6);
+      }
+    }
+  }
+
+  &__block {
+    $block-image-margin: 120px;
+    --block-direction: row;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    padding: percent-view(89px) percent-view(140px) percent-view(100px)
+      percent-view(111px);
+    margin-top: $block-image-margin;
+    margin-bottom: responsive-value(60px, 82px);
+
+    background-color: var(--block-bg-color);
+
+    @media (min-width: $breakpoint-small) {
+      margin-top: 0;
+      flex-direction: var(--block-direction);
+    }
+
+    &-image {
+      position: relative;
+      text-align: center;
+      align-self: stretch;
+      margin-bottom: 14px;
+      width: 100%;
+      min-height: 180px;
+
+      @media (min-width: $breakpoint-small) {
+        margin-bottom: 0;
+      }
+
+      @media (min-width: $breakpoint-medium) {
+        width: calc(#{$column-width} * 2);
+      }
+
+      & img {
+        width: 60%;
+
+        margin-top: calc(#{$block-image-margin} * -1);
+
+        @media (min-width: $breakpoint-small) {
+          width: 80%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+    &-num {
+      position: absolute;
+      left: 14px;
+      top: 13px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      background-color: $color-white;
+      border-radius: 50%;
+      color: var(--block-title-color);
+
+      @media (min-width: $breakpoint-medium) {
+        left: 24px;
+        top: 19px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      @media (min-width: $breakpoint-small) {
+        flex: 0 0 calc(#{$column-width-medium} * 2);
+        margin-bottom: 0;
+      }
+      @media (min-width: $breakpoint-medium) {
+        flex: 0 0 calc(#{$column-width} * 3);
+      }
+
+      .time__block--orange & {
+        @media (min-width: $breakpoint-medium) {
+          order: -1;
+        }
+      }
+    }
+    &-title {
+      @include font-h3;
+
+      @media (max-width: $breakpoint-xsmall-max) {
+        font-size: 36px;
+      }
+
+      margin-bottom: responsive-value(16px, 22px);
+      text-align: center;
+      color: var(--block-title-color);
+
+      @media (min-width: $breakpoint-small) {
+        text-align: left;
+        width: 100%;
+      }
+      @media (min-width: $breakpoint-medium) {
+        text-align: center;
+      }
+
+      .classic__block--lemon & {
+        color: $color-lemon;
+      }
+      .classic__block--orange & {
+        color: $color-orange;
+      }
+      .classic__block--grapefruit & {
+        color: $color-grapefruit;
+      }
+    }
+    &-text {
+      text-align: center;
+
+      @media (min-width: $breakpoint-small) {
+        text-align: left;
+      }
+      @media (min-width: $breakpoint-medium) {
+        text-align: center;
+      }
+    }
+
+    &--kolokol {
+      --block-bg-color: #e6f4fb;
+      --block-title-color: #72b2e2;
+    }
+    &--sayany {
+      --block-bg-color: #e2efe6;
+      --block-title-color: #67ad75;
+
+      @include num-reverse;
+    }
+    &--lemonade {
+      --block-bg-color: #edf1d6;
+      --block-title-color: #8db530;
+    }
+    &--dushes {
+      --block-bg-color: #faedda;
+      --block-title-color: #d26b48;
+      @include num-reverse;
+    }
+    &--creamsoda {
+      --block-bg-color: #f3ded9;
+      --block-title-color: #c6323d;
+    }
+    &--sitro {
+      --block-bg-color: #f9ead6;
+      --block-title-color: #d3712e;
+      @include num-reverse;
+    }
+    &--tarhun {
+      --block-bg-color: #dcece4;
+      --block-title-color: #377e60;
+    }
+    &--krushon {
+      --block-bg-color: #f3dfe0;
+      --block-title-color: #b61b3a;
+    }
+  }
+}

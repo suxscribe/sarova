@@ -1,1 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Geometria';
+  src: url('../fonts/subset-Geometria-Medium.woff2') format('woff2'),
+    url('../fonts/subset-Geometria-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('../fonts/subset-FuturaPT-Book.woff2') format('woff2'),
+    url('../fonts/subset-FuturaPT-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Futura PT';
+  src: url('../fonts/subset-FuturaPT-Heavy.woff2') format('woff2'),
+    url('../fonts/subset-FuturaPT-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('../fonts/subset-Circe-Regular.woff2') format('woff2'),
+    url('../fonts/subset-Circe-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Circe';
+  src: url('../fonts/subset-Circe-Bold.woff2') format('woff2'),
+    url('../fonts/subset-Circe-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Greta Display Pro';
+  src: url('../fonts/subset-GretaDisplayPro-Regular.woff2') format('woff2'),
+    url('../fonts/subset-GretaDisplayPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Greta Display Pro';
+  src: url('../fonts/subset-GretaDisplayPro-Medium.woff2') format('woff2'),
+    url('../fonts/subset-GretaDisplayPro-Medium.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Yeseva One';
+  src: url('../fonts/subset-YesevaOne-Regular.woff2') format('woff2'),
+    url('../fonts/subset-YesevaOne-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
