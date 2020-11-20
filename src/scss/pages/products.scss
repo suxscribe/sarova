@@ -1,11 +1,24 @@
 @mixin product-bg {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: -1;
   text-align: center;
+
+  width: calc(#{$column-width-small} * 1.6);
+  height: calc(#{$column-width-small} * 1.6);
+
+  @media (min-width: $breakpoint-small) {
+    width: calc(#{$column-width-medium} * 2.5);
+    height: calc(#{$column-width-medium} * 2.5);
+  }
+  @media (min-width: $breakpoint-medium) {
+    width: calc(#{$column-width} * 3);
+    height: calc(#{$column-width} * 3);
+  }
 
   & img {
     width: 100%;
@@ -53,8 +66,14 @@
     &-bg {
       @include product-bg;
 
-      & img {
-        width: 90%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      & img,
+      & video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -63,11 +82,11 @@
 
       color: $color-white;
       text-align: center;
-      margin-bottom: percent-view(50px);
+      margin-bottom: responsive-value(25px, 50px);
     }
 
     &-image {
-      height: responsive-value(250px, 491px);
+      height: responsive-value(290px, 491px);
       // height: percent-view(491px);
 
       & img {
@@ -106,6 +125,28 @@
     &-bg {
       @include product-bg;
 
+      border-radius: 8px;
+      overflow: hidden;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-time;
+        mix-blend-mode: multiply;
+      }
+
+      & > img,
+      & > video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
       &-2 {
         @include product-bg;
         top: responsive-value(70px, 122px);
@@ -126,7 +167,7 @@
       margin-bottom: percent-view(18px);
     }
     &-subtitle {
-      @include font-menu;
+      @include font-label;
       font-family: $font-menu-2;
 
       color: $color-white;
@@ -168,7 +209,20 @@
     align-self: center;
 
     &-bg {
-      @include product-bg;
+      // @include product-bg;
+
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+
+      animation-name: hovering;
+      animation-duration: 2.5s;
+      animation-delay: 0s;
+      animation-play-state: running;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+
       top: responsive-value(48px, 130px);
     }
 

@@ -1,6 +1,7 @@
 .section-3 {
   position: relative;
   min-height: 100vh;
+  // overflow: hidden;
 
   &__bg {
     position: absolute;
@@ -38,7 +39,7 @@
       position: absolute;
       opacity: 0;
 
-      width: 100%;
+      width: 80%;
       flex: 0 0 auto;
     }
   }
@@ -93,8 +94,24 @@
         position: absolute;
         width: percent-view(117px);
         // left: 50%;
-        bottom: 100%;
-        opacity: 0;
+        // bottom: 100%;
+        opacity: 1;
+      }
+
+      @for $i from 1 through 7 {
+        &-#{$i} {
+          left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.5));
+          bottom: #{(50 + ($i - 1) * 10)}vh;
+
+          @media (min-width: $breakpoint-small) {
+            left: calc(#{$column-width-medium} * (#{$i} - 1));
+            bottom: #{(60 + ($i - 1) * 5)}vh;
+          }
+          @media (min-width: $breakpoint-medium) {
+            left: calc(#{$column-width} * (#{$i} - 1));
+            bottom: #{(10 + ($i - 1) * 20)}vh;
+          }
+        }
       }
     }
     &--2 {
@@ -103,8 +120,24 @@
         width: percent-view(117px);
 
         // left: 50%;
-        top: 100%;
-        opacity: 0;
+        // top: 100%;
+        opacity: 1;
+      }
+
+      @for $i from 1 through 7 {
+        &-#{$i} {
+          left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.4));
+          bottom: #{(-10 + ($i - 1) * 10)}vh;
+
+          @media (min-width: $breakpoint-small) {
+            left: calc(#{$column-width-medium} * (#{$i} - 1 + 0.3));
+            bottom: #{(-5 + ($i - 1) * 5)}vh;
+          }
+          @media (min-width: $breakpoint-medium) {
+            left: calc(#{$column-width} * (#{$i} + 4));
+            bottom: #{(-10 + ($i - 1) * 20)}vh;
+          }
+        }
       }
     }
   }

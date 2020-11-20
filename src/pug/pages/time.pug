@@ -22,7 +22,7 @@ block content
       +time-bottle({img: 'bottle-time-orange.png', name: 'Апельсин'})
       +time-bottle({img: 'bottle-time-grapefruit.png', name: 'Грейпфрут'})
       
-    a.time__scrolldown.button--scrolldown
+    a.time__scrolldown.button--scrolldown(href="#second-screen")
       +svg({name: 'arrow-down'})
 
 
@@ -32,7 +32,10 @@ block content
     .time__block.time__block--lemon
       .time__block-image
         .time__block-bg
-          img(src="assets/time-block-bg.png", alt="")
+          .time__block-bg-logo
+            img(src="assets/time-logo.svg", alt="")
+          //- img(src="assets/time-block-bg.png", alt="")
+          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
         .time__block-bottles
           img(src="assets/time-block-bottles.png", alt="")
       .time__block-content
@@ -43,7 +46,10 @@ block content
     .time__block.time__block--orange
       .time__block-image
         .time__block-bg
-          img(src="assets/time-block-orange.png", alt="")
+          .time__block-bg-logo
+            img(src="assets/time-logo.svg", alt="")
+          //- img(src="assets/time-block-bg.png", alt="")
+          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
         .time__block-bottles
           img(src="assets/time-block-bottles-orange.png", alt="")
       .time__block-content
@@ -54,7 +60,10 @@ block content
     .time__block.time__block--grapefruit
       .time__block-image
         .time__block-bg
-          img(src="assets/time-block-grapefruit.png", alt="")
+          .time__block-bg-logo
+            img(src="assets/time-logo.svg", alt="")
+          //- img(src="assets/time-block-bg.png", alt="")
+          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
         .time__block-bottles
           img(src="assets/time-block-bottles-grapefruit.png", alt="")
       .time__block-content

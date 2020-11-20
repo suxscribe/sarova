@@ -1,4 +1,7 @@
 .news {
+  &__container {
+    @include container;
+  }
   &__nav {
     margin-top: responsive-value(25px, 50px);
     margin-bottom: responsive-value(70px, 140px);

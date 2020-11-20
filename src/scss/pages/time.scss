@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     min-height: calc(var(--vh, 1vh) * 100); //todo minus main--content height
     padding-bottom: responsive-value(30px, 60px);
   }
@@ -13,11 +14,11 @@
     top: 0;
     left: 0;
     right: 0;
+    bottom: responsive-value(250px, 315px);
     z-index: -1;
     margin: 0 auto;
     transform-origin: center top;
     width: 100%;
-    height: 70vh;
 
     border-radius: 0 0 responsive-value(30px, 77px) responsive-value(30px, 77px);
     overflow: hidden;
@@ -44,19 +45,17 @@
       // -webkit-clip-path: url(#section-1-clip);
       width: 100%;
       height: 100%;
+      object-fit: cover;
 
       transition: all 2s ease;
-
-      @media (min-width: $breakpoint-medium) {
-        height: auto;
-      }
     }
   }
 
   &__title-wrap {
     @include container;
+
     margin-top: responsive-value(109px, 181px);
-    margin-bottom: responsive-value(40px, 80px);
+    margin-bottom: responsive-value(20px, 50px);
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -73,6 +72,7 @@
   &__bottles {
     @include container;
     position: relative;
+    flex: 1 0 auto;
 
     width: 100%;
     display: flex;
@@ -80,18 +80,21 @@
     align-items: flex-end;
     margin-bottom: percent-view(40px);
 
-    padding-top: 84px;
+    padding-top: 64px;
 
     @media (min-width: $breakpoint-medium) {
       width: calc(#{$column-width} * 4);
+      margin-top: percent-view(-110px);
     }
 
     &-bg {
       position: absolute;
       left: 0;
-      top: 0;
+      top: auto;
+      bottom: 40%;
       width: 100%;
       z-index: -1;
+      text-align: center;
     }
   }
 
@@ -101,15 +104,32 @@
 
     &-image {
       margin-bottom: 30px;
-      width: responsive-value(
-        77px,
-        170px,
+      height: responsive-value(
+        200px,
+        330px,
         $mobile-min-width,
         $breakpoint-small-max
       );
 
+      @media (min-width: $breakpoint-small) and (orientation: portrait) {
+        height: responsive-value(
+          250px,
+          420px,
+          $mobile-min-width,
+          $breakpoint-small-max
+        );
+      }
+
       @media (min-width: $breakpoint-medium) {
-        width: percent-view(140px);
+        height: percent-view(390px);
+        max-height: 43vh;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
       }
     }
     &-title {
@@ -125,6 +145,14 @@
     & svg {
       stroke: $color-time;
     }
+
+    &:hover {
+      background-color: $color-time;
+
+      & svg {
+        stroke: $color-white;
+      }
+    }
   }
 
   &__section {
@@ -134,7 +162,7 @@
     align-items: center;
 
     margin-bottom: responsive-value(60px, 250px);
-    margin-top: 120px; //logo height
+    padding-top: 120px; //logo height
 
     &-title {
       text-align: center;
@@ -147,6 +175,10 @@
   }
 
   &__block {
+    $time-image-size-s: calc(#{$column-width-small} * 2);
+    $time-image-size-m: calc(#{$column-width-medium} * 2.5);
+    $time-image-size-l: calc(#{$column-width} * 3);
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -177,18 +209,71 @@
 
       @media (min-width: $breakpoint-small) {
         flex: 0 0 calc(#{$column-width-medium} * 2.5);
+        margin-bottom: 0;
       }
 
       @media (min-width: $breakpoint-medium) {
         flex: 0 0 calc(#{$column-width} * 3);
+        margin-bottom: 0;
       }
     }
     &-bg {
-      position: absolute;
+      position: relative;
       z-index: -1;
+      border-radius: 8px;
+      overflow: hidden;
+
+      width: $time-image-size-s;
+      height: $time-image-size-s;
+
+      @media (min-width: $breakpoint-small) {
+        width: $time-image-size-m;
+        height: $time-image-size-m;
+      }
+
+      @media (min-width: $breakpoint-medium) {
+        width: $time-image-size-l;
+        height: $time-image-size-l;
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        mix-blend-mode: multiply;
+
+        .time__block--lemon & {
+          background-color: $color-lemon-bg;
+        }
+        .time__block--orange & {
+          background-color: $color-orange-bg;
+        }
+        .time__block--grapefruit & {
+          background-color: $color-grapefruit-bg;
+        }
+      }
+
+      & img,
+      & video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &-logo {
+        position: absolute;
+        top: 20%;
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.15;
+      }
     }
     &-bottles {
-      padding-top: 28%;
+      // padding-top: 28%;
+      margin-top: -75%;
       text-align: center;
 
       & img {

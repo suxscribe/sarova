@@ -63,6 +63,7 @@ $base-font-size: 10px; //1 rem
 
   --box-shadow: 0 10px 40px rgba(0, 80, 146, 0.2);
   --transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  --transition-2: 1s cubic-bezier(0.77, 0, 0.175, 1);
 
   --columns: 2;
 
@@ -92,8 +93,11 @@ $color-classic: #ec7e49;
 $color-classic-top: #e2bf87;
 
 $color-lemon: #e2ca27;
+$color-lemon-bg: #e2d66d;
 $color-orange: #ee9602;
+$color-orange-bg: #f5b656;
 $color-grapefruit: #fc3210;
+$color-grapefruit-bg: #fe654b;
 
 // $gradient-1: linear-gradient(
 //   -30deg,

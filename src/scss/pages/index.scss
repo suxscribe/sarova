@@ -5,6 +5,10 @@
   position: relative;
   min-height: calc(var(--vh, 1vh) * 100);
 
+  @media (min-width: $breakpoint-medium) {
+    // min-height: calc(0.565 * 100vw);
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -19,6 +23,7 @@
     @media (min-width: $breakpoint-medium) {
       width: calc(#{$column-width} * 8);
       height: auto;
+      max-height: calc(0.47 * 100vw);
     }
 
     &-svg {
@@ -41,11 +46,12 @@
       transition: all 2s ease;
 
       @media (min-width: $breakpoint-medium) {
-        height: auto;
+        max-height: 80vh;
       }
 
       // BG ANIMATION ON PAGE LOAD
-      .section--1 & {
+      .section--1 &,
+      .section-1.active & {
         clip-path: ellipse(100% 90% at 50% 0%);
 
         @media (min-width: $breakpoint-small) {
@@ -61,8 +67,9 @@
   &__content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     min-height: calc(var(--vh, 1vh) * 100);
+    position: relative;
 
     // width: calc(#{$column-width} * 6);
     // margin: 0 auto;
@@ -80,16 +87,38 @@
   &__title {
     text-align: center;
     color: $color-white;
+    position: absolute;
+    top:  percent-view(206px, $breakpoint-medium-max);
+    @media (min-width: $breakpoint-medium) {
+      top: percent-view(140px);
+    }
+
+    transition: all var(--transition-2);
   }
 
   &__slider {
     $slider-1-height: responsive-value(
       360px,
-      455px,
+      490px,
       $mobile-min-width,
       $fhd-width
     );
-    $slider-1-height-s: percent-view(419px);
+    $slider-1-height: calc(
+              #{responsive-value(
+                  320px / 2,
+                  490px / 2,
+                  $mobile-min-width,
+                  $fhd-width,
+                  'w'
+                )} + #{responsive-value(
+                  320px / 2,
+                  490px / 2,
+                  $mobile-min-height,
+                  $fhd-height,
+                  'h'
+                )};
+
+    $slider-1-height-s: responsive-value(280px, 440px, $mobile-min-width, $breakpoint-small-max);
     $slider-1-text-offset: percent-view(90px);
 
     width: 100%;
@@ -120,7 +149,12 @@
         position: relative;
 
         width: 100%;
+        height: $slider-1-height-s;
+
+        @media (min-width: $breakpoint-small) {
         height: $slider-1-height;
+        
+        }
 
         & img {
           transition: all var(--transition);
@@ -188,7 +222,12 @@
       // CENTER SLIDE
       &.swiper-slide-active {
         & .section-1__slider-item-image img {
-          height: $slider-1-height;
+          height: $slider-1-height-s;
+          
+          @media (min-width: $breakpoint-small) {
+              height: $slider-1-height;
+
+          };
         }
         & .section-1__slider-item-name {
           opacity: 0;
@@ -255,5 +294,14 @@
         right: 0;
       }
     }
+  }
+
+  &.active {
+  }
+  &:not(.active) {
+    // & .section-1__title {
+    //   opacity: 0;
+    //   transform: scale(0.2);
+    // }
   }
 }

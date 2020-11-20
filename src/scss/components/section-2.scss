@@ -44,12 +44,12 @@
 
     min-height: calc(var(--vh, 1vh) * 100);
 
-    padding-top: percent-view(296px, $breakpoint-medium-max);
-    padding-bottom: 55px;
+    padding-top: percent-view(30px, $breakpoint-medium-max);
+    padding-bottom: 40px;
 
     @media (min-width: $breakpoint-small) {
-      padding-top: percent-view(230px);
-      padding-bottom: percent-view(60px);
+      padding-top: percent-view(40px);
+      padding-bottom: percent-view(40px);
 
       justify-content: center;
     }

@@ -49,6 +49,7 @@
     border-radius: 50%;
 
     & svg {
+      transition: all var(--transition);
       height: 33px;
       width: 33px;
     }

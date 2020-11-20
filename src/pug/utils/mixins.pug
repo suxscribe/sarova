@@ -34,7 +34,8 @@ mixin time-bottle(args)
 mixin product-water(args)
   a(href="water.html").products__water
     .products__water-bg
-      img(src="assets/products-water-bg.png", alt="")
+      //- img(src="assets/products-water-bg.png", alt="")
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4")
     .products__water-title 
       | Природная 
       br 
@@ -46,7 +47,8 @@ mixin product-water(args)
 mixin product-time(args)
   a(href="time.html").products__time
     .products__time-bg
-      img(src="assets/products-time-bg.png", alt="")
+      //- img(src="assets/products-time-bg.png", alt="")
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
     .products__time-bg-2
       img(src="assets/products-time-bg-2.svg", alt="")
     .products__time-title Сарова Time

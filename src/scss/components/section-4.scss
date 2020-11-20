@@ -22,7 +22,9 @@
     margin-bottom: percent-view(60px);
   }
   &__title {
-    @include font-h2;
+    @include font-40;
+    font-family: $font-heading;
+    font-weight: normal;
     color: rgba($color-black, 0.8);
 
     margin-bottom: percent-view(90px);

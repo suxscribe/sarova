@@ -7,7 +7,7 @@ export let section1Slider = () => {
       effect: 'slide',
 
       speed: variables.swiperSpeed,
-      loop: false,
+      loop: true,
       centeredSlides: true,
       slidesPerView: '3',
       initialSlide: 1,
