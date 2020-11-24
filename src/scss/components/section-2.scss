@@ -62,6 +62,12 @@
     margin-bottom: 50px;
     margin-top: 50px;
 
+    flex: 1 1 auto;
+
+    @media (min-width: $breakpoint-medium) {
+      flex: 0 0 auto;
+    }
+
     &-item {
       & img {
         height: responsive-value(150px, 412px, $mobile-min-width, $fhd-width);
@@ -74,11 +80,22 @@
             transform: scale(1.07);
           }
         }
+
+        &.time--1 {
+          margin-left: -1vw;
+        }
+        &.time--3 {
+          margin-left: 3vw;
+        }
       }
       &--letter {
         & img {
           height: responsive-value(70px, 180px, $mobile-min-width, $fhd-width);
           opacity: 0.53;
+        }
+
+        &.time--2 {
+          margin-left: 2vw;
         }
       }
     }

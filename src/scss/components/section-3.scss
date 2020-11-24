@@ -80,6 +80,8 @@
   }
 
   &__bottle {
+    $section-3-bottle-width: responsive-value(60px, 117px);
+
     position: absolute;
     left: 0;
     top: 0;
@@ -92,7 +94,7 @@
     &--1 {
       & img {
         position: absolute;
-        width: percent-view(117px);
+        width: $section-3-bottle-width;
         // left: 50%;
         // bottom: 100%;
         opacity: 1;
@@ -117,8 +119,7 @@
     &--2 {
       & img {
         position: absolute;
-        width: percent-view(117px);
-
+        width: $section-3-bottle-width;
         // left: 50%;
         // top: 100%;
         opacity: 1;

@@ -5,3 +5,8 @@ export const setVh = () => {
 
   // todo make --vh = 1vh on 960+
 };
+
+export const elements = {
+  section1Video: document.querySelector('.section-1__bg-video'),
+  section2Video: document.querySelector('.section-2__bg-video'),
+};

@@ -1,14 +1,27 @@
+import { elements } from './helpers';
 import { gsap, Sine } from 'gsap/all';
+
 // import * as ScrollMagic from 'scrollmagic';
 // import 'animation.gsap';
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 // import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
 import { CustomEase } from '../vendor/gsap-member/CustomEase';
+
+import IScroll from 'fullpage.js/vendors/scrolloverflow';
 import fullpage from 'fullpage.js';
 
 gsap.registerPlugin(CustomEase);
 
 // ScrollMagicPluginGsap(ScrollMagic, gsap);
+
+const breakpointWidth = 960;
+const breakpointHeight = 640;
+
+// check if animation fired once on mobile
+let fired1 = false;
+let fired2 = false;
+let fired3 = false;
+let fired4 = false;
 
 export let sectionScrolls = () => {
   if (document.querySelector('.page--index')) {
@@ -18,96 +31,112 @@ export let sectionScrolls = () => {
       navigation: false,
       css3: true,
       scrollingSpeed: 1000,
-      scrollBar: true,
+      // scrollBar: true,
+      scrollOverflow: true,
+      responsiveWidth: breakpointWidth,
+      responsiveHeight: breakpointHeight,
+      afterResponsive: function(isResponsive) {},
       onLeave: (origin, destination, direction) => {
+        // if (window.innerWidth > breakpointWidth) {
+        // temporarily disable animation on mobile
         console.log(destination.index);
 
-        if (destination.isLast) {
-          fullPageInstance.setAutoScrolling(false);
-          fullPageInstance.setFitToSection(false);
-        } else {
-          fullPageInstance.setAutoScrolling(true);
-          fullPageInstance.setFitToSection(true);
-        }
+        // enable autoscroll on large screens
+        // if (window.innerWidth > breakpointWidth) {
+        //   if (destination.isLast) {
+        //     fullPageInstance.setAutoScrolling(false);
+        //     fullPageInstance.setFitToSection(false);
+        //   } else {
+        //     fullPageInstance.setAutoScrolling(true);
+        //     fullPageInstance.setFitToSection(true);
+        //   }
+        // }
 
         // ! LEAVING
-        // Leaving Water
-        if (origin.index === 0) {
-          let tween0 = gsap.timeline();
-          tween0
-            // out of 1
-            .to('.section-1__bg', { duration: 0.5, scale: 0.2 }, 0)
-            .to(
-              '.section-1__slider-item:not(.swiper-slide-active)',
-              { duration: 0.1, opacity: 0 },
-              0
-            )
-            .to('.slider__arrow', { duration: 0.1, opacity: 0 }, 0)
-            .to(
-              '.section-1__title',
-              { duration: 0.5, opacity: 0, scale: 0.2 },
-              0
-            )
-            .to('.section-1__slider', { duration: 0.5, y: -300 }, 0);
-        }
-        // Leaving TIME
-        if (origin.index === 1) {
-          let tween1 = gsap.timeline();
-          tween1
-            //out from 2
-            .fromTo(
-              '.section-2__bg',
-              { borderRadius: 0, scale: 1 },
-              { duration: 0.3, borderRadius: '3.125vw', scale: 0.3 },
-              '0'
-            )
-            .to('.section-2__bg video', { duration: 0.2, opacity: 0 }, '0')
-            .to(
-              '.section-2__content',
-              { duration: 0.2, opacity: 0, y: 100 },
-              '0'
-            );
-        }
-        // Leaving Classic
-        if (origin.index === 2) {
-          let tween2 = gsap.timeline();
-          tween2
-            .to('.section-3__bg', { duration: 0.3, scale: 0.3 })
-            .to('.section-3__content', { duration: 0.3, opacity: 0 }, '-=0.2')
-            .to(
-              '.section-3__bottle--1 img',
-              {
-                duration: 1,
-                // ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
-                y: '-100vw',
-                x: '100vw',
-                scale: 0.8,
-                opacity: 0,
-                stagger: -0.09,
-              },
-              '0'
-            )
-            .to(
-              '.section-3__bottle--2 img',
-              {
-                duration: 1,
-                // ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
-                y: '100vw',
-                x: '-100vw',
-                scale: 0.8,
-                opacity: 0,
-                stagger: 0.09,
-              },
-              '0'
-            );
-        }
-        // Leaving Bottom
-        if (origin.index === 3) {
-        }
+        if (window.innerWidth > breakpointWidth) {
+          // out animation only on large screens
+          // Leaving Water
+          if (origin.index === 0) {
+            let tween0 = gsap.timeline();
+            tween0
+              // out of 1
+              .to('.section-1__bg', { duration: 0.5, scale: 0.2 }, 0)
+              .to(
+                '.section-1__slider-item:not(.swiper-slide-active)',
+                { duration: 0.1, opacity: 0 },
+                0
+              )
+              .to('.slider__arrow', { duration: 0.1, opacity: 0 }, 0)
+              .to(
+                '.section-1__title',
+                { duration: 0.5, opacity: 0, scale: 0.2 },
+                0
+              )
+              .to('.section-1__slider', { duration: 0.5, y: -300 }, 0);
+            elements.section1Video.pause();
+          }
+          // Leaving TIME
+          if (origin.index === 1) {
+            let tween1 = gsap.timeline();
+            tween1
+              //out from 2
+              .fromTo(
+                '.section-2__bg',
+                { borderRadius: 0, scale: 1 },
+                { duration: 0.3, borderRadius: '3.125vw', scale: 0.3 },
+                '0'
+              )
+              .to('.section-2__bg video', { duration: 0.2, opacity: 0 }, '0')
+              .to(
+                '.section-2__content',
+                { duration: 0.2, opacity: 0, y: 100 },
+                '0'
+              );
+            elements.section2Video.pause();
+          }
+          // Leaving Classic
+          if (origin.index === 2) {
+            let tween2 = gsap.timeline();
+            tween2
+              .to('.section-3__bg', { duration: 0.3, scale: 0.3 })
+              .to('.section-3__content', { duration: 0.3, opacity: 0 }, '-=0.2')
+              .to(
+                '.section-3__bottle--1 img',
+                {
+                  duration: 1,
+                  // ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
+                  y: '-100vw',
+                  x: '100vw',
+                  scale: 0.8,
+                  opacity: 0,
+                  stagger: -0.09,
+                },
+                '0'
+              )
+              .to(
+                '.section-3__bottle--2 img',
+                {
+                  duration: 1,
+                  // ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
+                  y: '100vw',
+                  x: '-100vw',
+                  scale: 0.8,
+                  opacity: 0,
+                  stagger: 0.09,
+                },
+                '0'
+              );
+          }
+          // Leaving Bottom
+          if (origin.index === 3) {
+          }
+        } // if (window.innerWidth > breakpointWidth)
 
         // ! LOADING
         // WATER
-        if (destination.index === 0) {
+        if (destination.index === 0 && fired1 === false) {
+          if (window.innerWidth < breakpointWidth) fired1 = true;
+
           let tween0 = gsap.timeline();
           tween0
 
@@ -140,10 +169,13 @@ export let sectionScrolls = () => {
             .to('.slider__arrow', { duration: 0.1, opacity: 1 }, '-=0.1')
 
             .to('.section-1__slider', { duration: 0.5, y: 0 }, 0);
+          elements.section1Video.play();
         }
 
         // TIME
-        if (destination.index === 1) {
+        if (destination.index === 1 && fired2 === false) {
+          if (window.innerWidth < breakpointWidth) fired2 = true;
+
           let tweenScroll1 = gsap.timeline();
           tweenScroll1
             .set('.header__nav-logo', {
@@ -188,10 +220,13 @@ export let sectionScrolls = () => {
               },
               '-=0.2'
             );
+          elements.section2Video.play();
         }
 
         // CLASSIC
-        if (destination.index === 2) {
+        if (destination.index === 2 && fired3 === false) {
+          if (window.innerWidth < breakpointWidth) fired3 = true;
+
           let tweenScroll2 = gsap.timeline();
           tweenScroll2
             .fromTo(
@@ -270,7 +305,9 @@ export let sectionScrolls = () => {
             );
         }
 
-        if (destination.index === 3) {
+        if (destination.index === 3 && fired4 === false) {
+          if (window.innerWidth < breakpointWidth) fired4 = true;
+
           let tweenScroll4 = gsap.timeline();
           tweenScroll4
             .from('.section-4__title', {
@@ -289,15 +326,30 @@ export let sectionScrolls = () => {
               '-=0.2'
             );
         }
+        // } if (window.innerWidth > breakpointWidth) {
       },
     });
 
     // initial animation
-    // let controller = new ScrollMagic.Controller();
+    let tweenLoad2 = gsap.timeline();
+    tweenLoad2
+      .set('.section-2__bg', { borderRadius: '3.125vw', scale: 0.3 })
+      .set('.section-2__bg video', { duration: 0.2, opacity: 0 })
+      .set('.section-2__content', { opacity: 0, y: 100 });
+    // set section 3 small size on page load on large screens
+    // if (window.innerWidth > breakpointWidth) {
+    let tweenLoad3 = gsap.timeline();
+    tweenLoad3
+      .set('.section-3__bg', { scale: 0.3 })
+      .set('.section-3__content', { opacity: 0 })
+      .set('.section-3__bottle--1 img', { opacity: 0 })
+      .set('.section-3__bottle--2 img', { opacity: 0 });
+    // }
 
     let tweenLoad = gsap.timeline();
     tweenLoad
       // .set('body', { className: 'page--index main--init section--1' })
+
       .from('.section-1__title', { duration: 0.5, y: 20, opacity: 0 })
       .from('.section-1__slider', { duration: 0.5, y: 20, opacity: 0 }, '-=0.3')
       .from('.sidenav__item', {
@@ -306,195 +358,6 @@ export let sectionScrolls = () => {
         opacity: 0,
         stagger: 0.1,
       });
-
-    // let tweenScroll1 = gsap.timeline();
-
-    // tweenScroll1
-    //   .to('.section-1__bg', { duration: 0.5, scale: 0.2 }, 0)
-    //   .to(
-    //     '.section-1__slider-item:not(.swiper-slide-active)',
-    //     { duration: 0.1, opacity: 0 },
-    //     0
-    //   )
-    //   .to('.slider__arrow', { duration: 0.1, opacity: 0 }, 0)
-    //   .to('.section-1__title', { duration: 0.5, opacity: 0, scale: 0.2 }, 0)
-    //   .to(
-    //     '.section-1__slider-item-button-wrap',
-    //     { duration: 0.1, opacity: 0 },
-    //     0
-    //   )
-    //   .to('.section-1__slider', { duration: 0.5, y: -300 }, 0);
-
-    // // scroll to section 2
-    // let tweenScroll2 = gsap.timeline();
-
-    // tweenScroll2
-    //   .set('body', { className: 'page--index main--init section--2' })
-    //   .set('.header__nav-logo', {
-    //     className: 'header__nav-item header__nav-logo header__nav-logo--panel',
-    //   })
-    //   .to('.header__nav-logo-panel-path', { duration: 0.3, fill: '#ffffff' })
-    //   .from('.section-2__bg', { duration: 0.5, scale: 0.3 }, 0)
-    //   .to('.section-2__bg', { duration: 0.3, borderRadius: 0 }, '-=0.3')
-    //   .from('.section-2__bg video', { duration: 0.2, opacity: 0 }, '-=0.2')
-    //   .from(
-    //     '.section-2__content',
-    //     { duration: 0.2, opacity: 0, y: 100 },
-    //     '-=0.1'
-    //   )
-    //   .from(
-    //     '.section-2__bottles-item',
-    //     {
-    //       duration: 0.3,
-    //       scale: 0.9,
-    //       y: 150,
-    //       opacity: 0,
-    //       stagger: 0.05,
-    //     },
-    //     '+=0.5'
-    //   )
-    //   .to(
-    //     '.section-2__bottles-item',
-    //     { duration: 0.2, scale: 0.9, y: -200, opacity: 0, stagger: 0.02 },
-    //     '+=0.1'
-    //   )
-    //   .to(
-    //     '.section-2__content',
-    //     { duration: 0.2, opacity: 0, y: -100 },
-    //     '-=0.1'
-    //   )
-    //   .to('.section-2__bg', { duration: 0.5, scale: 0.3 })
-    //   .to(
-    //     '.section-2__bg',
-    //     { duration: 0.3, borderRadius: '3.125vw' },
-    //     '-=0.3'
-    //   );
-
-    // // section 3 animations. Pin section 3 block
-    // let tweenScroll3 = gsap.timeline();
-    // tweenScroll3
-    //   .from('.section-3__bg', { duration: 0.5, scale: 0.3 }, '+=0.2')
-    //   .from('.section-3__content', { duration: 0.3, opacity: 0 }, '-=0.2')
-    //   .from(
-    //     '.section-3__title',
-    //     { duration: 0.2, scale: 0.5, opacity: 0 },
-    //     '-=0.2'
-    //   )
-    //   .from(
-    //     '.section-3__subtitle',
-    //     { duration: 0.1, scale: 0.9, y: 50, opacity: 0 },
-    //     '-=0.15'
-    //   )
-    //   .from(
-    //     '.section-3__button-wrap',
-    //     { duration: 0.1, scale: 0.6, y: 50, opacity: 0 },
-    //     '-=0.05'
-    //   )
-    //   .set('.section-3__bottle--1 img', { opacity: 1 }, 0)
-    //   .set('.section-3__bottle--2 img', { opacity: 1 }, 0)
-    //   .to(
-    //     '.section-3__bottle--1 img',
-    //     {
-    //       duration: 0.5,
-    //       ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
-    //       y: '60vh',
-    //       x: '-60vw',
-    //       stagger: -0.09,
-    //     },
-    //     0
-    //   )
-    //   .to(
-    //     '.section-3__bottle--2 img',
-    //     {
-    //       duration: 0.5,
-    //       ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
-    //       y: '-60vh',
-    //       x: '60vw',
-    //       stagger: -0.09,
-    //     },
-    //     0
-    //   )
-    //   .to('.section-3__bg', { duration: 0.3, scale: 0.5 }, '-=0.2')
-    //   .to('.section-3__bg-image', { duration: 0.1, opacity: 1 }, '-=0.3');
-
-    // let tweenScroll4 = gsap.timeline();
-    // tweenScroll4
-
-    //   .to('.section-3__content', { duration: 0.3, opacity: 0 }, 0)
-    //   .from('.section-4__title', { duration: 0.8, opacity: 0, scale: 0.3 })
-    //   .from('.section-4__image', { duration: 0.2, opacity: 0, y: 50 }, '-=0.3')
-    //   .from(
-    //     '.section-4__button-wrap',
-    //     { duration: 0.2, opacity: 0, y: -50 },
-    //     '-=0.2'
-    //   )
-    //   .set('body', { className: 'page--index main--init section--4' })
-    //   .to('.header__nav-logo-panel-path', { duration: 0.3, fill: '#70b9d9' });
-
-    // let tweenScrollFoot = gsap.timeline();
-    // tweenScrollFoot.from(
-    //   '.footer > *',
-    //   {
-    //     duration: 0.5,
-    //     opacity: 0,
-    //     y: 100,
-    //     stagger: 0.1,
-    //   },
-    //   '+=0.5'
-    // );
-
-    // SCENES
-    // var scene1 = new ScrollMagic.Scene({
-    //   triggerElement: '.section-1',
-    //   duration: 500,
-    //   triggerHook: 0,
-    // })
-    //   .setClassToggle('.sidenav__item--1', 'active')
-    //   .setTween(tweenScroll1)
-    //   // .addIndicators()
-    //   .addTo(controller);
-
-    // var scene2 = new ScrollMagic.Scene({
-    //   triggerElement: '.section-2',
-    //   duration: 1000,
-    //   triggerHook: 0,
-    // })
-    //   .setClassToggle('.sidenav__item--2', 'active')
-    //   // .setPin('.section-2')
-    //   .setTween(tweenScroll2)
-    //   // .addIndicators()
-    //   .addTo(controller);
-
-    // var scene3 = new ScrollMagic.Scene({
-    //   triggerElement: '.section-3',
-    //   duration: 2000,
-    //   triggerHook: 0,
-    // })
-    //   .setClassToggle('.sidenav__item--3', 'active')
-    //   // .setPin('.section-3')
-    //   .setTween(tweenScroll3)
-    //   // .addIndicators()
-    //   .addTo(controller);
-
-    // var scene4 = new ScrollMagic.Scene({
-    //   triggerElement: '.section-4',
-    //   duration: 800,
-    //   triggerHook: 80,
-    // })
-    //   .setClassToggle('.sidenav__item--4', 'active')
-    //   // .setClassToggle('.header__nav-logo', 'header__nav-logo--panel-blue')
-
-    //   .setTween(tweenScroll4)
-    //   // .addIndicators()
-    //   .addTo(controller);
-
-    // var sceneFoot = new ScrollMagic.Scene({
-    //   triggerElement: '.footer',
-    //   duration: 300,
-    //   triggerHook: 10,
-    // })
-    //   .setTween(tweenScrollFoot)
-    //   // .addIndicators()
-    //   .addTo(controller);
+    elements.section1Video.play();
   } //page-index
 };

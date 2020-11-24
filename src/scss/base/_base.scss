@@ -79,6 +79,14 @@ body {
   &.page--index {
     // background-color: rgb(204, 225, 229);
   }
+
+  @media (max-width: $breakpoint-small-max) {
+    &.fp-responsive .fp-section,
+    &.fp-responsive .fp-slide,
+    &.fp-responsive .fp-tableCell {
+      height: auto !important;
+    }
+  }
 }
 
 .main {

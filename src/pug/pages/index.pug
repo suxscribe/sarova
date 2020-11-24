@@ -1,4 +1,4 @@
-extends ../layout/main
+extends ../layout/index
 
 block variables
   - var title = 'Sarova';
@@ -121,3 +121,24 @@ block content
         .section-4__title Основа продукции &laquo;Сарова&raquo;&nbsp;&mdash; уникальная минеральная вода из&nbsp;расположенных на&nbsp;глубине 105 метров подземных источников. Сама природа заботится о&nbsp;её&nbsp;натуральной чистоте и&nbsp;насыщает полезными веществами. Прежде всего&nbsp;&mdash; кальцием и&nbsp;магнием.
         .section-4__button-wrap 
           a.section-4__button.button.button--round(href="water.html") Смотреть
+      footer.footer
+        .footer__logo
+          img(src="assets/logo-footer.svg", alt="")
+        ul.footer__menu
+          li.footer__menu-item: a(href="company.html").footer__menu-link Компания
+          li.footer__menu-item: a(href="products.html").footer__menu-link Продукция
+          li.footer__menu-item: a(href="news.html").footer__menu-link Новости
+          li.footer__menu-item: a(href="contacts.html").footer__menu-link Контакты
+        ul.footer__socials
+          +footer-social-item({link: '', icon: 'instagram'})
+          +footer-social-item({link: '', icon: 'facebook'})
+          +footer-social-item({link: '', icon: 'twitter'})
+          +footer-social-item({link: '', icon: 'twitter2'})
+          +footer-social-item({link: '', icon: 'vk'})
+          +footer-social-item({link: '', icon: 'odnoklassniki'})
+
+        .footer__copyright
+          .footer__copyright-item © 2020 АО «Минеральная вода и напитки»
+          .footer__copyright-item 
+            a(href="privacy.html") Положение о конфиденциальности
+    

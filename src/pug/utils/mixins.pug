@@ -7,7 +7,7 @@ mixin section-1-slide(args)
     .section-1__slider-item-top
       .section-1__slider-item-image
         img(src="assets/" + args.img, alt=args.name)
-      .section-1__slider-item-name= args.name
+      a(href="water.html").section-1__slider-item-name= args.name
     .section-1__slider-item-button-wrap
       a.section-1__slider-item-button.button.button--round(href="water.html") Смотреть
 

@@ -14,7 +14,6 @@ import { setVh } from './components/helpers';
 
 import { section1Slider } from './components/swipers';
 import { sectionScrolls } from './components/section-scrolls';
-import { contactsMaps } from './components/contacts';
 
 // import { validateForms } from './components/forms';
 
