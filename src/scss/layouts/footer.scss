@@ -11,6 +11,20 @@
 
   &__logo {
     margin-bottom: 55px;
+    flex: 0 0 auto;
+    width: 50%;
+    max-width: 200px;
+
+    & svg {
+      transition: fill var(--transition);
+      fill: $color-accent;
+    }
+
+    &:hover {
+      svg {
+        fill: $color-accent-2;
+      }
+    }
   }
 
   &__menu {

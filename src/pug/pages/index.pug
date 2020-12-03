@@ -7,7 +7,7 @@ block variables
   - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
 
 block content
-  .sidenav
+  .sidenav.hidden
     a.sidenav__item.sidenav__item--1(href="#section-1", )
       img(src="assets/sidenav-01-bg.svg", alt="").sidenav__item-bg
       img(src="assets/sidenav-01-front.png", alt="").sidenav__item-front
@@ -22,7 +22,7 @@ block content
       img(src="assets/sidenav-04-front.png", alt="").sidenav__item-front
 
   .fullpage#fullpage
-    section.section.section-1(data-anchor="section-1")
+    section.section.section-1.hidden(data-anchor="section-1")
       .section-1__bg
       
         svg(xmlns='http://www.w3.org/2000/svg', version='1.1', viewBox="0 0 2 1", preserveAspectRatio="xMinYMin meet").section-1__bg-svg
@@ -35,9 +35,10 @@ block content
       
       .section-1__content
         h1.section-1__title.h1 
-          | Природная минеральная вода
+          | Природная 
           br 
-          | со сбалансированным содержанием магния и кальция
+          | минеральная вода
+          
         .section-1__slider.swiper-container
           ul.swiper-wrapper
             +section-1-slide({name: 'Газированная минеральная вода «Сарова»', img: 'slider-02.png'})
@@ -50,7 +51,8 @@ block content
             +svg({ name: 'slider-arrow-left'})
           .slider__arrow.slider__arrow--right.section-1__slider-nav.section-1__slider-nav--right
             +svg({ name: 'slider-arrow-right'})
-        
+        .section-1__subtitle Минеральная вода со сбалансированным содержанием магния и кальция
+        a.section-1__button.button.button--round(href="water.html") Смотреть
         
     section.section.section-2(data-anchor="section-2")
       .section-2__bg.section-2__bg--1

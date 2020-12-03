@@ -9,9 +9,9 @@ block variables
 
 block content
   .classic__intro#first-screen
-    .classic__bg
+    .classic__bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200")
       img(src="assets/section-3-bg.svg", alt="").classic__bg-image
-    .classic__title-wrap
+    .classic__title-wrap(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
       .classic__subtitle.content__subtitle Продукция
       .classic__title 
         | Восемь
@@ -24,7 +24,7 @@ block content
        br
        | Дюшес / Саяны / Ситро / Крюшон
         
-    .classic__bottles
+    .classic__bottles.scrollspy__container(uk-scrollspy="target: > img; cls: uk-animation-slide-bottom-small; delay: 100")
       img.classic__bottle.classic__bottle-1(src="assets/classic-01.png", alt="")
       img.classic__bottle.classic__bottle-2(src="assets/classic-02.png", alt="")
       img.classic__bottle.classic__bottle-3(src="assets/classic-03.png", alt="")
@@ -40,7 +40,7 @@ block content
 
 
   .classic__section#second-screen
-    .classic__section-title.h3 Уже более 20 лет лимонад — традиционный напиток семейных праздников, спутник дружеских посиделок и герой душевных разговоров с родными и близкими людьми.
+    .classic__section-title.h3(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200") Уже более 20 лет лимонад — традиционный напиток семейных праздников, спутник дружеских посиделок и герой душевных разговоров с родными и близкими людьми.
 
     +classic-block({num: '01', title: 'Колокольчик', class: 'kolokol', text: '«Колокольчик» — это освежающий цитрусовый вкус с приятной горчинкой лимонной цедры. В нескольких уездах Орловской губернии издавна держали «колокольные» пасеки — настоящие плантации колокольчиков. По существовавшему тогда поверью, колокольчик — растение богоугодное, ибо формой напоминает церковный колокол.'})
     +classic-block({num: '02', title: 'Саяны',  class: 'sayany', text: '«Колокольчик» — это освежающий цитрусовый вкус с приятной горчинкой лимонной цедры. В нескольких уездах Орловской губернии издавна держали «колокольные» пасеки — настоящие плантации колокольчиков. По существовавшему тогда поверью, колокольчик — растение богоугодное, ибо формой напоминает церковный колокол.'})

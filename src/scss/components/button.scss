@@ -22,13 +22,7 @@
       line-height: $button-round-size;
     }
 
-    animation-name: hovering;
-    animation-duration: 2.5s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-fill-mode: none;
-    animation-play-state: paused;
+    @include animation-hovering;
 
     &:hover {
       border-color: transparent;
@@ -48,10 +42,20 @@
     border: 1px solid rgba($color-accent, 0.6);
     border-radius: 50%;
 
+    @include animation-hovering;
+
     & svg {
       transition: all var(--transition);
       height: 33px;
       width: 33px;
+    }
+
+    &:hover {
+      background-color: $color-accent;
+
+      & svg {
+        stroke: $color-white;
+      }
     }
   }
 }

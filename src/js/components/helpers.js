@@ -9,4 +9,23 @@ export const setVh = () => {
 export const elements = {
   section1Video: document.querySelector('.section-1__bg-video'),
   section2Video: document.querySelector('.section-2__bg-video'),
+  preloader: document.querySelector('.preloader'),
+};
+
+// Fade the page out when click on a link
+export const pageFadeOut = () => {
+  document.addEventListener('click', (event) => {
+    if (event.target.tagName.toLowerCase() === 'a') {
+      event.preventDefault();
+      elements.preloader.classList.remove('preloader--hidden');
+      // need to wait for animation to finish
+      window.location = event.target.href;
+
+      // console.log(event.target);
+    }
+  });
+};
+
+export const hidePreloader = () => {
+  elements.preloader.classList.add('preloader--hidden');
 };

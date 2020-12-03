@@ -8,9 +8,9 @@ block variables
   - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
 
 block content
-  .content__title-wrap
-    .content__subtitle Компания
-    .content__menu
+  .content__title-wrap(uk-scrollspy=scrollSpy)
+    .content__subtitle(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400") Компания
+    .content__menu(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
       a(href="company.html").content__menu-item.content__menu-item--active О компании
       a(href="history.html").content__menu-item История
       a(href="acheivements.html").content__menu-item Достижения и награды
@@ -19,7 +19,7 @@ block content
     a.content__scrolldown.button--scrolldown(href="#content")
       +svg({name: 'arrow-down'})
 
-  .content__container#content
+  .content__container#content(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 800")
     .content__slider.company__slider.swiper-container
       ul.swiper-wrapper
         li.content__slider-item.swiper-slide

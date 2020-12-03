@@ -27,6 +27,7 @@ export let sectionScrolls = () => {
   if (document.querySelector('.page--index')) {
     var fullPageInstance = new fullpage('#fullpage', {
       anchors: ['section-1', 'section-2', 'section-3', 'section-4'],
+      lockAnchors: true,
       menu: '.sidenav',
       navigation: false,
       css3: true,
@@ -182,10 +183,7 @@ export let sectionScrolls = () => {
               className:
                 'header__nav-item header__nav-logo header__nav-logo--panel',
             })
-            .to('.header__nav-logo-panel-path', {
-              duration: 0.3,
-              fill: '#ffffff',
-            })
+
             .fromTo(
               '.section-2__bg',
               { borderRadius: '3.125vw', scale: 0.3 },
@@ -219,7 +217,8 @@ export let sectionScrolls = () => {
                 stagger: 0.05,
               },
               '-=0.2'
-            );
+            )
+            .to('.section-3__bottle', { duration: 0.5, opacity: 0 });
           elements.section2Video.play();
         }
 
@@ -229,6 +228,7 @@ export let sectionScrolls = () => {
 
           let tweenScroll2 = gsap.timeline();
           tweenScroll2
+            .set('.section-3__bottle', { opacity: 1 })
             .fromTo(
               '.section-3__content',
               { opacity: 0 },
@@ -324,11 +324,31 @@ export let sectionScrolls = () => {
               '.section-4__button-wrap',
               { duration: 1, opacity: 0, y: -50 },
               '-=0.2'
-            );
+            )
+            .to('.section-3__bottle', { duration: 0.5, opacity: 0 });
         }
         // } if (window.innerWidth > breakpointWidth) {
       },
     });
+  } //page-index
+};
+
+export const sectionsInit = () => {
+  document.querySelector('.section-1').classList.remove('hidden');
+  document.querySelector('.sidenav').classList.remove('hidden');
+
+  if (document.querySelector('.page--index')) {
+    let tweenLoad = gsap.timeline();
+    tweenLoad
+      .set('.section-1__bg-video', { className: 'section-1__bg-video active' })
+      .from('.section-1__title', { duration: 1.5, y: 20, opacity: 0 })
+      .from('.section-1__slider', { duration: 1.5, y: 20, opacity: 0 }, '-=0.3')
+      .from('.sidenav__item', {
+        duration: 0.5,
+        x: -40,
+        opacity: 0,
+        stagger: 0.1,
+      });
 
     // initial animation
     let tweenLoad2 = gsap.timeline();
@@ -346,18 +366,8 @@ export let sectionScrolls = () => {
       .set('.section-3__bottle--2 img', { opacity: 0 });
     // }
 
-    let tweenLoad = gsap.timeline();
-    tweenLoad
-      // .set('body', { className: 'page--index main--init section--1' })
+    // .set('body', { className: 'page--index main--init section--1' })
 
-      .from('.section-1__title', { duration: 0.5, y: 20, opacity: 0 })
-      .from('.section-1__slider', { duration: 0.5, y: 20, opacity: 0 }, '-=0.3')
-      .from('.sidenav__item', {
-        duration: 0.5,
-        x: -40,
-        opacity: 0,
-        stagger: 0.1,
-      });
     elements.section1Video.play();
-  } //page-index
+  }
 };

@@ -32,10 +32,10 @@
       }
 
       &:first-of-type {
-        text-align: left;
+        // text-align: left;
       }
       &:last-of-type {
-        text-align: right;
+        // text-align: right;
       }
 
       .page--index &,
@@ -46,12 +46,18 @@
           color: rgba($color-white, 0.8);
         }
       }
-      .section--4 & {
+      .section--4 &,
+      .fp-viewing-section-4 & {
+        // logo color on 4th section
         color: $color-accent;
 
         &:hover {
           color: $color-accent-2;
         }
+      }
+
+      &:hover {
+        transform: scale(1.2);
       }
     }
 
@@ -75,9 +81,18 @@
         width: 100%;
 
         &-path {
+          transition: all var(--transition);
+
           fill: $color-accent;
 
+          .header__nav-logo:hover & {
+            fill: $color-accent-2;
+          }
+
           .page--product & {
+            fill: $color-white;
+          }
+          .page--product .header__nav-logo:hover & {
             fill: $color-white;
           }
         }
@@ -87,6 +102,11 @@
 
           &-path {
             fill: $color-white;
+          }
+        }
+        .fp-viewing-section-4 & {
+          &-path {
+            fill: $color-accent;
           }
         }
       }

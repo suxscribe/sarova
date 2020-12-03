@@ -11,8 +11,12 @@
   }
   .classic__block-image img {
     @media (min-width: $breakpoint-small) {
-      right: 0;
       left: auto;
+      right: 0;
+      transform: translateX(18%);
+    }
+    @media (min-width: $breakpoint-medium) {
+      transform: translateX(25%);
     }
   }
 }
@@ -212,15 +216,27 @@
       }
 
       & img {
-        width: 60%;
+        // width: 60%;
+        height: 110%;
+        max-width: none;
 
         margin-top: calc(#{$block-image-margin} * -1);
 
         @media (min-width: $breakpoint-small) {
-          width: 80%;
           position: absolute;
-          bottom: 0;
-          left: 0;
+          bottom: -20%;
+          height: 150%;
+          // width: 80%;
+          left: 50%;
+          transform: translateX(-62%);
+
+          // width: 80%;
+        }
+        @media (min-width: $breakpoint-medium) {
+          height: 155%;
+        }
+        @media (min-width: $breakpoint-large) {
+          height: 170%;
         }
       }
     }

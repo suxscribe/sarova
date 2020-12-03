@@ -1,6 +1,7 @@
 footer.footer
-  .footer__logo
-    img(src="assets/logo-footer.svg", alt="")
+  a(href="index.html").footer__logo
+    //- img(src="assets/logo-footer.svg", alt="")
+    +svg({name: 'logo-footer'})
   ul.footer__menu
     li.footer__menu-item: a(href="company.html").footer__menu-link Компания
     li.footer__menu-item: a(href="products.html").footer__menu-link Продукция

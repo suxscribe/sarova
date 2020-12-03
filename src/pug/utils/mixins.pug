@@ -8,8 +8,8 @@ mixin section-1-slide(args)
       .section-1__slider-item-image
         img(src="assets/" + args.img, alt=args.name)
       a(href="water.html").section-1__slider-item-name= args.name
-    .section-1__slider-item-button-wrap
-      a.section-1__slider-item-button.button.button--round(href="water.html") Смотреть
+    //- .section-1__slider-item-button-wrap
+    //-   a.section-1__slider-item-button.button.button--round(href="water.html") Смотреть
 
 mixin footer-social-item(args)
   li.footer__socials-item
@@ -18,7 +18,7 @@ mixin footer-social-item(args)
 
 
 mixin water-bottle(args)
-  a().water__bottle
+  a(href=args.link).water__bottle
     .water__bottle-image
       img(src="assets/" + args.img, alt=args.name)
     .water__bottle-title= args.name
@@ -33,51 +33,51 @@ mixin time-bottle(args)
 
 mixin product-water(args)
   a(href="water.html").products__water
-    .products__water-bg
+    .products__water-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
       //- img(src="assets/products-water-bg.png", alt="")
       video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4")
-    .products__water-title 
+    .products__water-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400")
       | Природная 
       br 
       | минеральная вода
-    .products__water-image
+    .products__water-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
       img(src="assets/products-water-img.png", alt="")
 
 
 mixin product-time(args)
   a(href="time.html").products__time
-    .products__time-bg
+    .products__time-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
       //- img(src="assets/products-time-bg.png", alt="")
       video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
-    .products__time-bg-2
+    .products__time-bg-2(uk-scrollspy="cls: uk-animation-scale-up; delay: 300")
       img(src="assets/products-time-bg-2.svg", alt="")
-    .products__time-title Сарова Time
-    .products__time-subtitle лимон / апельсин / грейфрут
-    .products__time-image
+    .products__time-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400") Сарова Time
+    .products__time-subtitle(uk-scrollspy="cls: uk-animation-scale-up; delay: 500") лимон / апельсин / грейфрут
+    .products__time-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 700")
       img(src="assets/products-time-img.png", alt="")
 
 
 mixin product-classic(args)
   a(href="classic.html").products__classic
-    .products__classic-bg
+    .products__classic-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
       img(src="assets/products-classic-bg.png", alt="")
-    .products__classic-title 
+    .products__classic-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400")
       | Восемь 
       br
       | классических
       br
       | лимонадов
-    .products__classic-image 
+    .products__classic-image(uk-scrollspy="cls: uk-animation-scale-up; delay: 700")
       img(src="assets/products-classic-img-01.png", alt="").products__classic-image--01
       img(src="assets/products-classic-img-02.png", alt="").products__classic-image--02
 
 
 mixin classic-block(args)
-  .classic__block(class="classic__block--"+args.class)
+  .classic__block(class="classic__block--"+args.class, uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200")
     .classic__block-num= args.num
-    .classic__block-image
+    .classic__block-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
       img(src="assets/classic-block-" + args.class + ".png", alt=args.title)
-    .classic__block-content
+    .classic__block-content(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
       .classic__block-title= args.title
       .classic__block-text= args.text
 

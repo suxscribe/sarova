@@ -13,7 +13,7 @@
     align-items: center;
     min-height: calc(var(--vh, 1vh) * 100);
 
-    padding-top: percent-view(230px);
+    padding-top: responsive-value(40px, 200px);
     padding-bottom: percent-view(163px);
   }
 

@@ -8,17 +8,17 @@ block variables
   - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
 
 block content
-  .content__title-wrap
-    .content__subtitle Новости
-    .content__title Новости компании
-    .news__nav
+  .content__title-wrap(uk-scrollspy=scrollSpy)
+    .content__subtitle(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400") Новости
+    .content__title(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400") Новости компании
+    .news__nav(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
       a.news__nav-item.uk-active(href="") Все годы по порядку
       a.news__nav-item(href="#news-2020") 2020
       a.news__nav-item(href="#news-2019") 2019
       a.news__nav-item(href="#news-2018") 2018
       a.news__nav-item(href="#news-2017") 2017
 
-  .news__container#content
+  .news__container#content(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 800")
     .news
       .news__section
         .news__section-title#news-2020 2020

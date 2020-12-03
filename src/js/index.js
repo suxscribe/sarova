@@ -10,10 +10,10 @@ import Splitting from 'splitting';
 
 import { variables, elements } from './components/variables';
 
-import { setVh } from './components/helpers';
+import { setVh, hidePreloader } from './components/helpers';
 
 import { section1Slider } from './components/swipers';
-import { sectionScrolls } from './components/section-scrolls';
+import { sectionsInit, sectionScrolls } from './components/section-scrolls';
 
 // import { validateForms } from './components/forms';
 
@@ -49,15 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setVh();
   window.addEventListener('resize', setVh); // recalc browser height on resize
-  // validateForms();
   sectionScrolls();
-
-  // contactsMaps();
 });
 
 // Wait for everything to load
 window.addEventListener('load', function() {
-  // introAnimation();
+  const startEverything = () => {
+    hidePreloader();
+    sectionScrolls();
+  };
+
+  // setTimeout(hidePreloader, 1000);
+  // setTimeout(sectionScrolls, 1500);
+
+  sectionsInit();
 });
 
 // scroll to top on page reload
