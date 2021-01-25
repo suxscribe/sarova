@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 88px 0 144px;
+  padding: 88px 0 percent-view(144px);
   border-top: 1px solid $color-accent;
 
   @include container;
@@ -13,6 +13,7 @@
     margin-bottom: 55px;
     flex: 0 0 auto;
     width: 50%;
+    height: 34px;
     max-width: 200px;
 
     & svg {
@@ -69,21 +70,26 @@
 
     &-item {
       flex: 0 0 auto;
-      margin: 0 responsive-value(11px, 21px);
+      margin: 0 responsive-value(7px, 21px);
     }
     &-link {
-      opacity: 0.54;
+      // opacity: 0.3;
 
       & svg {
+        transition: all var(--transition);
         $social-icon-size: 32px;
 
-        fill: $color-black;
+        fill: rgba($color-black, 0.3);
         width: $social-icon-size;
         height: $social-icon-size;
       }
 
       &:hover {
-        opacity: 1;
+        // opacity: 1;
+
+        & svg {
+          fill: $color-accent;
+        }
       }
     }
   }
@@ -96,11 +102,14 @@
     color: rgba($color-black, 0.4);
 
     flex-direction: column;
+    width: 100%;
 
     @media (min-width: $breakpoint-small) {
       flex-direction: row;
       align-items: flex-start;
+    }
 
+    @media (min-width: $breakpoint-medium) {
       width: calc(#{$column-width} * 6);
     }
 
@@ -108,6 +117,7 @@
       flex: 0 0 50%;
       min-width: calc(#{$column-width} * 2);
       text-align: center;
+      margin-bottom: 20px;
 
       @media (min-width: $breakpoint-medium) {
         white-space: nowrap;
@@ -118,7 +128,8 @@
       color: rgba($color-black, 0.4);
 
       &:hover,
-      &:focus {
+      &:focus,
+      &:active {
         color: rgba($color-black, 0.8);
       }
     }

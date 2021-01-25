@@ -1,11 +1,16 @@
 .button {
   &--round {
-    $button-round-size: 114px;
+    $button-round-size: responsive-value(
+      74px,
+      114px,
+      $breakpoint-small,
+      $fhd-width
+    );
     $button-round-size-s: 90px;
 
     display: block;
     color: $color-accent;
-    font-size: 1.4 * $base-font-size;
+    font-size: responsive-value(10px, 14px, $breakpoint-small, $fhd-width);
     border: 1px rgba($color-accent-2, 0.4) solid;
     border-radius: 50%;
     text-align: center;

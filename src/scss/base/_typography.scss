@@ -12,13 +12,28 @@ a {
   // text-decoration-color: rgba($color-red, 0.4);
   transition: all var(--transition);
 
-  &:hover {
+  &:hover,
+  &:active {
     // text-decoration-color: rgba($color-red, 0);
     // text-underline-offset: 0.7em;
     color: $color-accent;
   }
   &:focus {
     // text-decoration: underline solid rgba(0,0,0,0.1);
+  }
+
+  &.link {
+    &--underline {
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+      text-decoration-color: $color-accent;
+      text-decoration-thickness: 1px;
+
+      &:hover,
+      &:focus {
+        text-decoration-color: rgba($color-accent, 0);
+      }
+    }
   }
 }
 

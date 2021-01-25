@@ -28,6 +28,8 @@
     }
   }
   &__info {
+    margin-bottom: 32px;
+
     @media (min-width: $breakpoint-medium) {
       flex: 0 0 calc(#{$column-width}* 2);
       padding-right: $column-margin;
@@ -78,9 +80,12 @@
   }
 
   &__logo {
+    text-align: center;
+
     @media (min-width: $breakpoint-medium) {
       flex: 0 0 $column-width;
       padding-right: $column-margin;
+      text-align: left;
     }
   }
   &__title {

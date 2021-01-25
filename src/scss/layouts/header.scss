@@ -9,6 +9,12 @@
   width: 100% !important; // override uk sticky
   z-index: 10; //fix unclickable header on page top
 
+  .page--index & {
+    @media (min-width: $breakpoint-small) {
+      position: fixed;
+    }
+  }
+
   &__nav {
     @include container;
 
@@ -31,23 +37,22 @@
         width: 17.5%;
       }
 
-      &:first-of-type {
-        // text-align: left;
-      }
-      &:last-of-type {
-        // text-align: right;
-      }
-
       .page--index &,
       .page--product & {
         color: $color-white;
 
+        svg {
+          fill: $color-white;
+        }
         &:hover {
           color: rgba($color-white, 0.8);
+          & svg {
+            fill: $color-accent;
+          }
         }
       }
       .section--4 &,
-      .fp-viewing-section-4 & {
+      .fp-viewing-bottom & {
         // logo color on 4th section
         color: $color-accent;
 
@@ -55,13 +60,10 @@
           color: $color-accent-2;
         }
       }
-
-      &:hover {
-        transform: scale(1.2);
-      }
     }
 
     &-logo {
+      @include transition-fix;
       width: responsive-value(205px, 264px);
       height: responsive-value(76px, 96px);
       position: relative;
@@ -70,9 +72,12 @@
       justify-content: center;
       flex: 0 0 auto;
 
+      &:hover {
+        transform: scale(1.05);
+      }
+
       & svg {
         position: absolute;
-
         transition: all var(--transition);
       }
 
@@ -80,32 +85,21 @@
         transform: translateY(0%);
         width: 100%;
 
+        .page--index.fp-viewing-water & {
+          transform: translateY(-100%);
+        }
+
         &-path {
           transition: all var(--transition);
-
           fill: $color-accent;
-
-          .header__nav-logo:hover & {
-            fill: $color-accent-2;
-          }
 
           .page--product & {
             fill: $color-white;
           }
-          .page--product .header__nav-logo:hover & {
+          .page--index & {
             fill: $color-white;
           }
-        }
-
-        .page--index & {
-          transform: translateY(-100%);
-
-          &-path {
-            fill: $color-white;
-          }
-        }
-        .fp-viewing-section-4 & {
-          &-path {
+          .fp-viewing-bottom & {
             fill: $color-accent;
           }
         }
@@ -113,26 +107,26 @@
       &-title {
         transform: translateY(-100%);
 
-        // position: fixed;
         width: 50%;
         height: 100%;
 
-        .page--index & {
-          transform: translateY(0%);
+        .page--index.fp-viewing-water & {
+          transform: translateY(0);
+        }
+        .page--index:not(.fp-viewing-water) & {
+          transform: translateY(-100%);
         }
       }
 
       // switch logo on index page
       &--panel {
         & .header__nav-logo-panel {
-          transform: translateY(0%);
+          // transform: translateY(0%);
         }
         & .header__nav-logo-title {
-          transform: translateY(-100%);
+          // transform: translateY(-100%);
         }
       }
-
-      // styling for index page
     }
   }
 }

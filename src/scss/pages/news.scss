@@ -4,7 +4,8 @@
   }
   &__nav {
     margin-top: responsive-value(25px, 50px);
-    margin-bottom: responsive-value(70px, 140px);
+    margin-bottom: responsive-value(30px, 60px);
+    text-align: center;
 
     &-item {
       display: inline-block;
@@ -33,6 +34,7 @@
 
     &-items {
       padding: responsive-value(40px, 80px) 0;
+      margin-bottom: responsive-value(30px, 70px);
     }
   }
 
@@ -90,6 +92,11 @@
       @include font-lead;
       font-weight: 700;
       margin-bottom: responsive-value(8px, 16px);
+      transition: all var(--transition);
+
+      .news__item:hover & {
+        color: $color-accent;
+      }
     }
     &-desc {
     }
@@ -103,6 +110,16 @@
         responsive-value(60px, 116px) $modal-padding;
 
       @include container;
+      // max-width: 808px !important;
+      @media (min-width: $breakpoint-small) {
+        width: calc(#{$column-width-medium} * 3);
+      }
+      @media (min-width: $breakpoint-medium) {
+        width: calc(#{$column-width} * 6);
+      }
+      @media (min-width: $breakpoint-large) {
+        width: calc(#{$column-width} * 4);
+      }
     }
 
     &-date {

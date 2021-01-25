@@ -1,0 +1,230 @@
+.red {
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: calc(var(--vh, 1vh) * 100); //todo minus main--content height
+    padding-bottom: responsive-value(30px, 60px);
+    overflow: hidden;
+    position: relative;
+    // background: $color-red;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    text-align: center;
+
+    overflow: hidden;
+
+    background: $color-red;
+    pointer-events: none;
+
+    & img,
+    & svg {
+      height: 70%;
+      object-fit: contain;
+      object-position: center;
+      fill: $color-classic;
+
+      width: 90vw;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    z-index: 1;
+
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: percent-view(101px, $fhd-height, 'h');
+    padding-bottom: percent-view(60px, $fhd-height, 'h');
+
+    @media (min-width: $breakpoint-small) {
+      justify-content: center;
+    }
+    @media (min-width: $breakpoint-medium) {
+      justify-content: center;
+    }
+  }
+
+  &__title-wrap {
+    @include container;
+    margin-top: responsive-value(109px, 181px);
+    margin-bottom: responsive-value(40px, 80px);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    pointer-events: none;
+
+    flex: 0 0 auto;
+    justify-content: center;
+    display: flex;
+    z-index: 1;
+  }
+  &__subtitle {
+    @include font-subtitle;
+    color: $color-white;
+  }
+  &__title {
+    @include font-heading-large;
+    line-height: 1;
+    color: $color-white;
+  }
+
+  &__bottles {
+    @include red-bottles;
+    flex: 0 0 auto;
+  }
+  &__bottle {
+    height: responsive-value(190px, 485px);
+
+    & img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__button-wrap {
+    flex: 0 0 auto;
+  }
+
+  &__scrolldown {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    border-color: rgba($color-white, 0.6);
+
+    & svg {
+      stroke: $color-white;
+    }
+
+    &:hover {
+      background-color: $color-white;
+
+      & svg {
+        stroke: $color-red;
+      }
+    }
+  }
+
+  &__section {
+    @include container;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: responsive-value(60px, 250px);
+    padding-top: 120px; //logo height
+
+    &-title {
+      text-align: center;
+      margin-bottom: responsive-value(60px, 250px);
+
+      @media (min-width: $breakpoint-medium) {
+        width: calc(#{$column-width} * 6);
+      }
+    }
+  }
+
+  &__block {
+    $red-block-padding: responsive-value(100px, 179px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: $red-block-padding;
+    margin-bottom: responsive-value(50px, 220px, $mobile-min-width, $fhd-width);
+
+    width: calc(#{$column-width-small} * 2);
+
+    @media (min-width: $breakpoint-small) {
+      width: calc(#{$column-width-medium} * 4);
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 4.5);
+    }
+
+    &-top {
+      position: relative;
+      width: 100%;
+      margin-bottom: responsive-value(20px, 42px);
+    }
+    &-bg {
+      position: absolute;
+      width: 100%;
+      // height: 100%;
+      top: calc(#{$red-block-padding} * -1);
+      left: 0;
+      right: 0;
+      // background-color: rgba(0, 0, 0, 0.1);
+
+      @media (min-width: $breakpoint-small) {
+        width: 70%;
+        margin: 0 auto;
+      }
+      @media (min-width: $breakpoint-medium) {
+        width: 100%;
+      }
+
+      &-ellipse {
+        @include transition-fix;
+        position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      &-inner {
+        @include transition-fix;
+
+        position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      &-outer {
+        @include transition-fix;
+      }
+    }
+    &-bottle {
+      height: responsive-value(400px, 608px);
+      text-align: center;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+    &-title {
+      @include font-h3;
+      margin-bottom: responsive-value(16px, 22px);
+      text-align: center;
+      color: $color-red;
+    }
+    &-desc {
+      text-align: center;
+    }
+  }
+}

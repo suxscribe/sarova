@@ -18,22 +18,26 @@ block content
         br 
         | минеральная вода
     .water__bottles.scrollspy__container(uk-scrollspy="target: >a; cls: uk-animation-slide-bottom-small; delay: 300")
-      +water-bottle({img: 'water-bottles-01.png', name: 'Негазированная', link: '#second-screen'})
-      +water-bottle({img: 'water-bottles-02.png', name: 'Газированная', link: '#section-carb'})
-      +water-bottle({img: 'water-bottles-03.png', name: 'Сарова Premium', link: '#section-premium'})
+      +water-bottle({imgS: 'water-uncarb-15.png',img: 'water-bottles-01.png', name: 'Негазированная', link: '#second-screen'})
+      +water-bottle({imgS: 'water-carb-15.png',img: 'water-bottles-02.png', name: 'Газированная', link: '#section-carb'})
+      +water-bottle({imgS: 'water-premium-uncarb.png',img: 'water-bottles-03.png', name: 'Сарова Premium', link: '#section-premium'})
       
-    a.water__scrolldown.button--scrolldown(href="#second-screen")(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 800")
+    a.water__scrolldown.button--scrolldown(href="#second-screen", uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 800")
       +svg({name: 'arrow-down'})
 
   .water__section.water__section--uncarb#second-screen
     .water__section-title(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200") Негазированная минеральная вода «Сарова»
-    .water__section-content(uk-grid, class="uk-child-width-1-3@s")
+    .water__section-content(uk-grid, class="uk-child-width-1-3@s uk-grid-collapse")
       .water__section-bottle-mobile-text
         p Столовая вода с&nbsp;необходимым уровнем солей (до&nbsp;1&nbsp;г/л) идеальна для питья и&nbsp;приготовления пищи. Представлена в&nbsp;трёх оптимальных форматах: &laquo;индивидуальный&raquo; (0,5&nbsp;л), &laquo;семейный&raquo; (1,5&nbsp;л), &laquo;бытовой&raquo; (5&nbsp;л).
       .water__section-bottle.water__section-bottle--uncarb-05(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
+        .water__section-bottle-bg
+          //- img(src="assets/water-carb-15-bg.png", alt="")
+          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/water-uncarb-05-bg.mp4")
         .water__section-bottle-img
-          img(src="assets/water-uncarb-05.png", alt="")
+          img(src="assets/water-uncarb-05.png", alt="")          
         .water__section-bottle-label Объем — 0.5 л, 1.5 л
+      
       .water__section-bottle.water__section-bottle--pull(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 700")
         .water__section-bottle-img
           img(src="assets/water-uncarb-15.png", alt="")
@@ -52,34 +56,39 @@ block content
       .water__section-bottle.water__section-bottle--carb-15(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
         .water__section-bottle-bg
           //- img(src="assets/water-carb-15-bg.png", alt="")
-          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4")
+          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/water-carb-15-bg.mp4")
         .water__section-bottle-img
           img(src="assets/water-carb-15.png", alt="")
         .water__section-bottle-label Объем — 1.5 л
       
       .water__section-bottle.water__section-bottle--carb-05(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 700")
-        .water__section-bottle-text
-          p Природные чистота и&nbsp;вкус в&nbsp;сочетании с&nbsp;бодрящими пузырьками. Отлично утолит жажду одного (0,5&nbsp;л) и&nbsp;освежит целую компанию (1,5&nbsp;л).
+        .water__section-bottle-bg
+          //- img(src="assets/water-carb-15-bg.png", alt="")
+          video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/water-carb-15-bg.mp4")
         .water__section-bottle-img
-          img(src="assets/water-carb-05.png", alt="")
+          img(src="assets/water-carb-05.png", alt="")       
         .water__section-bottle-label Объем — 0.5 л
+
+      .water__section-bottle-text.water__section-bottle-text--carb
+          p Природные чистота и&nbsp;вкус в&nbsp;сочетании с&nbsp;бодрящими пузырьками. Отлично утолит жажду одного (0,5&nbsp;л) и&nbsp;освежит целую компанию (1,5&nbsp;л).
 
   .water__section.water__section--premium#section-premium
     .water__section-title(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200") Вода Сарова Premium
     .water__section-content
-      .water__section-bottle
+      .water__section-bottle.water__section-bottle--premium
         .water__section-bottle-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
           //- img(src="assets/water-carb-15-bg.png", alt="")
           video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4")
         .water__section-bottle-img(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 700")
           img(src="assets/water-premium.png", alt="")
         .water__section-bottle-text(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000") Для особых случаев и&nbsp;торжественных мероприятий к&nbsp;вашим услугам &laquo;Сарова Premium&raquo; в&nbsp;стекле. Удобно, элегантно, экологично.
-        .water__section-bottle-label(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000") Объем — 1.5 л
+        .water__section-bottle-label(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000") Объем — 0.5 л
 
   .related
     h2.related__title.h2 Попробуйте также
-    .related__lead Разнообразие вкуса и&nbsp;цвета напитков &laquo;Сарова&raquo; хватит на&nbsp;всех товарищей.
+    .related__lead Разнообразия вкуса и&nbsp;цвета напитков &laquo;Сарова&raquo; хватит на&nbsp;всех!
 
   .products.products--column
     +product-time()
     +product-classic()
+    +product-red()

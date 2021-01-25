@@ -5,16 +5,31 @@ Swiper.use([Navigation, EffectFade, Keyboard, Controller]);
 // import readmore from './components/readmore.js';
 // import ripple from './components/ripple';
 
-import gsap from 'gsap';
-import Splitting from 'splitting';
+import { gsap, Sine } from 'gsap/all';
+
+import fullpage from 'fullpage.js';
 
 import { variables, elements } from './components/variables';
 
-import { setVh, hidePreloader } from './components/helpers';
+import {
+  setVh,
+  hidePreloader,
+  bottleHover,
+  classicBottleClick,
+  checkFirstScreen,
+  iOS,
+} from './components/helpers';
 
 import { section1Slider } from './components/swipers';
-import { sectionsInit, sectionScrolls } from './components/section-scrolls';
+import {
+  sectionsInit,
+  sectionScrolls,
+  classicInit,
+  redInit,
+} from './components/section-scrolls';
+import { redParallax } from './components/red';
 
+// import Splitting from 'splitting';
 // import { validateForms } from './components/forms';
 
 window.UIkit = UIkit; // fix not difined bug
@@ -43,26 +58,57 @@ UIkit.mixin(
 document.addEventListener('DOMContentLoaded', () => {
   // COMMON SCRIPTS
 
-  // headerScripts();
-
   section1Slider();
 
   setVh();
   window.addEventListener('resize', setVh); // recalc browser height on resize
+  iOS();
+
   sectionScrolls();
+
+  bottleHover('.section-2__bottles-item img[data-color]', '.section-2__bg');
+  bottleHover(
+    '.classic__bottle img[data-color]',
+    '.classic__bg',
+    '.classic__intro-before',
+    '.bottle-color-hover'
+  );
+  bottleHover(
+    '.section-3__bottle img[data-color]',
+    '.section-3__bg-color',
+    null,
+    '.bottle-color-hover'
+  );
+  bottleHover(
+    '.time__bottle[data-color]',
+    '.time__bg',
+    null,
+    '.bottle-color-hover'
+  );
+
+  classicBottleClick('.classic__bottle img');
+  classicBottleClick('.section-3__bottle img');
+
+  checkFirstScreen();
+
+  redParallax();
+
+  // document.querySelectorAll('.section-3__bottle img').forEach((bottle) => {
+  //   bottle.addEventListener('mouseenter', () => {
+  //     bottle.style.transform += 'scale(1.05)';
+  //   });
+  // });
 });
 
 // Wait for everything to load
 window.addEventListener('load', function() {
-  const startEverything = () => {
-    hidePreloader();
-    sectionScrolls();
-  };
-
   // setTimeout(hidePreloader, 1000);
   // setTimeout(sectionScrolls, 1500);
 
+  hidePreloader();
   sectionsInit();
+  classicInit();
+  redInit();
 });
 
 // scroll to top on page reload

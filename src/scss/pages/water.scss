@@ -56,18 +56,24 @@
     @include container;
     display: flex;
     flex: 1 0 auto;
+    width: 100%;
 
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
     margin-bottom: percent-view(40px);
+
+    @media (min-width: $breakpoint-small) {
+      justify-content: space-between;
+    }
   }
 
   &__bottle {
     display: block;
     text-align: center;
+    flex: 1;
 
     &-image {
-      margin-bottom: 25px;
+      margin-bottom: percent-view(25px);
 
       height: responsive-value(
         200px,
@@ -90,15 +96,32 @@
         max-height: 43vh;
       }
 
-      & img {
+      & img,
+      & picture {
         width: 100%;
         height: 100%;
         object-fit: contain;
         object-position: center;
+        transition: all var(--transition);
+        transform-origin: center bottom;
+
+        .water__bottle:hover & {
+          transform: scale(1.05);
+        }
       }
     }
     &-title {
       @include font-label;
+      transition: all var(--transition);
+      display: none;
+
+      @media (min-width: $breakpoint-small) {
+        display: block;
+      }
+
+      .water__bottle:hover & {
+        color: rgba($color-black, 0.8);
+      }
     }
   }
 
@@ -140,6 +163,9 @@
       text-align: center;
       position: relative;
 
+      &-wrap {
+        position: relative;
+      }
       &-img {
         margin-bottom: 30px;
       }
@@ -149,9 +175,21 @@
       &-text {
         text-align: left;
         margin-bottom: 30px;
+
+        &--carb {
+          margin-top: 30px;
+
+          @media (min-width: $breakpoint-small) {
+            position: absolute;
+            top: 0;
+            left: 65%;
+            margin-top: 0;
+          }
+        }
       }
 
       &-mobile-text {
+        margin: 30px 0;
         @media (min-width: $breakpoint-small) {
           display: none;
         }
@@ -160,9 +198,11 @@
       &--pull {
         margin-top: -22%;
         order: -1;
+        margin-bottom: 30px;
 
         @media (min-width: $breakpoint-small) {
           order: 0;
+          margin-bottom: 0;
         }
 
         & img {
@@ -172,7 +212,58 @@
 
       &--uncarb-05 {
         @media (max-width: $breakpoint-xsmall-max) {
-          width: responsive-value(200px, 363px);
+          width: calc(#{$column-width-small} * 1);
+          // height: calc(#{$column-width-small} * 1);
+        }
+
+        & .water__section-bottle-bg {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 50%;
+          overflow: hidden;
+
+          width: calc(#{$column-width-small} * 1);
+          height: calc(#{$column-width-small} * 1);
+
+          @media (min-width: $breakpoint-small) {
+            width: calc(#{$column-width-medium} * 1.2);
+            height: calc(#{$column-width-medium} * 1.2);
+          }
+
+          @media (min-width: $breakpoint-medium) {
+            width: calc(#{$column-width} * 1.5);
+            height: calc(#{$column-width} * 1.5);
+          }
+
+          & video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        & .water__section-bottle-img {
+          padding-top: 20%;
+          position: relative;
+          z-index: 1;
+
+          height: responsive-value(
+            206px,
+            260px,
+            $mobile-min-width,
+            $breakpoint-small-max
+          );
+
+          @media (min-width: $breakpoint-medium) {
+            height: percent-view(406px);
+          }
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+          }
         }
       }
 
@@ -194,9 +285,12 @@
       }
 
       &--carb-15 {
-        margin-bottom: 30px;
+        flex: 0 0 70%;
+        // margin-bottom: 30px;
+
         @media (min-width: $breakpoint-small) {
           flex: 0 0 60%;
+          margin-bottom: 0;
         }
 
         & .water__section-bottle-bg {
@@ -250,6 +344,7 @@
         }
       }
       &--carb-05 {
+        flex: 0 0 25%;
         & .water__section-bottle-text {
           @media (min-width: $breakpoint-small) {
             margin-left: calc(#{$column-width-medium} / 4);
@@ -258,13 +353,54 @@
             margin-left: calc(#{$column-width} / 2);
           }
         }
-        & .water__section-bottle-img,
-        & .water__section-bottle-label {
+
+        & .water__section-bottle-bg {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 50%;
+          overflow: hidden;
+          top: 20%;
+
+          width: calc(#{$column-width-small} * 0.5);
+          height: calc(#{$column-width-small} * 0.5);
+
           @media (min-width: $breakpoint-small) {
-            width: $column-width-medium;
+            width: calc(#{$column-width-medium} * 0.8);
+            height: calc(#{$column-width-medium} * 0.8);
           }
+
           @media (min-width: $breakpoint-medium) {
-            width: $column-width;
+            width: calc(#{$column-width} * 1);
+            height: calc(#{$column-width} * 1);
+          }
+
+          & video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        & .water__section-bottle-img {
+          position: relative;
+          z-index: 1;
+
+          height: responsive-value(
+            180px,
+            230px,
+            $mobile-min-width,
+            $breakpoint-small-max
+          );
+
+          @media (min-width: $breakpoint-medium) {
+            height: percent-view(328px);
+          }
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
           }
         }
       }
@@ -276,6 +412,11 @@
     }
 
     &--carb {
+      & .water__section-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+      }
       & .water__section-title {
       }
     }
@@ -312,15 +453,26 @@
         }
       }
       & .water__section-bottle-img {
-        padding-top: 30%;
+        margin-top: 30%;
         position: relative;
         z-index: 1;
 
-        @media (min-width: $breakpoint-small) {
-          width: calc(#{$column-width-medium} * 2.5);
-        }
+        height: responsive-value(
+          234px,
+          334px,
+          $mobile-min-width,
+          $breakpoint-small-max
+        );
+
         @media (min-width: $breakpoint-medium) {
-          width: calc(#{$column-width} * 3.5);
+          height: percent-view(530px);
+        }
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
         }
       }
       & .water__section-content {

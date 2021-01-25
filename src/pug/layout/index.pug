@@ -12,8 +12,19 @@ html(lang='ru')
     block head
 
   body(class=pageClass)
+    .preloader
+      .preloader__wrap
+        .preloader__logo
+          +svg({name:'logo'})
+        .preloader__wave
+          svg.preloader__svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', style='margin:auto;background:#fff;display:block;', viewbox='0 0 100 100', preserveaspectratio='xMidYMid')
+            path(d='M15 50 Q32.5 40 50 50 Q67.5 60 85 50 A35 35 0 0 1 15 50', fill='#70b9d9')
+              animate(attributename='d', repeatcount='indefinite', dur='1.5s', calcmode='spline', keytimes='0;0.5;1', values='M15 50 Q32.5 40 50 50 Q67.5 60 85 50 A35 35 0 0 1 15 50;M15 50 Q32.5 60 50 50 Q67.5 40 85 50 A35 35 0 0 1 15 50;M15 50 Q32.5 40 50 50 Q67.5 60 85 50 A35 35 0 0 1 15 50', keysplines='0.5 0 0.5 1;0.5 0 0.5 1')
+
     include ../includes/modules/header
     main.main(class=mainClass)
       block content
+    include ../includes/modules/offcanvas
+    
 
     block script

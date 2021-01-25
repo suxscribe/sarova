@@ -3,8 +3,8 @@
   min-height: 100vh;
 
   &__content {
-    max-width: calc(#{$column-width} * 6);
-    margin: 0 auto;
+    @include container;
+
     color: rgba($color-black, 0.8);
     display: flex;
     flex-direction: column;
@@ -18,8 +18,15 @@
   }
 
   &__image {
-    width: percent-view(434px);
-    margin-bottom: percent-view(60px);
+    width: calc(#{$column-width-small} * 1.7);
+    margin-bottom: 60px;
+
+    @media (min-width: $breakpoint-small) {
+      width: calc(#{$column-width-medium} * 2.1);
+    }
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 2.1);
+    }
   }
   &__title {
     @include font-40;

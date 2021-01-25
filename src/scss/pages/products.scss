@@ -10,18 +10,16 @@
   transition: transform var(--transition);
 
   // width: calc(#{$column-width-small} * 1.6);
-  width: 100%;
-  height: calc(#{$column-width-small} * 1.6);
+  width: $product-size;
+  height: $product-size;
 
   @media (min-width: $breakpoint-small) {
-    // width: calc(#{$column-width-medium} * 2.5);
-    width: 100%;
-    height: calc(#{$column-width-medium} * 2.5);
+    width: $product-size-s;
+    height: $product-size-s;
   }
   @media (min-width: $breakpoint-medium) {
-    // width: calc(#{$column-width} * 3);
-    width: 100%;
-    height: calc(#{$column-width} * 3);
+    width: $product-size-m;
+    height: $product-size-m;
   }
 
   & img {
@@ -33,10 +31,11 @@
 
   & > video {
     width: 100%;
-    height: 100%;
+    height: calc(100% + #{$parallax-y}px);
     object-fit: cover;
     object-position: center;
-    transition: transform var(--transition);
+    // transition: transform var(--transition);
+    transition: transform 0s linear 0s;
   }
 }
 
@@ -54,26 +53,26 @@
   }
 
   &__water {
-    width: calc(#{$column-width-small} * 1.6);
-
-    @media (min-width: $breakpoint-small) {
-      width: calc(#{$column-width-medium} * 2.5);
-    }
-    @media (min-width: $breakpoint-medium) {
-      width: calc(#{$column-width} * 3);
-    }
+    @include transition-fix;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
 
-    padding-top: responsive-value(59px, 148px);
-    margin-bottom: 100px;
+    padding-top: responsive-value(59px, 110px);
+    margin-bottom: responsive-value(140px, 200px);
 
-    // @media (min-width: $breakpoint-medium) {
-    //   flex: 0 0 calc(#{$column-width} * 3.5);
-    // }
+    width: $product-size;
+    height: $product-size;
+    @media (min-width: $breakpoint-small) {
+      width: $product-size-s;
+      height: $product-size-s;
+    }
+    @media (min-width: $breakpoint-medium) {
+      width: $product-size-m;
+      height: $product-size-m;
+    }
 
     &-bg {
       @include product-bg;
@@ -82,16 +81,16 @@
       overflow: hidden;
 
       .products__water:hover & {
-        transform: translateX(-50%) scale(1.05);
+        transform: scale(0.95);
 
         & video {
-          transform: scale(1);
+          // transform: scale(1);
         }
       }
 
       & img,
       & video {
-        transform: scale(1.05);
+        // transform: scale(1.05);
       }
     }
 
@@ -100,59 +99,95 @@
 
       color: $color-white;
       text-align: center;
-      margin-bottom: responsive-value(25px, 50px);
+      margin-bottom: responsive-value(15px, 30px);
+      transition: opacity var(--transition);
+
+      .products__water:hover & {
+        opacity: 0.8;
+      }
     }
 
     &-image {
-      height: responsive-value(290px, 491px);
-      // height: percent-view(491px);
+      @include transition-fix;
+
+      // height: responsive-value(230px, 470px);
+      height: 100%;
 
       & img {
+        @include transition-fix;
+
         width: 100%;
         height: 100%;
         object-fit: contain;
         object-position: center;
+        transition: transform var(--transition);
+
+        .products__water:hover & {
+          transform: scale(1.05);
+        }
       }
     }
   }
 
   &__time {
-    width: calc(#{$column-width-small} * 1.6);
-
-    @media (min-width: $breakpoint-small) {
-      width: calc(#{$column-width-medium} * 2.5);
-    }
-    @media (min-width: $breakpoint-medium) {
-      width: calc(#{$column-width} * 3);
-    }
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 
     padding-top: responsive-value(90px, 167px);
 
+    width: $product-size;
+    height: $product-size;
+
+    @media (min-width: $breakpoint-small) {
+      width: $product-size-s;
+      height: $product-size-s;
+    }
     @media (min-width: $breakpoint-medium) {
-      position: absolute;
-      right: 0;
-      top: percent-view(270px);
+      width: $product-size-m;
+      height: $product-size-m;
     }
 
-    &:hover &-bg {
-      transform: translateX(-50%) scale(1.05);
-
-      & video {
-        transform: scale(1);
+    &-wrap {
+      @media (min-width: $breakpoint-small) {
+        margin-bottom: 100px;
+      }
+      @media (min-width: $breakpoint-medium) {
+        position: absolute;
+        right: 0;
+        top: percent-view(330px);
+        margin-bottom: 40px;
       }
     }
 
     &-bg {
       @include product-bg;
+      // @include transition-fix; // this breaks the background-attachement fixed of bg
 
       border-radius: 8px;
       overflow: hidden;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        mix-blend-mode: overlay;
+        background: url('../assets/time-bg.png') repeat center;
+        background-size: 100vw;
+        background-attachment: fixed;
+        z-index: 2;
+
+        @media (min-width: $breakpoint-medium) {
+          background-size: 50vw;
+        }
+        // opacity: 0.5;
+      }
 
       &:before {
         content: '';
@@ -163,12 +198,21 @@
         width: 100%;
         height: 100%;
         background-color: $color-time;
-        mix-blend-mode: multiply;
+        mix-blend-mode: normal;
         z-index: 1;
       }
 
       & video {
-        transform: scale(1.05);
+        // transform: scale(1.05);
+        display: none;
+      }
+
+      .products__time:hover & {
+        // transform: scale(0.95); //translateX(-50%)
+
+        & video {
+          // transform: scale(1);
+        }
       }
 
       &-2 {
@@ -178,9 +222,22 @@
         mix-blend-mode: overlay;
 
         & img {
+          @include transition-fix;
           width: 70%;
+          opacity: 0.5;
+          transition: scale var(--transition);
+
+          .products__time:hover & {
+            scale: 0.95; //translateX(-50%)
+          }
         }
       }
+    }
+
+    &-title-wrap {
+      position: absolute;
+      width: 100%;
+      top: 27%;
     }
 
     &-title {
@@ -188,7 +245,12 @@
 
       color: $color-white;
       text-align: center;
-      margin-bottom: percent-view(18px);
+      margin-bottom: percent-view(10px);
+      transition: opacity var(--transition);
+
+      .products__time:hover & {
+        opacity: 0.8;
+      }
     }
     &-subtitle {
       @include font-label;
@@ -198,24 +260,50 @@
       text-align: center;
       text-transform: uppercase;
       margin-bottom: responsive-value(40px, 108px);
+      transition: opacity var(--transition);
+
+      .products__time:hover & {
+        opacity: 0.8;
+      }
     }
     &-image {
+      @include transition-fix;
       text-align: center;
 
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      height: 55%;
+      width: 70%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 58%;
+
       & img {
-        max-width: 80%;
+        flex: 0 0 auto;
+        height: 100%;
+        transition: transform var(--transition);
+
+        .products__time:hover & {
+          transform: scale(1.05);
+        }
       }
     }
   }
 
   &__classic {
     width: calc(#{$column-width-small} * 2);
+    height: calc(#{$column-width-small} * 2);
 
     @media (min-width: $breakpoint-small) {
-      width: calc(#{$column-width-medium} * 2.5);
+      width: calc(#{$column-width-medium} * 3);
+      height: calc(#{$column-width-medium} * 3);
     }
     @media (min-width: $breakpoint-medium) {
       width: calc(#{$column-width} * 5);
+      height: calc(#{$column-width} * 5);
     }
 
     display: flex;
@@ -223,43 +311,64 @@
     justify-content: center;
     position: relative;
 
-    height: percent-view(1000px);
+    // padding-top: responsive-value(141px, 274px);
+    // padding-bottom: responsive-value(141px, 274px);
+    margin-bottom: 80px;
 
-    padding-top: responsive-value(141px, 274px);
-    padding-bottom: responsive-value(141px, 274px);
-    margin-bottom: 100px;
-
-    flex: 0 0 calc(#{$column-width} * 5);
+    // flex: 0 0 calc(#{$column-width} * 5);
+    flex: 0 0 auto;
     align-self: center;
 
-    &:hover &-bg {
-      transform: scale(1.05);
+    @media (min-width: $breakpoint-small) {
+      // height: percent-view(1000px);
+    }
+    @media (min-width: $breakpoint-medium) {
+      margin-top: 250px;
     }
 
     &-bg {
       // @include product-bg;
+      @include transition-fix;
 
       width: 100%;
       height: 100%;
       position: absolute;
       z-index: -1;
 
-      // animation-name: hovering;
-      // animation-duration: 2.5s;
-      // animation-delay: 0s;
-      // animation-play-state: running;
-      // animation-iteration-count: infinite;
-      // animation-direction: alternate;
-
       transition: transform var(--transition);
 
-      top: responsive-value(48px, 130px);
+      // top: responsive-value(48px, 130px);
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .products__classic:hover & {
+        transform: scale(0.95); //translateX(-50%)
+
+        & img {
+          transform: scale(1);
+        }
+      }
     }
 
     &-title {
       @include font-40;
       color: $color-classic;
       text-align: center;
+      transition: opacity var(--transition);
+      z-index: 1;
+
+      @media (max-width: $breakpoint-xsmall-max) {
+        font-size: 2.2rem;
+      }
+
+      .products__classic:hover & {
+        opacity: 0.8;
+      }
     }
     &-image {
       width: 100%;
@@ -267,8 +376,15 @@
       position: absolute;
 
       & img {
+        @include transition-fix;
         position: absolute;
         width: 50%;
+
+        transition: transform var(--transition);
+
+        .products__classic:hover & {
+          transform: scale(1.05); //translateX(-50%)
+        }
       }
 
       &--01 {
@@ -282,12 +398,146 @@
     }
   }
 
+  &__red {
+    width: calc(#{$column-width-small} * 2);
+    height: calc(#{$column-width-small} * 1.5);
+
+    @media (min-width: $breakpoint-small) {
+      width: calc(#{$column-width-medium} * 3);
+      height: calc(#{$column-width-medium} * 2);
+    }
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 5);
+      height: calc(#{$column-width} * 3.58);
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    // padding-top: responsive-value(141px, 274px);
+    // padding-bottom: responsive-value(141px, 274px);
+    margin-bottom: 60px;
+
+    // flex: 0 0 calc(#{$column-width} * 5);
+    flex: 0 0 auto;
+    align-self: center;
+
+    @media (min-width: $breakpoint-small) {
+      // height: percent-view(1000px);
+    }
+    @media (min-width: $breakpoint-medium) {
+      margin-top: 60px;
+    }
+
+    &-bg {
+      // @include product-bg;
+      @include transition-fix;
+
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+
+      transition: transform var(--transition);
+
+      // top: responsive-value(48px, 130px);
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .products__red:hover & {
+        transform: scale(0.95); //translateX(-50%)
+
+        & img {
+          transform: scale(1);
+        }
+      }
+    }
+
+    &-image {
+      @include transition-fix;
+      text-align: center;
+
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      height: 60%;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0%;
+
+      & img {
+        @include transition-fix;
+
+        flex: 0 0 auto;
+        height: 100%;
+        transition: transform var(--transition);
+
+        .products__red:hover & {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    &-logo {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60%;
+
+      & img {
+        @include transition-fix;
+
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transition: transform var(--transition);
+
+        .products__red:hover & {
+          transform: scale(0.9);
+        }
+      }
+    }
+
+    &-debris {
+      position: absolute;
+      bottom: 0;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+
+        transition: transform var(--transition);
+
+        .products__red:hover & {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
   &--column {
     align-items: center;
 
     & .products__time {
       position: relative;
       top: 0;
+    }
+
+    & .products__classic {
+      margin-top: 80px;
     }
   }
 }

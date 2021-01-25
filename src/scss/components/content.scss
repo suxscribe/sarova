@@ -3,10 +3,21 @@
     @include font-h1;
     text-align: center;
 
+    &--small {
+      font-weight: 400;
+      @media (max-width: $breakpoint-xsmall-max) {
+        font-size: 2.8rem;
+      }
+    }
+
     &-wrap {
       @include container;
       text-align: center;
       margin-bottom: responsive-value(60px, 121px);
+
+      &--news {
+        margin-bottom: responsive-value(30px, 50px);
+      }
     }
   }
   &__subtitle {
@@ -31,7 +42,8 @@
       }
 
       &:hover,
-      &:focus {
+      &:focus,
+      &:active {
         color: $color-accent;
       }
 
@@ -147,6 +159,11 @@
     margin-bottom: responsive-value(20px, 31px);
     padding-left: 40px;
     position: relative;
+    display: block;
+
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 5);
+    }
 
     &-icon {
       position: absolute;
@@ -167,4 +184,13 @@
       color: rgba($color-black, 0.4);
     }
   }
+}
+
+// bitrix
+.video-js {
+  width: auto !important;
+  height: auto !important;
+}
+.video-js .vjs-tech {
+  position: static !important;
 }

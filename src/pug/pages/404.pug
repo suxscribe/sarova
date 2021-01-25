@@ -1,0 +1,19 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--404';
+  - var mainClass = 'main--404';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  .notfound(uk-scrollspy=scrollSpy)
+    .notfound__title(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400") Такой страницы нет
+    .notfound__subtitle(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
+      | Зато у нас есть много вкусных лимонадов — например, 
+      a.link--underline(href="time.html") Сарова Time
+    .notfound__bg
+      img(src="assets/bottle-time-lemon.png", alt="")
+
+

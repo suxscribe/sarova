@@ -1,0 +1,44 @@
+extends ../layout/index
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--test main--init';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+
+
+block content
+  ul#sidenav.sidenav
+    li(data-menuanchor="water")
+      a.sidenav__item.sidenav__item--1(href="#water", )
+        img(src="assets/sidenav-01-bg.svg", alt="").sidenav__item-bg
+        img(src="assets/sidenav-01-front.png", alt="").sidenav__item-front
+    li(data-menuanchor="time")
+      a.sidenav__item.sidenav__item--2(href="#time", )
+        img(src="assets/sidenav-02-bg.svg", alt="").sidenav__item-bg
+        img(src="assets/sidenav-02-front.png", alt="").sidenav__item-front
+    li(data-menuanchor="classic")
+      a.sidenav__item.sidenav__item--3(href="#classic", )
+        img(src="assets/sidenav-03-bg.svg", alt="").sidenav__item-bg
+        img(src="assets/sidenav-03-front.png", alt="").sidenav__item-front
+    li(data-menuanchor="bottom")
+      a.sidenav__item.sidenav__item--4(href="#bottom", )
+        img(src="assets/sidenav-04-bg.svg", alt="").sidenav__item-bg
+        img(src="assets/sidenav-04-front.png", alt="").sidenav__item-front
+
+  .fullpage#fullpage
+    section#section1.section.section-1(data-anchor="water")
+  
+    section#section2.section.section-2(data-anchor="time")
+
+    section#section3.section.section-3(data-anchor="classic")
+
+    section#section4.section.section-4(data-anchor="bottom")
+      .section-4__bg
+
+  style.
+    .section-1 {background: #ff0000}
+    .section-2 {background: #ffff00}
+    .section-3 {background: #0000ff}
+    .section-4 {background: #00ff00}

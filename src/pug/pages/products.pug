@@ -10,9 +10,11 @@ block variables
 block content
   .content__title-wrap(uk-scrollspy=scrollSpy)
     .content__subtitle Продукция
-    .content__title Природная минеральная вода, цитрусовые газированные напитки, любимые фруктовые лимонады&nbsp;&mdash; своя &laquo;Сарова&raquo; для всех и&nbsp;для каждого.
+    .content__title.content__title--small Природная минеральная вода, цитрусовые газированные напитки, любимые фруктовые лимонады&nbsp;&mdash; своя &laquo;Сарова&raquo; для всех и&nbsp;для каждого.
   .products
     +product-water()
-    +product-time()
+    .products__time-wrap
+      +product-time()
     +product-classic()
+    +product-red()
     

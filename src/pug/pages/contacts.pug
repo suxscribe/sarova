@@ -50,23 +50,8 @@ block content
 
 
     .contacts__title(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200") Дистрибьюторы
-    .distributor(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
-      .distributor__logo
-        img(src="assets/distributor-logo-01.png", alt="")
-      .distributor__title
-        .distributor__title-name Источник
-        .distrobutor__title-desc Крупнейший дистрибьютор продуктов питания по Нижегородской области с 1992 г.
-      .distributor__address
-          p 603034 г. Нижний Новгород, ул. Шмидта, 1б
-          p +7 (831) 257-82-56,  245-50-96,  245-22-62
-          p: a(href="mailto:afgroup@gmail.com") afgroup@gmail.com
-    .distributor
-      .distributor__logo
-        img(src="assets/distributor-logo-01.png", alt="")
-      .distributor__title
-        .distributor__title-name ИП Баженов С.В
-        .distrobutor__title-desc Первый поставщик минеральных вод и напитков по Нижнему Новгороду и области.
-      .distributor__address
-        p 603034, г. Нижний Новгород, ул. Лейтенанта Шмидта, д. 4 А.
-        p +7 (831) 257-82-56,  245-50-96,  245-22-62
-        p: a(href="mailto:bazhenovsv@mail.ru") bazhenovsv@mail.ru
+
+    +distributor({name: 'Источник', desc: 'Крупнейший дистрибьютор продуктов питания по Нижегородской области с 1992 г.', address: '603034 г. Нижний Новгород, ул. Шмидта, 1б', phone: '+7 (831) 257-82-56,  245-50-96,  245-22-62', email: 'afgroup@gmail.com', website: '', logo: 'distributor-logo-01.png'})
+    +distributor({name: 'ИП Баженов С.В', desc: 'Первый поставщик минеральных вод и напитков по Нижнему Новгороду и области.', address: '603034, г. Нижний Новгород, ул. Лейтенанта Шмидта, д. 4 А.', phone: '+7 (831) 257-82-56,  245-50-96,  245-22-62', email: 'bazhenovsv@mail.ru', website: '', logo: '1px.png'})
+    +distributor({name: 'Группа компаний Минеральные воды', desc: 'Оптово-розничная торговля минеральной и природной питьевой водой; доставка по городу и области собственным автотранспортом', address: 'г. Нижний Новгород, ул. Шлиссельбургская, д.23а, корп.3', phone: '+7 (831) 275 95 48, 245 04 68, 245 14 44, 245 48 48', email: 'mw@minwater-nnov.ru', website: 'www.minwater-nnov.ru', logo: 'distributor-logo-mv.png'})
+    +distributor({name: 'Азимут Восток', desc: 'Дистрибьютор минеральной воды  по Москве и Московской области. ', address: '111141 г. Москва. Электродный проезд, д. 14 стр. 1. ', phone: '+7 (495) 995-80-58, +7(495) 514-55-18 ', email: 'info@voda-sarova.ru', website: 'www.voda-sarova.ru ', logo: '1px.png'})

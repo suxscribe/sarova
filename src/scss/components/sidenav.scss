@@ -1,39 +1,47 @@
 .sidenav {
   display: none;
-  @media (min-width: $breakpoint-small) {
+  @media (min-width: $breakpoint-medium) {
     display: flex;
   }
   flex-direction: column;
   align-items: center;
   position: fixed;
-  left: percent-view(44px);
+  left: responsive-value(12px, 44px);
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+
+  @media (min-width: $breakpoint-small) {
+    left: responsive-value(22px, 44px);
+  }
 
   &__item {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: percent-view(25px) 0;
-    width: percent-view(56px);
+    margin: responsive-value(13px, 25px) 0;
+    width: responsive-value(28px, 56px);
 
     &-bg {
       position: absolute;
       // height: percent-view(60px);
-      width: percent-view(56px);
+      width: responsive-value(28px, 56px);
       transition: all var(--transition);
+      @include transition-fix;
     }
     &-front {
-      height: percent-view(80px);
+      height: responsive-value(40px, 80px);
       z-index: 1;
       transition: all var(--transition);
+      @include transition-fix;
     }
 
-    &:hover {
+    &:hover,
+    &:focus,
+    li.active > & {
       & .sidenav__item-bg {
-        transform: scale(0.7);
+        transform: scale(0.8);
       }
 
       & .sidenav__item-front {

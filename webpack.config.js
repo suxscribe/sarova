@@ -44,6 +44,11 @@ const config = {
     },
   },
   devtool: 'source-map',
+  devServer: {
+    host: '127.0.0.1', //192.168.88.252', //'127.0.0.1' your ip address
+    port: 8080,
+    disableHostCheck: true,
+  },
   mode: 'production',
   // optimization: {
   //   minimizer: [

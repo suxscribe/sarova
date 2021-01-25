@@ -15,7 +15,7 @@ block content
       a(href="history.html").content__menu-item История
       a(href="acheivements.html").content__menu-item.content__menu-item--active Достижения и награды
       a(href="clients.html").content__menu-item Клиентам
-    .content__lead Мы являемся лауреатами и победителями множества профессиональных конкурсов как регионального, так и федерального значения.
+    .content__lead Наши принципы и&nbsp;философия&nbsp;&mdash; не&nbsp;просто слова. Реальным подтверждением правильности этих установок являются дипломы, благодарности и&nbsp;сертификаты качества.
     a.content__scrolldown.button--scrolldown(href="#content")
       +svg({name: 'arrow-down'})
 
@@ -28,10 +28,10 @@ block content
   .content__container-wider
     .acheivements__awards
       .acheivements__awards-subtitle Награды
-      .acheivements__awards-title Мы являемся лауреатами и победителями множества профессиональных конкурсов как регионального, так и федерального значения.
+      //- .acheivements__awards-title Мы являемся лауреатами и победителями множества профессиональных конкурсов как регионального, так и федерального значения.
       
-        .acheivements__awards-grid(uk-grid, class="uk-child-width-1-4@s")
-          +acheivement-award({img: 'acheivement-awards-01.png', title: 'За высокие производственные достижения в 2007 году. Москва, Кремль.'})
-          +acheivement-award({img: 'acheivement-awards-02.png', title: 'За высокие производственные достижения в 2007 году. Москва, Кремль.'})
-          +acheivement-award({img: 'acheivement-awards-03.png', title: 'За высокие производственные достижения в 2007 году. Москва, Кремль.'})
-          +acheivement-award({img: 'acheivement-awards-04.png', title: 'За высокие производственные достижения в 2007 году. Москва, Кремль.'})
+      .acheivements__awards-grid(uk-grid, class="uk-child-width-1-4@s")
+        +acheivement-award({img: 'acheivement-awards-01.png', title: 'Победитель Всероссийского конкурса «1000 лучших предприятий и организаций России» Диплом, Москва.'})
+        +acheivement-award({img: 'acheivement-awards-02.png', title: 'Региональный проект «Лидер года» Диплом «Лидер отрасли», Нижний Новгород.'})
+        +acheivement-award({img: 'acheivement-awards-03.png', title: 'European standard Certificate, Strasburg.'})
+        +acheivement-award({img: 'acheivement-awards-04.png', title: ''})

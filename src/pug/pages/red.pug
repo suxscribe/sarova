@@ -1,0 +1,61 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Sarova';
+  - var description = 'Description';
+  - var pageClass = 'page--product';
+  - var mainClass = 'main--red';
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+
+block content
+  .red__intro.red-parallax#first-screen
+    .section-red__bg
+      +svg({name: 'section-red-path'}).section-red__bg-color
+      img(src="assets/section-red-blob.svg", alt="").section-red__bg-blob
+    //- .section-red__content
+    .red__title-wrap.translate-transform(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
+      .section-red__subtitle Продукция
+      .section-red__title Сарова Red
+    .red__bottles.scrollspy__container
+      // (uk-scrollspy="target: >*; cls: uk-animation-slide-bottom-small; delay: 300")
+      a(href="#red-strawberry").section-red__bottle.section-red__bottle--strawberry.translate-transform
+        .section-red__bottle-bottle
+          img(src="assets/red-strawberry-bottle.png", alt="")
+      a(href="#red-grapefruit").section-red__bottle.section-red__bottle--grapefruit.translate-transform
+        .section-red__bottle-bottle
+          img(src="assets/red-grapefruit-bottle.png", alt="")
+      a(href="#red-cranberry").section-red__bottle.section-red__bottle--cranberry.translate-transform
+        .section-red__bottle-bottle
+          img(src="assets/red-cranberry-bottle.png", alt="")
+      .section-red__parallax.translate-transform
+        .section-red__parallax-item.red-parallax--3
+          img(src="assets/red-hover-03.png", alt="")
+        .section-red__parallax-item.red-parallax--2
+          img(src="assets/red-hover-02.png", alt="")
+        .section-red__parallax-item.red-parallax--1
+          img(src="assets/red-hover-01.png", alt="")
+      img(src="assets/section-red-shadow.svg", alt="").section-red__shadow.translate-transform
+      
+    .red__button-wrap.translate-transform.translate-transform(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000")
+      a.red__scrolldown.button.button--scrolldown(href="#second-screen")
+        +svg({name: 'arrow-down'})
+
+
+  .red__section#second-screen
+    .red__section-title.h3(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200") Сарова Red — потрясающий фруктово-ягодный коктейль, природная минеральная вода и минимум калорий
+
+    +red-bottle({ellipse: 'red-block-ellipse.png', inner: 'red-block-inner-strawberry.png', outer: 'red-block-outer-strawberry.png', bottle: 'red-strawberry-bottle.png', title: 'Клубника', desc: 'Душистый микс из фирменной магниево-кальциевой воды «Сарова» с натуральным соком клубники. Вкус лета и незабываемые впечатления!',id:'red-strawberry'})
+
+    +red-bottle({ellipse: 'red-block-ellipse.png', inner: 'red-block-inner-grapefruit.png', outer: 'red-block-outer-grapefruit.png', bottle: 'red-grapefruit-bottle.png', title: 'Грейпфрут', desc: 'Насыщенный микс из фирменной магниево-кальциевой воды «Сарова» с натуральным соком грейпфрута. Цитрусовый торнадо в каждой бутылке!',id:'red-grapefruit'})
+
+    +red-bottle({ellipse: 'red-block-ellipse.png', inner: 'red-block-inner-cranberry.png', outer: 'red-block-outer-cranberry.png', bottle: 'red-cranberry-bottle.png', title: 'Клубника', desc: 'Полезный микс из фирменной магниево-кальциевой воды «Сарова» с натуральным соком клюквы подарит яркие эмоции и поможет хорошо провести время.',id:'red-cranberry'})
+
+
+  .related
+    h2.related__title.h2 Попробуйте также
+    .related__lead Разнообразия вкуса и&nbsp;цвета напитков &laquo;Сарова&raquo; хватит на&nbsp;всех!
+
+  .products.products--column
+    +product-water()
+    +product-time()
+    +product-classic()

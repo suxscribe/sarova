@@ -15,6 +15,12 @@
     align-items: center;
     justify-content: center;
 
+    background-color: $color-classic-bg; // bg on mobile
+
+    @media (min-width: $breakpoint-medium) {
+      background-color: transparent;
+    }
+
     // &:before {
     //   content: '';
     //   position: absolute;
@@ -28,16 +34,42 @@
     //     rgba(226, 191, 135, 0) 100%
     //   );
     // }
-    & svg {
+
+    // svg background
+    &-color {
       position: absolute;
-      width: 180vw;
-      height: 180vh;
+      width: 250vw;
+      height: 250vh;
+      max-width: none;
+      max-height: none;
+      background-color: transparent !important;
+
+      display: none;
+
+      @media (min-width: $breakpoint-medium) {
+        display: block;
+      }
+    }
+    &-white {
+      fill: #fff;
+    }
+    &-color {
+      fill: $color-classic-bg;
+
+      transition: fill var(--transition-2);
+      // opacity: 0.2;
+    }
+    &-ellipse {
+      position: absolute;
+      width: 220vw;
+      height: 220vh;
       max-width: none;
       max-height: none;
     }
     &-image {
       position: absolute;
       opacity: 0;
+      fill: $color-classic;
 
       width: 80%;
       flex: 0 0 auto;
@@ -51,7 +83,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
+    pointer-events: none;
+
+    position: relative;
+    z-index: 1;
 
     min-height: calc(var(--vh, 1vh) * 100);
     padding-top: percent-view(230px);
@@ -62,25 +99,61 @@
     @include font-heading-large;
     line-height: 0.8;
     margin-bottom: percent-view(40px);
+    pointer-events: all;
+
+    @media (max-width: $breakpoint-xsmall-max) {
+      font-size: 4.5rem;
+    }
+
+    & a {
+      color: $color-classic;
+
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 0.8;
+      }
+    }
   }
   &__subtitle {
     text-transform: uppercase;
     margin-bottom: percent-view(65px);
+
+    pointer-events: all;
+
+    & a {
+      color: inherit;
+      transition: all var(--transition-2);
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+      }
+    }
   }
 
   &__button {
     border-color: $color-classic;
     color: $color-classic;
     animation-play-state: running;
+    pointer-events: all;
 
     &:hover {
       background-color: $color-white;
       color: $color-classic;
+      border-color: $color-white !important;
+    }
+
+    &-wrap {
+      @media (max-width: $breakpoint-xsmall-max) {
+        position: absolute;
+        bottom: percent-view(20px, $mobile-min-width, 'h');
+      }
     }
   }
 
   &__bottle {
-    $section-3-bottle-width: responsive-value(60px, 117px);
+    $section-3-bottle-width: responsive-value(102px, 207px);
     $section-3-bottle-height: responsive-value(162px, 330px);
 
     position: absolute;
@@ -92,20 +165,57 @@
     justify-content: center;
     pointer-events: none;
 
-    &--1 {
+    overflow: hidden;
+
+    @media (min-width: $breakpoint-small) {
+      overflow: visible;
+    }
+
+    & > div {
+      @include transition-fix;
+      position: absolute;
+      height: $section-3-bottle-height;
+      width: $section-3-bottle-width;
+      opacity: 1;
+      cursor: pointer;
+      pointer-events: none;
+      animation-name: hovering-y;
+      // animation-duration: 2.5s;
+      // animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: none;
+      animation-play-state: running;
+
       & img {
-        position: absolute;
-        // width: $section-3-bottle-width;
-        height: $section-3-bottle-height;
-        // left: 50%;
-        // bottom: 100%;
-        opacity: 1;
+        @include transition-fix;
+
+        height: 100%;
+        transition: all var(--transition);
       }
 
-      @for $i from 1 through 7 {
+      &:hover {
+        & img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .section-3.active & img {
+      pointer-events: all;
+    }
+
+    &--1 {
+      & img {
+      }
+
+      @for $i from 1 through 8 {
         &-#{$i} {
           left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.5));
-          bottom: #{(50 + ($i - 1) * 10)}vh;
+          bottom: #{(55 + ($i - 1) * 10)}vh;
+
+          animation-duration: random() + 3 + s;
+          animation-delay: random() + s;
 
           @media (min-width: $breakpoint-small) {
             left: calc(#{$column-width-medium} * (#{$i} - 1));
@@ -120,27 +230,23 @@
     }
     &--2 {
       & img {
-        position: absolute;
-        // width: $section-3-bottle-width;
-        height: $section-3-bottle-height;
-
-        // left: 50%;
-        // top: 100%;
-        opacity: 1;
       }
 
-      @for $i from 1 through 7 {
+      @for $i from 1 through 8 {
         &-#{$i} {
-          left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.4));
-          bottom: #{(-10 + ($i - 1) * 10)}vh;
+          right: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.4));
+          top: #{(45 + ($i - 1) * 10)}vh;
+
+          animation-duration: random() + 2 + s;
+          animation-delay: random() + s;
 
           @media (min-width: $breakpoint-small) {
-            left: calc(#{$column-width-medium} * (#{$i} - 1 + 0.3));
-            bottom: #{(-5 + ($i - 1) * 5)}vh;
+            right: calc(#{$column-width-medium} * (#{$i} - 1 + 0.3));
+            top: #{(55 + ($i - 1) * 5)}vh;
           }
           @media (min-width: $breakpoint-medium) {
-            left: calc(#{$column-width} * (#{$i} + 4));
-            bottom: #{(-10 + ($i - 1) * 20)}vh;
+            right: calc(#{$column-width} * (#{$i} - 1));
+            top: #{(10 + ($i - 1) * 20)}vh;
           }
         }
       }

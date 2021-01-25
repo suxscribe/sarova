@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1536.667" height="732.051" viewBox="0 0 1536.667 732.051">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.514" cy="0.619" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fc0651"/>
+      <stop offset="0" stop-color="#ff004e"/>
+      <stop offset="1" stop-color="red" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path id="Path_2740" data-name="Path 2740" d="M783.571-338.221c427.375,0,714.834,360.867,767.358,546.582S1210.947,393.829,783.571,393.829,19,270.16,19,134.063,356.2-338.221,783.571-338.221Z" transform="translate(-19 338.221)" opacity="0.64" fill="url(#radial-gradient)"/>
+</svg>

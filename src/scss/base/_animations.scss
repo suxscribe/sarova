@@ -2,15 +2,41 @@
   opacity: 0;
 }
 
+*[uk-scrollspy].scrollspy__container > *:not(.uk-scrollspy-inview) {
+  opacity: 0;
+}
+
 [class*='uk-animation-'] {
   animation-duration: $animation-duration;
   animation-timing-function: ease;
-  animation-fill-mode: both;
+  animation-fill-mode: none; // allow custom transitions
 }
 
 .hidden {
   //helper class to hide elements on page load on main page. to avoid blinks
   opacity: 0;
+}
+.bottle-color-hover {
+  transition: all var(--transition-2);
+
+  & svg {
+    transition: all var(--transition-2);
+  }
+}
+
+.translate-transform {
+  // transition: transform var(--transition);
+}
+
+@keyframes uk-fade-scale-02 {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes moveInLeft {
@@ -66,5 +92,14 @@
   100% {
     transform: matrix(0.95, 0, 0, 0.95, 0, 3);
     opacity: 1;
+  }
+}
+@keyframes hovering-y {
+  0% {
+    translate: 0 -1vh;
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    translate: 0 1vh;
   }
 }

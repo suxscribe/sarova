@@ -124,22 +124,22 @@ $offcanvas-bar-background: #fff;
 // //////////////////////////////////////////////////////
 
 /* Desktop and bigger */
-@media (max-width: $breakpoint-small - 1) {
-  /* Horizontal */
-  .uk-grid {
-    margin-left: (-$grid-small-gutter-horizontal);
-  }
-  .uk-grid > * {
-    padding-left: $grid-small-gutter-horizontal;
-  }
+// @media (max-width: $breakpoint-small - 1) {
+//   /* Horizontal */
+//   .uk-grid {
+//     margin-left: (-$grid-small-gutter-horizontal);
+//   }
+//   .uk-grid > * {
+//     padding-left: $grid-small-gutter-horizontal;
+//   }
 
-  /* Vertical */
-  .uk-grid + .uk-grid,
-  .uk-grid > .uk-grid-margin,
-  * + .uk-grid-margin {
-    margin-top: $grid-small-gutter-vertical;
-  }
-}
+//   /* Vertical */
+//   .uk-grid + .uk-grid,
+//   .uk-grid > .uk-grid-margin,
+//   * + .uk-grid-margin {
+//     margin-top: $grid-small-gutter-vertical;
+//   }
+// }
 
 ////////////////////////////////////////////////////////
 @import 'swiper/swiper.scss';
@@ -148,6 +148,7 @@ $offcanvas-bar-background: #fff;
 // @import '/node_modules/choices.js/public/assets/styles/choices.min.css';
 @import 'vendor/splitting.scss';
 @import 'vendor/splitting-cells.scss';
+@import 'vendor/fullpage.min.css';
 
 // @import 'vendor/simplebar.scss'; //simplebar override
 // @import 'vendor/readmore.scss'; //
@@ -167,17 +168,21 @@ $offcanvas-bar-background: #fff;
 @import 'components/section-2';
 @import 'components/section-3';
 @import 'components/section-4';
+@import 'components/section-red';
 @import 'components/content';
 @import 'components/related';
 @import 'components/company';
 @import 'components/preloader';
+@import 'components/offcanvas';
 
 @import 'pages/index';
 @import 'pages/products';
 @import 'pages/water';
 @import 'pages/time';
 @import 'pages/classic';
+@import 'pages/red';
 @import 'pages/history';
 @import 'pages/acheivements';
 @import 'pages/news';
 @import 'pages/contacts';
+@import 'pages/404';

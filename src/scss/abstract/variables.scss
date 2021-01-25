@@ -64,6 +64,7 @@ $base-font-size: 10px; //1 rem
   --box-shadow: 0 10px 40px rgba(0, 80, 146, 0.2);
   --transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   --transition-2: 1s cubic-bezier(0.77, 0, 0.175, 1);
+  --transition-linear: 0.2s linear;
 
   --columns: 2;
 
@@ -93,11 +94,14 @@ $color-classic: #ec7e49;
 $color-classic-top: #e2bf87;
 
 $color-lemon: #e2ca27;
-$color-lemon-bg: #e2d66d;
+$color-lemon-bg: rgb(192, 206, 46);
 $color-orange: #ee9602;
-$color-orange-bg: #f5b656;
+$color-orange-bg: rgb(220, 145, 27);
 $color-grapefruit: #fc3210;
-$color-grapefruit-bg: #fe654b;
+$color-grapefruit-bg: rgb(209, 107, 105);
+
+$color-red-bg: #d41438;
+$color-red: #dc1135;
 
 // $gradient-1: linear-gradient(
 //   -30deg,
@@ -136,3 +140,9 @@ $slide-arrow-height: 14px;
 $slide-arrow-width: calc(#{$slide-arrow-height} * 2);
 
 $arrow-size: 19px;
+
+$product-size: calc(#{$column-width-small} * 1.8);
+$product-size-s: calc(#{$column-width-medium} * 2.5);
+$product-size-m: calc(#{$column-width} * 3.1);
+
+$parallax-y: 100;

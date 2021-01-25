@@ -1,3 +1,5 @@
+- var parallaxY = 100
+
 mixin svg(args)
   svg&attributes(attributes)
     use(xlink:href=`#${args.name}`)
@@ -5,7 +7,7 @@ mixin svg(args)
 mixin section-1-slide(args)
   li.section-1__slider-item.swiper-slide
     .section-1__slider-item-top
-      .section-1__slider-item-image
+      a(href="water.html").section-1__slider-item-image
         img(src="assets/" + args.img, alt=args.name)
       a(href="water.html").section-1__slider-item-name= args.name
     //- .section-1__slider-item-button-wrap
@@ -16,26 +18,26 @@ mixin footer-social-item(args)
     a(href=args.link).footer__socials-link
       +svg({name: args.icon})
 
-
 mixin water-bottle(args)
   a(href=args.link).water__bottle
     .water__bottle-image
-      img(src="assets/" + args.img, alt=args.name)
+      picture
+        source(media="(max-width:639px)" srcset="assets/" + args.imgS)
+        source(media="(min-width:640px)" srcset="assets/" + args.img)
+        img(src="assets/" + args.img, alt=args.name)
     .water__bottle-title= args.name
 
-
 mixin time-bottle(args)
-  a().time__bottle
+  a(href=args.link, data-color=args.color, data-color2=args.color2).time__bottle
     .time__bottle-image
       img(src="assets/" + args.img, alt=args.name)
     .time__bottle-title= args.name
-
 
 mixin product-water(args)
   a(href="water.html").products__water
     .products__water-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
       //- img(src="assets/products-water-bg.png", alt="")
-      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4")
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4",uk-parallax=`y: -${parallaxY}, ${parallaxY}`)
     .products__water-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400")
       | Природная 
       br 
@@ -48,13 +50,16 @@ mixin product-time(args)
   a(href="time.html").products__time
     .products__time-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
       //- img(src="assets/products-time-bg.png", alt="")
-      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
+      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4",uk-parallax=`y: -${parallaxY}, ${parallaxY}`)
     .products__time-bg-2(uk-scrollspy="cls: uk-animation-scale-up; delay: 300")
-      img(src="assets/products-time-bg-2.svg", alt="")
-    .products__time-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400") Сарова Time
-    .products__time-subtitle(uk-scrollspy="cls: uk-animation-scale-up; delay: 500") лимон / апельсин / грейфрут
+      img(src="assets/time-logo.svg", alt="",uk-parallax=`y: -${parallaxY / 4}, ${parallaxY / 4 } `)
+    .products__time-title-wrap
+      .products__time-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400") Сарова Time
+      .products__time-subtitle(uk-scrollspy="cls: uk-animation-scale-up; delay: 500") лимон / апельсин / грейфрут
     .products__time-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 700")
-      img(src="assets/products-time-img.png", alt="")
+      img(src="assets/bottle-time-lemon.png", alt="")
+      img(src="assets/bottle-time-orange.png", alt="")
+      img(src="assets/bottle-time-grapefruit.png", alt="")
 
 
 mixin product-classic(args)
@@ -67,19 +72,32 @@ mixin product-classic(args)
       | классических
       br
       | лимонадов
-    .products__classic-image(uk-scrollspy="cls: uk-animation-scale-up; delay: 700")
-      img(src="assets/products-classic-img-01.png", alt="").products__classic-image--01
-      img(src="assets/products-classic-img-02.png", alt="").products__classic-image--02
+    .products__classic-image(uk-scrollspy="cls: uk-animation-scale-up; delay: 400")
+      img(src="assets/products-classic-img-02.png", alt="").products__classic-image--01
+      img(src="assets/products-classic-img-01.png", alt="").products__classic-image--02
 
+mixin product-red(args)
+  a(href="red.html").products__red
+    .products__red-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
+      img(src="assets/products-red-bg.png", alt="")
+    .products__red-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 500")
+      img(src="assets/red-strawberry-bottle.png", alt="")
+      img(src="assets/red-grapefruit-bottle.png", alt="")
+      img(src="assets/red-cranberry-bottle.png", alt="")
+    .products__red-logo(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 700")
+        img(src="assets/section-red-logo.svg", alt="")
+    .products__red-debris(uk-scrollspy="cls: uk-animation-scale-up; delay: 900")
+      img(src="assets/products-red-debris.png", alt="")
 
 mixin classic-block(args)
-  .classic__block(class="classic__block--"+args.class, uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200")
-    .classic__block-num= args.num
-    .classic__block-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
-      img(src="assets/classic-block-" + args.class + ".png", alt=args.title)
-    .classic__block-content(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
-      .classic__block-title= args.title
-      .classic__block-text= args.text
+  .classic__block-wrap(id=args.class)
+    .classic__block(class="classic__block--"+args.class, uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200")
+      .classic__block-num= args.num
+      .classic__block-image(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
+        img(src="assets/classic-block-" + args.class + ".png", alt=args.title)
+      .classic__block-content(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
+        .classic__block-title!= args.title
+        .classic__block-text!= args.text
 
 
 mixin company-grid-item(args)
@@ -110,6 +128,7 @@ mixin acheivement-award(args)
       .acheivements__awards-item-title= args.title
 
 mixin news-item(args)
+  // args.number - unique id !
   div
     a.news__item(uk-toggle="target: #news-" + args.number)
       .news__item-date
@@ -122,12 +141,36 @@ mixin news-item(args)
       .uk-modal-dialog.news__modal-body
         button.uk-modal-close.news__modal-close
           +svg({name: 'close'})
-        .news__modal-date= args.date
+        .news__modal-date= args.day + args.month + args.year
         .news__modal-title= args.title
         .news__modal-img
-          img(src="assets/news-modal-01.jpg", alt="")
+          img(src="assets/" + args.image, alt="")
         .news__modal-text
-          p «Инновация» — первая и наиболее авторитетная российская награда в области современного искусства.
-          p Государственная премия «Инновация» была учреждена в 2005 году. В 2019 году премия будет вручена видным деятелям культуры в четырнадцатый раз.
-          p Премия проводится Государственным центром современного искусства (ГЦСИ) в составе Государственного музейно-выставочного центра «РОСИЗО» под эгидой и при финансовой поддержке Министерства культуры Российской Федерации.
-          p Миссия премии — поддержка авторов, работающих в области современного искусства, выявление важнейших художественных достижений и привлечение к ним внимания широкой общественности
+          p= args.text
+
+mixin distributor(args)
+  .distributor(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
+    .distributor__logo
+      img(src="assets/" + args.logo, alt="")
+    .distributor__title
+      .distributor__title-name= args.name
+      .distrobutor__title-desc= args.desc
+    .distributor__address
+        p= args.address
+        p= args.phone
+        if args.website != ''
+          p: a(href="http://" + args.website)= args.website
+        p: a(href="mailto:" + args.email)= args.email
+
+
+mixin red-bottle(args)
+  .red__block(id=args.id)
+    .red__block-top
+      .red__block-bg
+        img(src="assets/" + args.ellipse, alt="").red__block-bg-ellipse
+        img(src="assets/" + args.inner, alt="").red__block-bg-inner
+        img(src="assets/" + args.outer, alt="").red__block-bg-outer
+      .red__block-bottle
+        img(src="assets/" + args.bottle, alt=args.title)
+    .red__block-title= args.title
+    .red__block-desc= args.desc

@@ -1,0 +1,241 @@
+.section-red {
+  position: relative;
+  min-height: 100vh;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $color-red-bg; // bg on mobile
+
+    @media (min-width: $breakpoint-medium) {
+      background-color: transparent;
+    }
+
+    // svg background
+    &-color {
+      position: absolute;
+      width: 250vw;
+      height: 250vh;
+      max-width: none;
+      max-height: none;
+      background-color: transparent !important;
+
+      display: none;
+
+      @media (min-width: $breakpoint-medium) {
+        display: block;
+      }
+    }
+
+    &-blob {
+      position: absolute;
+      width: 90%;
+      height: 100%;
+      background-size: contain;
+    }
+  }
+
+  &__shadow {
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    left: 50%;
+    object-fit: contain;
+    transform: translate(-50%, 54%);
+    max-width: none;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    z-index: 1;
+
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: percent-view(101px, $fhd-height, 'h');
+    padding-bottom: percent-view(60px, $fhd-height, 'h');
+
+    @media (min-width: $breakpoint-small) {
+      justify-content: center;
+    }
+    @media (min-width: $breakpoint-medium) {
+      justify-content: center;
+    }
+  }
+  &__logo {
+    // position: absolute;
+    width: percent-view(450px);
+    margin-top: -10vh;
+    margin-bottom: -2vh;
+
+    // top: 10%;
+    // left: 50%;
+    // translate: -50% 0;
+
+    & > svg,
+    & > img {
+      width: 100%;
+      height: auto;
+    }
+
+    display: none;
+    @media (min-width: $breakpoint-medium) {
+      display: block;
+    }
+  }
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: percent-view(60px, $mobile-min-height, 'h');
+
+    @media (min-width: $breakpoint-medium) {
+      display: none;
+    }
+  }
+  &__title {
+    @include font-h1;
+    text-align: center;
+    color: $color-white;
+  }
+  &__subtitle {
+    @include font-subtitle;
+    color: $color-white;
+    margin-bottom: percent-view(30px, $mobile-min-height, 'h');
+  }
+
+  &__bottles {
+    @include red-bottles;
+  }
+  &__bottle {
+    display: block;
+    flex: 0 0 auto;
+    text-align: center;
+    position: relative;
+
+    // height: 32vh;
+    width: percent-view(50px, $mobile-min-width);
+
+    @media (min-width: $breakpoint-small) {
+      width: 14%;
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      // height: 40vh;
+      width: percent-view(128px);
+    }
+
+    &--strawberry {
+      transform: translate(20%, 0);
+    }
+    &--grapefruit {
+      transform: translate(0);
+    }
+    &--cranberry {
+      transform: translate(-20%, 0);
+    }
+
+    &-bottle {
+      @include transition-fix;
+      display: block;
+
+      // height: 100%;
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+      & img {
+        transition: all var(--transition);
+        // height: 100%;
+      }
+    }
+
+    &-bg {
+      @include transition-fix;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      scale: 1.3;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+  &__parallax {
+    position: absolute;
+    width: 148%;
+    height: 200%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    pointer-events: none;
+
+    @media (min-width: $breakpoint-small) {
+      width: 105%;
+    }
+
+    &-item {
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      & img {
+        width: 100%;
+        max-width: none;
+        object-fit: contain;
+        object-position: center;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  &__button {
+    border-color: $color-white;
+    color: $color-white;
+    animation-play-state: running;
+    pointer-events: all;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-red;
+    }
+
+    &-wrap {
+      position: absolute;
+      bottom: percent-view(60px, $fhd-height, 'h');
+    }
+  }
+}
+
+.red-parallax--1 {
+  z-index: -1;
+  // filter: brightness(0.9) saturate(0.7);
+}
+.red-parallax--3 {
+  // filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+}

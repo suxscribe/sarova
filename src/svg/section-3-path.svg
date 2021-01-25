@@ -1,10 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1051.3125 893.25" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <radialGradient id="3e2e5547-6c23-4483-bbe7-ded85e7c4b2b" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#eedaba"></stop>
-      <stop offset="1" stop-color="#dfbb7f"></stop>
-      <stop offset="1" stop-color="#dfbb7e"></stop>
-    </radialGradient>
-  </defs>
-  <path id="424ef2de-0d3e-4df3-a9b9-daa191315502" d="M2127.03,638.008,1635.837,225.85a34.462,34.462,0,0,0-44.307,0L1100.337,638.008a34.466,34.466,0,0,0,0,52.8L1591.53,1102.97a34.462,34.462,0,0,0,44.307,0L2127.03,690.812A34.466,34.466,0,0,0,2127.03,638.008Z" transform="translate(-1088.027 -217.786)" fill="url(#3e2e5547-6c23-4483-bbe7-ded85e7c4b2b)"></path>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1051.3 893.3" style="enable-background:new 0 0 1051.3 893.3;" xml:space="preserve">
+<path id="_x34_24ef2de-0d3e-4df3-a9b9-daa191315502" class="st0" d="M1039,420.2L547.8,8.1c-12.8-10.8-31.5-10.8-44.3,0L12.3,420.2
+	c-14.6,12.2-16.5,34-4.2,48.6c1.3,1.5,2.7,3,4.2,4.2l491.2,412.2c12.8,10.8,31.5,10.8,44.3,0L1039,473c14.6-12.2,16.5-34,4.2-48.6
+	C1042,422.9,1040.5,421.5,1039,420.2z"/>
 </svg>
