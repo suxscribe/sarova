@@ -51,6 +51,13 @@
           }
         }
       }
+      .fp-viewing-water & {
+        &:hover {
+          & svg {
+            fill: $color-white;
+          }
+        }
+      }
       .section--4 &,
       .fp-viewing-bottom & {
         // logo color on 4th section

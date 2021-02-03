@@ -63,27 +63,39 @@ block content
         video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4",data-keepplaying).section-2__bg-video
 
       .section-2__content
+        .section-2__title-wrap
+          //- .section-2__subtitle Продукция
+          .section-2__title Сарова Time
         .section-2__bottles
           .section-2__bottles-item.section-2__bottles-item--letter.time--0
-            img(src="assets/section-2-t.svg", alt="")
+            //- img(src="assets/section-2-t.svg", alt="")
+            +svg({name:'section-2-t', viewbox: '0 0 91.504 180.014'}).time-color-hover(style="fill: #fe5a3e")
+
           a(href="time.html").section-2__bottles-item.section-2__bottles-item--bottle.time--1
-            img(src="assets/bottle-time-lemon.png", alt="", data-color="rgb(192,206,46)")
+            img(src="assets/bottle-time-lemon.png", alt="", data-color="rgb(192,206,46)", data-color2="rgb(192,206,46)")
           .section-2__bottles-item.section-2__bottles-item--letter.time--2
-            img(src="assets/section-2-i.svg", alt="")
+            //- img(src="assets/section-2-i.svg", alt="")
+            +svg({name:'section-2-i', viewbox: '0 0 41.138 179.52'}).time-color-hover(style="fill: #fe5a3e")
+
           a(href="time.html").section-2__bottles-item.section-2__bottles-item--bottle.time--3
-            img(src="assets/bottle-time-orange.png", alt="", data-color="rgb(220,145,27)")
+            img(src="assets/bottle-time-orange.png", alt="", data-color="rgb(220,145,27)", data-color2="rgb(220,145,27)")
           .section-2__bottles-item.section-2__bottles-item--letter.time--4
-            img(src="assets/section-2-m.svg", alt="")
+            //- img(src="assets/section-2-m.svg", alt="")
+            +svg({name:'section-2-m', viewbox: '0 0 127.656 179.513'}).time-color-hover(style="fill: #fe5a3e")
+
           a(href="time.html").section-2__bottles-item.section-2__bottles-item--bottle.time--5
-            img(src="assets/bottle-time-grapefruit.png", alt="", data-color="rgb(209,107,105)")
+            img(src="assets/bottle-time-grapefruit.png", alt="", data-color="rgb(209,107,105)", data-color2="rgb(209,107,105)")
           .section-2__bottles-item.section-2__bottles-item--letter.time--6
-            img(src="assets/section-2-e.svg", alt="")
+            //- img(src="assets/section-2-e.svg", alt="")
+            +svg({name:'section-2-e', viewbox: '0 0 83.545 179.513'}).time-color-hover(style="fill: #fe5a3e")
+
 
         .section-2__text
           p Огненный апельсин, яркий лимон и&nbsp;взрывной грейпфрут! Крутые цитрусы в&nbsp;каждой бутылке Сарова TIME. Время утолить жажду со&nbsp;вкусом.
         a.section-2__button.button.button--round(href="time.html") Смотреть
 
     section#section-3.section.section-3.fp-auto-height-responsive(data-anchor="classic")
+      .section-3__intro-before
       .section-3__bg
         //- +svg({name: 'section-3-path'}).section-3__bg-white
         +svg({name: 'section-3-path'}).section-3__bg-color
@@ -197,7 +209,7 @@ block content
             |  / 
             a(href="classic.html#krushon") Крюшон
         .section-3__button-wrap
-          a.section-3__button.button.button--round.bottle-color-hover(href="classic.html") Смотреть
+          a.section-3__button.button.button--round.bottle-color-hover.bottle-color-hover-button(href="classic.html") Смотреть
       .section-3__bottles
         .section-3__bottle.section-3__bottle--1
           div.section-3__bottle-item.section-3__bottle--1-1: img(src="assets/classic-01.png", alt="", data-color="#E6F4FB", data-color2="#72B2E1", data-link="classic.html#kolokol")
@@ -227,7 +239,7 @@ block content
           //- +svg({name: 'section-red-logo'}).section-red__title-image-svg
           img(src="assets/section-red-logo.svg", alt="")
         .section-red__title-wrap
-          .section-red__subtitle Продукция
+          //- .section-red__subtitle Продукция
           .section-red__title Сарова Red
         .section-red__bottles
           a(href="red.html#red-strawberry").section-red__bottle.section-red__bottle--strawberry
@@ -262,7 +274,7 @@ block content
           a.section-4__button.button.button--round(href="water.html") Смотреть
       footer.footer
         .footer__logo
-          img(src="assets/logo-footer.svg", alt="")
+          +svg({name: 'logo', viewbox: '0 0 660 123'})
         ul.footer__menu
           li.footer__menu-item: a(href="company.html").footer__menu-link Компания
           li.footer__menu-item: a(href="products.html").footer__menu-link Продукция

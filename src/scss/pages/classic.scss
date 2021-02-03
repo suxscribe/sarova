@@ -15,10 +15,15 @@
     @media (min-width: $breakpoint-small) {
       left: auto;
       right: 0;
-      transform: translate(3%, -25%);
+      // transform: translate(0%, -25%);
     }
     @media (min-width: $breakpoint-medium) {
-      transform: translate(14%, -30%);
+      transform: translate(-5%, -5%);
+    }
+  }
+  .classic__block-content {
+    @media (min-width: $breakpoint-small) {
+      padding: 0 0 0 10%;
     }
   }
 }
@@ -44,14 +49,19 @@
       display: block;
       pointer-events: none;
 
-      // background: linear-gradient(
-      //   to bottom,
-      //   $color-classic-top 0%,
-      //   rgba($color-classic-top, 0) 100%
-      // );
-      box-shadow: 0px 60vh 40vh -40vh #{$color-classic-top} inset;
+      background: linear-gradient(
+        to bottom,
+        $color-classic-top 0%,
+        rgba($color-classic-top, 0) 100%
+      );
+
       z-index: 1;
       transition: box-shadow var(--transition-2);
+
+      @media (min-width: $breakpoint-medium) {
+        box-shadow: 0px 60vh 40vh -40vh #{$color-classic-top} inset;
+        background: none;
+      }
     }
   }
 
@@ -184,47 +194,10 @@
     }
 
     &--1 {
-      // first row bottles
-      @for $i from 1 through 8 {
-        &-#{$i} {
-          left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.5));
-          bottom: #{(50 + ($i - 1) * 10)}vh;
-
-          animation-duration: random() + 3 + s;
-          animation-delay: random() + s;
-
-          @media (min-width: $breakpoint-small) {
-            left: calc(#{$column-width-medium} * (#{$i} - 1));
-            bottom: #{(60 + ($i - 1) * 5)}vh;
-          }
-          @media (min-width: $breakpoint-medium) {
-            left: calc(#{$column-width} * (#{$i} - 1));
-            bottom: #{(10 + ($i - 1) * 20)}vh;
-          }
-        }
-      }
+      @include classic-bottles-1;
     }
-
     &--2 {
-      //second row bottles
-      @for $i from 1 through 8 {
-        &-#{$i} {
-          right: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.4));
-          top: #{(45 + ($i - 1) * 10)}vh;
-
-          animation-duration: random() + 2 + s;
-          animation-delay: random() + s;
-
-          @media (min-width: $breakpoint-small) {
-            right: calc(#{$column-width-medium} * (#{$i} - 1 + 0.3));
-            top: #{(55 + ($i - 1) * 5)}vh;
-          }
-          @media (min-width: $breakpoint-medium) {
-            right: calc(#{$column-width} * (#{$i} - 2));
-            top: #{(-10 + ($i - 1) * 20)}vh;
-          }
-        }
-      }
+      @include classic-bottles-2;
     }
   }
 
@@ -235,16 +208,17 @@
     z-index: 2;
 
     border-color: rgba($color-time, 0.6);
+    transition: all var(--transition);
 
     & svg {
       stroke: $color-classic;
     }
 
     &:hover {
-      background-color: $color-white;
+      background-color: $color-classic;
 
       & svg {
-        // stroke: $color-white;
+        stroke: $color-white !important;
       }
     }
   }
@@ -257,8 +231,13 @@
     margin-bottom: responsive-value(60px, 250px);
     padding-top: 120px; //logo height
 
+    @media (min-width: $breakpoint-medium) {
+      width: calc(#{$column-width} * 7);
+    }
+
     &-title {
       text-align: center;
+      margin: 0 auto;
       margin-bottom: responsive-value(60px, 250px);
 
       @media (min-width: $breakpoint-medium) {
@@ -276,9 +255,10 @@
     align-items: flex-start;
     justify-content: space-around;
     position: relative;
+    max-width: 1415px;
 
-    padding: percent-view(80px) percent-view(100px) percent-view(100px)
-      percent-view(90px);
+    padding: 0;
+    margin: 0 auto;
     margin-top: $block-image-margin;
 
     background-color: var(--block-bg-color);
@@ -286,6 +266,12 @@
     @media (min-width: $breakpoint-small) {
       margin-top: 0;
       flex-direction: var(--block-direction);
+    }
+    @media (min-width: $breakpoint-large) {
+      min-height: 358px;
+    }
+    @media (min-width: $breakpoint-xlarge) {
+      min-height: 468px;
     }
 
     &-wrap {
@@ -308,34 +294,41 @@
       }
 
       @media (min-width: $breakpoint-medium) {
-        width: calc(#{$column-width} * 2);
+        width: 36%; //calc(#{$column-width} * 2);
       }
 
       & img {
-        height: 300px;
+        height: 110%;
+        width: 100%;
         max-width: none;
         position: absolute;
-        left: 50%;
-        transform: translate(-50%, 0);
+        left: 0;
+        bottom: 0;
+        transform: translate(0, 0);
         object-fit: contain;
 
         @media (min-width: $breakpoint-small) {
           // bottom: -13%;
           // height: 150%;
-          height: 370px;
-          left: 50%;
-          transform: translate(-55%, -25%);
+          height: 120%;
+
+          transform: translate(0%, -5%);
         }
         @media (min-width: $breakpoint-medium) {
           height: 130%;
-          transform: translate(-50%, -30%);
+          transform: translate(5%, -5%);
 
           // scale: 0.9;
           transform-origin: top center;
         }
         @media (min-width: $breakpoint-large) {
-          height: 160%;
+          height: 120%;
+
           // scale: 1;
+        }
+        @media (min-width: $breakpoint-xlarge) {
+          height: 120%;
+          object-position: bottom;
         }
       }
     }
@@ -368,19 +361,18 @@
       justify-content: center;
       margin-bottom: 30px;
       align-self: center;
+      padding: 0 7% 5% 7%;
 
       @media (min-width: $breakpoint-small) {
+        padding: percent-view(80px) 10% percent-view(100px) 0;
         flex: 0 0 50%;
         margin-bottom: 0;
       }
       @media (min-width: $breakpoint-medium) {
-        flex: 0 0 calc(#{$column-width} * 3);
+        flex: 0 0 50%; //calc(#{$column-width} * 3);
       }
-
-      .time__block--orange & {
-        @media (min-width: $breakpoint-medium) {
-          order: -1;
-        }
+      @media (min-width: $breakpoint-large) {
+        flex: 0 0 64%; //calc(#{$column-width} * 3);
       }
     }
     &-title {

@@ -45,7 +45,7 @@ const config = {
   },
   devtool: 'source-map',
   devServer: {
-    host: '127.0.0.1', //192.168.88.252', //'127.0.0.1' your ip address
+    host: '192.168.88.222', //192.168.88.222', //'127.0.0.1' your ip address
     port: 8080,
     disableHostCheck: true,
   },

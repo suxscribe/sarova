@@ -3,6 +3,27 @@
   min-height: 100vh;
   // overflow: hidden;
 
+  &__intro-before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 80vh;
+    pointer-events: none;
+
+    background: linear-gradient(
+      to bottom,
+      $color-classic-top 0%,
+      rgba($color-classic-top, 0) 100%
+    );
+
+    @media (min-width: $breakpoint-medium) {
+      box-shadow: 0px 60vh 40vh -40vh #{$color-classic-top} inset;
+      background: none;
+    }
+    z-index: 1;
+    transition: box-shadow var(--transition-2);
+  }
   &__bg {
     position: absolute;
     top: 0;
@@ -71,8 +92,12 @@
       opacity: 0;
       fill: $color-classic;
 
-      width: 80%;
+      width: 120%;
       flex: 0 0 auto;
+
+      @media (min-width: $breakpoint-medium) {
+        width: calc(#{$column-width} * 4);
+      }
     }
   }
 
@@ -139,8 +164,8 @@
     pointer-events: all;
 
     &:hover {
-      background-color: $color-white;
-      color: $color-classic;
+      background-color: $color-classic;
+      color: $color-white !important;
       border-color: $color-white !important;
     }
 
@@ -206,50 +231,10 @@
     }
 
     &--1 {
-      & img {
-      }
-
-      @for $i from 1 through 8 {
-        &-#{$i} {
-          left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.5));
-          bottom: #{(55 + ($i - 1) * 10)}vh;
-
-          animation-duration: random() + 3 + s;
-          animation-delay: random() + s;
-
-          @media (min-width: $breakpoint-small) {
-            left: calc(#{$column-width-medium} * (#{$i} - 1));
-            bottom: #{(60 + ($i - 1) * 5)}vh;
-          }
-          @media (min-width: $breakpoint-medium) {
-            left: calc(#{$column-width} * (#{$i} - 1));
-            bottom: #{(10 + ($i - 1) * 20)}vh;
-          }
-        }
-      }
+      @include classic-bottles-1;
     }
     &--2 {
-      & img {
-      }
-
-      @for $i from 1 through 8 {
-        &-#{$i} {
-          right: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.4));
-          top: #{(45 + ($i - 1) * 10)}vh;
-
-          animation-duration: random() + 2 + s;
-          animation-delay: random() + s;
-
-          @media (min-width: $breakpoint-small) {
-            right: calc(#{$column-width-medium} * (#{$i} - 1 + 0.3));
-            top: #{(55 + ($i - 1) * 5)}vh;
-          }
-          @media (min-width: $breakpoint-medium) {
-            right: calc(#{$column-width} * (#{$i} - 1));
-            top: #{(10 + ($i - 1) * 20)}vh;
-          }
-        }
-      }
+      @include classic-bottles-2;
     }
   }
 }

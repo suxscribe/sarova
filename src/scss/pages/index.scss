@@ -269,6 +269,8 @@
         & .section-1__slider-item-name {
           opacity: 1;
           left: $slider-1-text-offset;
+          width: calc(100% - #{$slider-1-text-offset});
+
           right: auto;
         }
       }
@@ -306,6 +308,7 @@
         & .section-1__slider-item-name {
           opacity: 1;
           right: $slider-1-text-offset;
+          width: calc(100% - #{$slider-1-text-offset});
           left: auto;
           text-align: right;
         }

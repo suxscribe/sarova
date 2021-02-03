@@ -138,6 +138,7 @@ export let sectionScrolls = () => {
           if (origin.index === 2) {
             let tween2 = gsap.timeline();
             tween2
+              .to('.section-3__intro-before', { duration: 0.2, opacity: 0 })
               .to('.section-3__bg', { duration: 1, scale: 0.3 })
               .to('.section-3__content', { duration: 0.3, opacity: 0 }, '-=0.2')
               .to(
@@ -203,7 +204,7 @@ export let sectionScrolls = () => {
             .call(allowScroll, [false])
             //to 1
 
-            .to('.section-1__bg', { duration: 0.5, scale: 1 }, 0)
+            .to('.section-1__bg', { duration: 0.3, scale: 1 }, 0)
             .fromTo(
               '.section-1__title',
               { y: 20, opacity: 0 },
@@ -323,6 +324,11 @@ export let sectionScrolls = () => {
               '.section-3__bg',
               { scale: 0.3 },
               { duration: 0.5, scale: 1 }
+            )
+            .fromTo(
+              '.section-3__intro-before',
+              { opacity: 0 },
+              { duration: 0.5, opacity: 1 }
             )
             .fromTo(
               '.section-3__bg-image',
@@ -518,6 +524,7 @@ export const sectionsInit = () => {
     // if (window.innerWidth > breakpointWidth) {
     let tweenLoad3 = gsap.timeline();
     tweenLoad3
+      .set('.section-3__intro-before', { opacity: 0 })
       .set('.section-3__bg', { scale: 0.3 })
       .set('.section-3__content', { opacity: 0 })
       .set('.section-3__bottle--1 > div', { opacity: 0 })

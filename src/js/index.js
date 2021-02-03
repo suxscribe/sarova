@@ -57,33 +57,43 @@ UIkit.mixin(
 // DOCUMENT READY
 document.addEventListener('DOMContentLoaded', () => {
   // COMMON SCRIPTS
+  iOS();
 
   section1Slider();
 
   setVh();
   window.addEventListener('resize', setVh); // recalc browser height on resize
-  iOS();
 
   sectionScrolls();
 
-  bottleHover('.section-2__bottles-item img[data-color]', '.section-2__bg');
+  bottleHover(
+    '.section-2__bottles-item img[data-color]',
+    '.section-2__bg',
+    null,
+    '.time-color-hover',
+    null,
+    '.section-2__button'
+  );
   bottleHover(
     '.classic__bottle img[data-color]',
     '.classic__bg',
     '.classic__intro-before',
-    '.bottle-color-hover'
+    '.bottle-color-hover',
+    '.bottle-color-hover-button'
   );
   bottleHover(
     '.section-3__bottle img[data-color]',
     '.section-3__bg-color',
-    null,
-    '.bottle-color-hover'
+    '.section-3__intro-before',
+    '.bottle-color-hover',
+    '.bottle-color-hover-button'
   );
   bottleHover(
     '.time__bottle[data-color]',
     '.time__bg',
     null,
-    '.bottle-color-hover'
+    '.bottle-color-hover',
+    '.bottle-color-hover-button'
   );
 
   classicBottleClick('.classic__bottle img');

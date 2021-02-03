@@ -15,6 +15,9 @@
       margin-bottom: 5px;
       font-weight: bold;
 
+      &:last-child {
+        margin-right: 0;
+      }
       &.uk-active {
         color: $color-accent;
       }
@@ -118,6 +121,7 @@
         width: calc(#{$column-width} * 6);
       }
       @media (min-width: $breakpoint-large) {
+        min-width: 800px;
         width: calc(#{$column-width} * 4);
       }
     }

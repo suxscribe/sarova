@@ -38,7 +38,7 @@
       left: 0;
       top: 0;
       height: $slide-arrow-height;
-      width: $slide-arrow-height;
+      width: calc(#{$slide-arrow-height} / 2);
       fill: $color-accent;
     }
 

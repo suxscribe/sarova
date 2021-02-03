@@ -12,7 +12,9 @@ block content
     .time__bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 200")
       video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4").time__bg-video
       .time__bottles-bg
-        img(src="assets/time-bottles-bg.svg", alt="")
+        //- img(src="assets/time-bottles-bg.svg", alt="")
+        +svg({name:'time-logo', viewbox: '0 0 413.948 159.699'}).bottle-color-hover(style="fill: #fe5a3e")
+
     .time__title-wrap(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
       .time__subtitle.content__subtitle Продукция
       .time__title Сарова Time
@@ -23,7 +25,7 @@ block content
       +time-bottle({img: 'bottle-time-orange.png', name: 'Апельсин', link: '#orange', color: 'rgb(220,145,27)', color2: 'rgb(211,113,28)'})
       +time-bottle({img: 'bottle-time-grapefruit.png', name: 'Грейпфрут', link: '#grapefruit', color: 'rgb(209,107,105)', color2: 'rgb(206,76,82)'})
       
-    a.time__scrolldown.button--scrolldown.bottle-color-hover(href="#second-screen",uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000")
+    a.time__scrolldown.button--scrolldown.bottle-color-hover.bottle-color-hover-button(href="#second-screen",uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000")
       +svg({name: 'arrow-down'})
 
 
@@ -34,7 +36,7 @@ block content
       .time__block-image
         .time__block-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
           .time__block-bg-logo
-            img(src="assets/time-logo.svg", alt="")
+            +svg({name: 'time-logo'})
           //- img(src="assets/time-block-bg.png", alt="")
           video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
         .time__block-bottles(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
@@ -48,7 +50,7 @@ block content
       .time__block-image
         .time__block-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
           .time__block-bg-logo
-            img(src="assets/time-logo.svg", alt="")
+            +svg({name: 'time-logo'})
           //- img(src="assets/time-block-bg.png", alt="")
           video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
         .time__block-bottles(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")
@@ -62,7 +64,7 @@ block content
       .time__block-image
         .time__block-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
           .time__block-bg-logo
-            img(src="assets/time-logo.svg", alt="")
+            +svg({name: 'time-logo'})
           //- img(src="assets/time-block-bg.png", alt="")
           video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4")
         .time__block-bottles(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 600")

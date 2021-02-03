@@ -34,7 +34,7 @@ export let section1Slider = () => {
       loop: true,
       centeredSlides: true,
       slidesPerView: '1',
-      initialSlide: 1,
+      initialSlide: 0,
       grabCursor: false,
       allowTouchMove: true,
       navigation: {

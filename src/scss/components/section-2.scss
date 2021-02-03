@@ -43,32 +43,87 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 
     min-height: calc(var(--vh, 1vh) * 100);
 
-    padding-top: percent-view(30px, $breakpoint-medium-max);
-    padding-bottom: 40px;
+    padding-top: calc(var(--vh, 1vh) * 15);
+
+    padding-bottom: 25px;
 
     @media (min-width: $breakpoint-small) {
       padding-top: percent-view(40px);
-      padding-bottom: percent-view(40px);
+      padding-bottom: 50px;
 
       justify-content: space-between;
     }
+    @media (min-width: $breakpoint-medium) {
+      padding-bottom: percent-view(60px);
+    }
+  }
+
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    flex: 0 0 auto;
+
+    @media (min-width: $breakpoint-small) {
+      display: none;
+    }
+  }
+  &__title {
+    @include font-h1;
+    text-align: center;
+    color: $color-white;
+  }
+  &__subtitle {
+    @include font-subtitle;
+    color: $color-white;
+    margin-bottom: percent-view(30px, $mobile-min-height, 'h');
   }
 
   &__bottles {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 50px;
-    margin-top: 16vh;
 
-    flex: 3 0 auto;
+    // margin-top: responsive-value(34px, 134px, 568px, 896px, 'h');
+    margin-top: calc(var(--vh, 1vh) * 8);
+    // height: 60vh;
 
+    width: 100%;
+    // width: calc(#{$column-width-small} * 1.6);
+
+    flex: 1 0 auto;
+
+    @media (min-width: $breakpoint-small) {
+      // width: calc(#{$column-width-medium} * 3.5);
+      margin-top: 14vh;
+      padding-bottom: 0vh;
+      align-items: flex-start;
+      height: auto;
+    }
+    @media (min-width: $breakpoint-small) and (orientation: landscape) {
+      // width: calc(#{$column-width-medium} * 3.5);
+      flex: 1 0 auto;
+      align-items: center;
+      margin-top: 14vh;
+      padding-bottom: 0;
+
+      margin-bottom: 20px;
+      width: 100%;
+    }
     @media (min-width: $breakpoint-medium) {
       flex: 1 0 auto;
+      align-items: center;
+      margin-top: 14vh;
+      padding-bottom: 0;
+
       margin-bottom: 20px;
+      width: 100%;
     }
 
     &-item {
@@ -78,21 +133,38 @@
 
       &--bottle {
         position: absolute;
-        top: 25%;
+        margin-top: 15%;
         z-index: 1;
 
+        @media (min-width: $breakpoint-small) {
+          margin-top: 15%;
+        }
+        @media (min-width: $breakpoint-small) and (orientation: landscape) {
+          position: static;
+          margin-top: 0;
+        }
         @media (min-width: $breakpoint-medium) {
           position: static;
+          margin-top: 0;
         }
 
         & img {
+          object-fit: contain;
           height: responsive-value(
             200px,
             332px,
             $mobile-min-width,
-            $breakpoint-small-max
+            $tablet-width
           );
 
+          @media (min-width: $breakpoint-small) and (orientation: landscape) {
+            height: responsive-value(
+              200px,
+              477px,
+              $mobile-min-width,
+              $fhd-width
+            );
+          }
           @media (min-width: $breakpoint-medium) {
             height: responsive-value(
               200px,
@@ -129,21 +201,36 @@
           left: 65%;
           margin-left: 7vw;
 
+          @media (min-width: $breakpoint-small) and (orientation: landscape) {
+            margin-left: 0;
+          }
           @media (min-width: $breakpoint-medium) {
             margin-left: 0;
           }
         }
       }
       &--letter {
-        & img {
+        mix-blend-mode: multiply;
+        & img,
+        & svg {
           height: responsive-value(
             138px,
             243px,
             $mobile-min-width,
-            $breakpoint-small-max
+            $tablet-width
           );
-          opacity: 0.2;
+          opacity: 0.3;
+          filter: brightness(0.5);
+          transition: all var(--transition-2);
 
+          @media (min-width: $breakpoint-small) and (orientation: landscape) {
+            height: responsive-value(
+              70px,
+              180px,
+              $mobile-min-width,
+              $fhd-width
+            );
+          }
           @media (min-width: $breakpoint-medium) {
             height: responsive-value(
               70px,
@@ -155,7 +242,11 @@
         }
 
         &.time--2 {
-          margin-left: 2vw;
+          margin-left: 0vw;
+
+          @media (min-width: $breakpoint-medium) {
+            margin-left: 2vw;
+          }
         }
       }
     }
@@ -165,6 +256,8 @@
     color: $color-white;
     border-color: $color-white;
     animation-play-state: running;
+    position: relative;
+    z-index: 2;
 
     &:hover {
       background-color: $color-white;
@@ -178,10 +271,19 @@
     margin-bottom: responsive-value(7px, 20px);
     @include font-lead;
 
-    display: flex;
+    // font-weight: 500;
+    // font-size: 28px;
+    // line-height: 1.48;
+
+    display: none;
     align-items: center;
 
+    @media (min-width: $breakpoint-small) {
+      display: flex;
+    }
+
     @media (min-width: $breakpoint-medium) {
+      display: flex;
       flex: 0 0 auto;
     }
   }

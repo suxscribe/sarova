@@ -196,13 +196,16 @@
       }
 
       &--pull {
-        margin-top: -22%;
+        margin-top: -30%;
         order: -1;
         margin-bottom: 30px;
 
         @media (min-width: $breakpoint-small) {
           order: 0;
           margin-bottom: 0;
+        }
+        @media (min-width: $breakpoint-medium) {
+          margin-top: -22%;
         }
 
         & img {

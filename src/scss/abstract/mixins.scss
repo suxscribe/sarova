@@ -400,7 +400,7 @@
   justify-content: space-between;
   position: relative;
   align-items: center;
-  margin-bottom: 3vh;
+  margin-bottom: 13vh;
 
   padding: 0;
 
@@ -409,5 +409,49 @@
   }
   @media (min-width: $breakpoint-medium) {
     padding: 0 calc(#{$column-width});
+  }
+}
+
+@mixin classic-bottles-1 {
+  // first row bottles
+  @for $i from 1 through 8 {
+    &-#{$i} {
+      left: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.5));
+      bottom: #{(55 + ($i - 1) * 10)}vh;
+
+      animation-duration: random() + 3 + s;
+      animation-delay: random() + s;
+
+      @media (min-width: $breakpoint-small) {
+        left: calc(#{$column-width-medium} * 1.1 * (#{$i} - 0.7));
+        bottom: #{(60 + ($i - 1) * 5)}vh;
+      }
+      @media (min-width: $breakpoint-medium) {
+        left: calc(#{$column-width} * 1.1 * (#{$i} - 1));
+        bottom: #{(10 + ($i - 1) * 20)}vh;
+      }
+    }
+  }
+}
+@mixin classic-bottles-2 {
+  // second row bottles
+
+  @for $i from 1 through 8 {
+    &-#{$i} {
+      right: calc(#{$column-width-small} * (#{$i} * 0.5 - 0.4));
+      top: #{(45 + ($i - 1) * 10)}vh;
+
+      animation-duration: random() + 2 + s;
+      animation-delay: random() + s;
+
+      @media (min-width: $breakpoint-small) {
+        right: calc(#{$column-width-medium} * 1.1 * (#{$i} - 1 + 0.3));
+        top: #{(55 + ($i - 1) * 5)}vh;
+      }
+      @media (min-width: $breakpoint-medium) {
+        right: calc(#{$column-width} * (#{$i} - 1));
+        top: #{(10 + ($i - 1) * 20)}vh;
+      }
+    }
   }
 }

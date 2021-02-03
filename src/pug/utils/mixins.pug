@@ -1,7 +1,7 @@
 - var parallaxY = 100
 
 mixin svg(args)
-  svg&attributes(attributes)
+  svg(viewbox=args.viewbox)&attributes(attributes)
     use(xlink:href=`#${args.name}`)
 
 mixin section-1-slide(args)
