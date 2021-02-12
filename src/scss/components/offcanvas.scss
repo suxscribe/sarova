@@ -72,6 +72,8 @@
     height: 60px;
     margin-bottom: percent-view(28px, $mobile-min-height, 'h');
 
+    fill: $color-accent;
+
     &-path {
       fill: $color-accent;
     }

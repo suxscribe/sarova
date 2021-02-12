@@ -36,8 +36,8 @@ mixin time-bottle(args)
 mixin product-water(args)
   a(href="water.html").products__water
     .products__water-bg(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 300")
-      //- img(src="assets/products-water-bg.png", alt="")
-      video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4",uk-parallax=`y: -${parallaxY}, ${parallaxY}`)
+      img(src="assets/water-carb-15-bg.jpg", alt="",uk-parallax="y: -100, 100")
+      //- video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-1-bg.mp4",uk-parallax=`y: -${parallaxY}, ${parallaxY}`)
     .products__water-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400")
       | Природная 
       br 
@@ -52,7 +52,8 @@ mixin product-time(args)
       //- img(src="assets/products-time-bg.png", alt="")
       video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4",uk-parallax=`y: -${parallaxY}, ${parallaxY}`)
     .products__time-bg-2(uk-scrollspy="cls: uk-animation-scale-up; delay: 300")
-      img(src="assets/time-logo.svg", alt="",uk-parallax=`y: -${parallaxY / 4}, ${parallaxY / 4 } `)
+      //img(src="assets/time-logo.svg", alt="",uk-parallax=`y: -${parallaxY / 4}, ${parallaxY / 4 } `)
+      +svg({name: 'time-logo'})
     .products__time-title-wrap
       .products__time-title(uk-scrollspy="cls: uk-animation-scale-up; delay: 400") Сарова Time
       .products__time-subtitle(uk-scrollspy="cls: uk-animation-scale-up; delay: 500") лимон / апельсин / грейфрут

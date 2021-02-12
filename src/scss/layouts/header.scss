@@ -41,16 +41,17 @@
       .page--product & {
         color: $color-white;
 
-        svg {
-          fill: $color-white;
-        }
+        // svg {
+        //   fill: $color-white;
+        // }
         &:hover {
           color: rgba($color-white, 0.8);
-          & svg {
-            fill: $color-accent;
-          }
+          // & svg {
+          //   fill: $color-accent;
+          // }
         }
       }
+
       .fp-viewing-water & {
         &:hover {
           & svg {
@@ -92,23 +93,25 @@
         transform: translateY(0%);
         width: 100%;
 
+        fill: $color-accent;
+
         .page--index.fp-viewing-water & {
           transform: translateY(-100%);
         }
 
+        .page--product & {
+          fill: $color-white;
+        }
+        .page--index & {
+          fill: $color-white;
+        }
+        .fp-viewing-bottom & {
+          fill: $color-accent;
+        }
+
         &-path {
           transition: all var(--transition);
-          fill: $color-accent;
-
-          .page--product & {
-            fill: $color-white;
-          }
-          .page--index & {
-            fill: $color-white;
-          }
-          .fp-viewing-bottom & {
-            fill: $color-accent;
-          }
+          // fill: $color-accent;
         }
       }
       &-title {
@@ -116,6 +119,7 @@
 
         width: 50%;
         height: 100%;
+        fill: $color-white;
 
         .page--index.fp-viewing-water & {
           transform: translateY(0);

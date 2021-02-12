@@ -123,6 +123,10 @@
         color: rgba($color-black, 0.8);
       }
     }
+
+    &-wrap {
+      position: relative;
+    }
   }
 
   &__scrolldown {
@@ -156,6 +160,7 @@
 
       @media (min-width: $breakpoint-small) {
         flex-direction: row;
+        align-items: flex-start;
       }
     }
 
@@ -166,15 +171,50 @@
       &-wrap {
         position: relative;
       }
+      &-bg {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        overflow: hidden;
+      }
       &-img {
         margin-bottom: 30px;
+
+        &-wrap {
+          position: relative;
+        }
+      }
+      &-sticker {
+        position: absolute;
+        top: 10%;
+        right: -30px;
+        width: 77px;
+        @media (min-width: $breakpoint-medium) {
+          width: 77px;
+          right: -15px;
+          top: 35%;
+          transform: translate(0, -50%);
+        }
+        @media (min-width: $breakpoint-large) {
+          width: 112px;
+          right: -10px;
+          top: 45%;
+          transform: translate(0, -50%);
+        }
+        @media (min-width: $breakpoint-xlarge) {
+        }
       }
       &-label {
         @include font-label;
       }
       &-text {
-        text-align: left;
+        text-align: center;
         margin-bottom: 30px;
+
+        @media (min-width: $breakpoint-small) {
+          text-align: left;
+        }
 
         &--carb {
           margin-top: 30px;
@@ -189,6 +229,7 @@
       }
 
       &-mobile-text {
+        text-align: center;
         margin: 30px 0;
         @media (min-width: $breakpoint-small) {
           display: none;
@@ -220,12 +261,6 @@
         }
 
         & .water__section-bottle-bg {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          overflow: hidden;
-
           width: calc(#{$column-width-small} * 1);
           height: calc(#{$column-width-small} * 1);
 
@@ -247,15 +282,25 @@
         }
         & .water__section-bottle-img {
           padding-top: 20%;
+          box-sizing: content-box;
           position: relative;
           z-index: 1;
 
           height: responsive-value(
             206px,
-            260px,
+            320px,
             $mobile-min-width,
-            $breakpoint-small-max
+            $breakpoint-small
           );
+
+          @media (min-width: $breakpoint-small) {
+            height: responsive-value(
+              280px,
+              330px,
+              $breakpoint-medium,
+              $breakpoint-medium-max
+            );
+          }
 
           @media (min-width: $breakpoint-medium) {
             height: percent-view(406px);
@@ -283,7 +328,38 @@
 
         & .water__section-bottle-img,
         & .water__section-bottle-label {
-          width: responsive-value(140px, 178px);
+          // width: responsive-value(140px, 178px);
+        }
+
+        & .water__section-bottle-wrap {
+          width: calc(#{$column-width-small} * 0.6);
+
+          @media (min-width: $breakpoint-small) {
+            width: calc(#{$column-width-medium} * 0.7);
+          }
+          @media (min-width: $breakpoint-medium) {
+            width: calc(#{$column-width} * 1);
+          }
+        }
+        & .water__section-bottle-bg {
+          width: 100%;
+          bottom: 0;
+          z-index: -1;
+
+          width: calc(#{$column-width-small} * 0.6);
+          height: calc(#{$column-width-small} * 0.6);
+
+          @media (min-width: $breakpoint-small) {
+            width: calc(#{$column-width-medium} * 0.7);
+            height: calc(#{$column-width-medium} * 0.7);
+          }
+          @media (min-width: $breakpoint-medium) {
+            width: calc(#{$column-width} * 1);
+            height: calc(#{$column-width} * 1);
+          }
+        }
+        & .water__section-bottle-label {
+          white-space: nowrap;
         }
       }
 
@@ -297,18 +373,12 @@
         }
 
         & .water__section-bottle-bg {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          overflow: hidden;
-
-          width: calc(#{$column-width-small} * 1.5);
-          height: calc(#{$column-width-small} * 1.5);
+          width: calc(#{$column-width-small} * 1.2);
+          height: calc(#{$column-width-small} * 1.2);
 
           @media (min-width: $breakpoint-small) {
-            width: calc(#{$column-width-medium} * 2);
-            height: calc(#{$column-width-medium} * 2);
+            width: calc(#{$column-width-medium} * 1.8);
+            height: calc(#{$column-width-medium} * 1.8);
           }
 
           @media (min-width: $breakpoint-medium) {
@@ -358,12 +428,7 @@
         }
 
         & .water__section-bottle-bg {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          overflow: hidden;
-          top: 20%;
+          top: 17%;
 
           width: calc(#{$column-width-small} * 0.5);
           height: calc(#{$column-width-small} * 0.5);
@@ -424,29 +489,38 @@
       }
     }
     &--premium {
+      $water-premium-height: 62vw;
+      $water-premium-height-m: 43vw;
+      $water-premium-height-l: 28vw;
+
       & .water__section-bottle {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
       & .water__section-bottle-bg {
-        position: absolute;
-        // left: 50%;
-        // transform: translateX(-50%);
-        border-radius: 50%;
-        overflow: hidden;
+        left: auto;
+        transform: none;
+        // width: calc(#{$column-width-small} * 1.5);
+        // height: calc(#{$column-width-small} * 1.5);
 
-        width: calc(#{$column-width-small} * 1.5);
-        height: calc(#{$column-width-small} * 1.5);
+        width: calc(#{$water-premium-height} * 1.2);
+        height: calc(#{$water-premium-height} * 1.2);
 
         @media (min-width: $breakpoint-small) {
-          width: calc(#{$column-width-medium} * 2);
-          height: calc(#{$column-width-medium} * 2);
+          // width: calc(#{$column-width-medium} * 2);
+          // height: calc(#{$column-width-medium} * 2);
+          width: calc(#{$water-premium-height-m} * 1.3);
+          height: calc(#{$water-premium-height-m} * 1.3);
         }
 
         @media (min-width: $breakpoint-medium) {
-          width: calc(#{$column-width} * 2.5);
-          height: calc(#{$column-width} * 2.5);
+          width: calc(#{$water-premium-height-m} * 1.3);
+          height: calc(#{$water-premium-height-m} * 1.3);
+        }
+        @media (min-width: $breakpoint-medium) {
+          width: calc(#{$water-premium-height-l} * 1.1);
+          height: calc(#{$water-premium-height-l} * 1.1);
         }
 
         & video {
@@ -456,19 +530,18 @@
         }
       }
       & .water__section-bottle-img {
-        margin-top: 30%;
+        margin-top: 26vw;
         position: relative;
         z-index: 1;
 
-        height: responsive-value(
-          234px,
-          334px,
-          $mobile-min-width,
-          $breakpoint-small-max
-        );
+        height: $water-premium-height;
 
+        @media (min-width: $breakpoint-small) {
+          height: $water-premium-height-m;
+        }
         @media (min-width: $breakpoint-medium) {
-          height: percent-view(530px);
+          margin-top: 30%;
+          height: $water-premium-height-l;
         }
 
         & img {

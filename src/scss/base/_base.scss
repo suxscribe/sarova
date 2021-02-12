@@ -67,6 +67,12 @@ ol > li > ul {
 /////
 
 html {
+  &:not(.uk-offcanvas-page) {
+    @media (max-width: $breakpoint-small) {
+      overflow-y: visible !important;
+    }
+  }
+
   font-size: 62.5%; // 1rem = 10px
   max-width: 100vw;
   overflow-x: hidden !important;

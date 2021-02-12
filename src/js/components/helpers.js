@@ -39,8 +39,7 @@ export const bottleHover = (
   target2 = null,
   target3 = null,
   target4 = null,
-  target5 = null,
-  target6 = null
+  target5 = null
 ) => {
   // selector - image selector with data-color attribute
   // target - bg element selector
@@ -48,7 +47,6 @@ export const bottleHover = (
   // target3 - elements to change color/fill
   // target4 - elements to change color on hover
   // target5 - time button change color on hover
-  // target6 - time button arrow change color on hover
 
   if (window.innerWidth >= variables.breakpointWidthM) {
     // hover effects only on desktop

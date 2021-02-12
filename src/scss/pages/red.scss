@@ -204,11 +204,15 @@
       }
       &-outer {
         @include transition-fix;
+        position: relative;
+        z-index: -1;
       }
     }
     &-bottle {
       height: responsive-value(400px, 608px);
       text-align: center;
+      position: relative;
+      z-index: 1;
 
       & img {
         width: 100%;

@@ -4,7 +4,13 @@ block variables
   - var title = 'Sarova';
   - var description = 'Description';
   - var pageClass = 'page--index main--init';
-  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200';
+    - var colorLemon = '#949103'; 
+  - var colorLemonBg = '#b9b74a'; 
+  - var colorOrange = '#cf5601'; 
+  - var colorOrangeBg = '#e07d38'; 
+  - var colorGrapefruit = '#c42a2a'; 
+  - var colorGrapefruitBg = '#da5143'; 
 
 block content
   ul#sidenav.sidenav.hidden
@@ -69,25 +75,25 @@ block content
         .section-2__bottles
           .section-2__bottles-item.section-2__bottles-item--letter.time--0
             //- img(src="assets/section-2-t.svg", alt="")
-            +svg({name:'section-2-t', viewbox: '0 0 91.504 180.014'}).time-color-hover(style="fill: #fe5a3e")
+            +svg({name:'section-2-t', viewbox: '0 0 91.504 180.014'}).time-color-hover(style="fill: " + colorGrapefruit)
 
           a(href="time.html").section-2__bottles-item.section-2__bottles-item--bottle.time--1
-            img(src="assets/bottle-time-lemon.png", alt="", data-color="rgb(192,206,46)", data-color2="rgb(192,206,46)")
+            img(src="assets/bottle-time-lemon.png", alt="", data-color=colorLemonBg, data-color2=colorLemon)
           .section-2__bottles-item.section-2__bottles-item--letter.time--2
             //- img(src="assets/section-2-i.svg", alt="")
-            +svg({name:'section-2-i', viewbox: '0 0 41.138 179.52'}).time-color-hover(style="fill: #fe5a3e")
+            +svg({name:'section-2-i', viewbox: '0 0 41.138 179.52'}).time-color-hover(style="fill: " + colorGrapefruit)
 
           a(href="time.html").section-2__bottles-item.section-2__bottles-item--bottle.time--3
-            img(src="assets/bottle-time-orange.png", alt="", data-color="rgb(220,145,27)", data-color2="rgb(220,145,27)")
+            img(src="assets/bottle-time-orange.png", alt="", data-color=colorOrangeBg, data-color2=colorOrange)
           .section-2__bottles-item.section-2__bottles-item--letter.time--4
             //- img(src="assets/section-2-m.svg", alt="")
-            +svg({name:'section-2-m', viewbox: '0 0 127.656 179.513'}).time-color-hover(style="fill: #fe5a3e")
+            +svg({name:'section-2-m', viewbox: '0 0 127.656 179.513'}).time-color-hover(style="fill: " + colorGrapefruit)
 
           a(href="time.html").section-2__bottles-item.section-2__bottles-item--bottle.time--5
-            img(src="assets/bottle-time-grapefruit.png", alt="", data-color="rgb(209,107,105)", data-color2="rgb(209,107,105)")
+            img(src="assets/bottle-time-grapefruit.png", alt="", data-color=colorGrapefruitBg, data-color2=colorGrapefruit)
           .section-2__bottles-item.section-2__bottles-item--letter.time--6
             //- img(src="assets/section-2-e.svg", alt="")
-            +svg({name:'section-2-e', viewbox: '0 0 83.545 179.513'}).time-color-hover(style="fill: #fe5a3e")
+            +svg({name:'section-2-e', viewbox: '0 0 83.545 179.513'}).time-color-hover(style="fill: " + colorGrapefruit)
 
 
         .section-2__text

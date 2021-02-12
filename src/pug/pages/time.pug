@@ -5,7 +5,13 @@ block variables
   - var description = 'Description';
   - var pageClass = 'page--product';
   - var mainClass = 'main--time';
-  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200'
+  - var scrollSpy = 'cls: uk-animation-slide-bottom-small; delay: 200';
+  - var colorLemon = '#949103'; 
+  - var colorLemonBg = '#b9b74a'; 
+  - var colorOrange = '#cf5601'; 
+  - var colorOrangeBg = '#e07d38'; 
+  - var colorGrapefruit = '#c42a2a'; 
+  - var colorGrapefruitBg = '#da5143'; 
 
 block content
   .time__intro#first-screen
@@ -13,7 +19,7 @@ block content
       video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="assets/section-2-bg.mp4").time__bg-video
       .time__bottles-bg
         //- img(src="assets/time-bottles-bg.svg", alt="")
-        +svg({name:'time-logo', viewbox: '0 0 413.948 159.699'}).bottle-color-hover(style="fill: #fe5a3e")
+        +svg({name:'time-logo', viewbox: '0 0 413.948 159.699'}).bottle-color-hover(style="fill: " + colorGrapefruit)
 
     .time__title-wrap(uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 400")
       .time__subtitle.content__subtitle Продукция
@@ -21,9 +27,9 @@ block content
         
 
     .time__bottles.scrollspy__container(uk-scrollspy="target: >*; cls: uk-animation-slide-bottom-small; delay: 300")
-      +time-bottle({img: 'bottle-time-lemon.png', name: 'Лимон', link: '#lemon', color: 'rgb(192,206,46)', color2: 'rgb(166,194,54)'})
-      +time-bottle({img: 'bottle-time-orange.png', name: 'Апельсин', link: '#orange', color: 'rgb(220,145,27)', color2: 'rgb(211,113,28)'})
-      +time-bottle({img: 'bottle-time-grapefruit.png', name: 'Грейпфрут', link: '#grapefruit', color: 'rgb(209,107,105)', color2: 'rgb(206,76,82)'})
+      +time-bottle({img: 'bottle-time-lemon.png', name: 'Лимон', link: '#lemon', color: colorLemonBg, color2: colorLemon})
+      +time-bottle({img: 'bottle-time-orange.png', name: 'Апельсин', link: '#orange', color: colorOrangeBg, color2: colorOrange})
+      +time-bottle({img: 'bottle-time-grapefruit.png', name: 'Грейпфрут', link: '#grapefruit', color: colorGrapefruitBg, color2: colorGrapefruit})
       
     a.time__scrolldown.button--scrolldown.bottle-color-hover.bottle-color-hover-button(href="#second-screen",uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 1000")
       +svg({name: 'arrow-down'})

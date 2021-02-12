@@ -14,13 +14,13 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: responsive-value(250px, 315px);
+    bottom: responsive-value(210px, 280px);
     z-index: -1;
     margin: 0 auto;
     transform-origin: center top;
     width: 100%;
-    background-color: $color-time;
-    transition: all var(--transition-2);
+    background-color: $color-grapefruit-bg;
+    transition: background-color var(--transition-2);
 
     border-radius: 0 0 responsive-value(30px, 77px) responsive-value(30px, 77px);
     overflow: hidden;
@@ -54,7 +54,7 @@
       height: 100%;
       object-fit: cover;
       // filter: invert(1);
-      mix-blend-mode: color-dodge;
+      mix-blend-mode: screen;
 
       transition: all 2s ease;
     }
@@ -102,15 +102,24 @@
       top: 60%;
       transform: translate(0, -50%);
       width: 100%;
-      z-index: -1;
+      z-index: 0;
       text-align: center;
-      opacity: 0.2;
+      opacity: 0.7;
+      // mix-blend-mode: multiply;
 
       & img,
       & svg {
-        width: 45%;
+        width: 80%;
         transition: all var(--transition-2);
-        filter: brightness(0.5);
+        // filter: brightness(0.5);
+        // mix-blend-mode: multiply;
+
+        @media (min-width: $breakpoint-small) {
+          width: 77%;
+        }
+        @media (min-width: $breakpoint-medium) {
+          width: 45%;
+        }
       }
     }
   }
@@ -175,7 +184,7 @@
     }
 
     &:hover {
-      background-color: $color-time;
+      background-color: $color-grapefruit;
 
       & svg {
         stroke: $color-white !important;
@@ -231,15 +240,22 @@
       width: $time-image-size-s;
 
       margin-bottom: responsive-value(
-        120px,
-        150px,
+        130px,
+        140px,
         $mobile-min-width,
-        $breakpoint-medium
+        $breakpoint-small
       );
 
       @media (min-width: $breakpoint-small) {
         flex: 0 0 $time-image-size-m;
         width: $time-image-size-m;
+
+        margin-bottom: responsive-value(
+          110px,
+          130px,
+          $breakpoint-small,
+          $breakpoint-medium
+        );
         // margin-bottom: 0;
       }
 
@@ -322,24 +338,23 @@
         width: 70%;
         left: 50%;
         transform: translateX(-50%);
-        opacity: 0.3;
-        mix-blend-mode: multiply;
-
-        & * {
-          width: 100%;
-        }
+        opacity: 0.7;
+        z-index: 1;
+        // mix-blend-mode: multiply;
 
         & > svg {
+          width: 100%;
+
           fill: #000;
 
           .time__block--lemon & {
-            fill: $color-lemon-bg;
+            fill: $color-lemon;
           }
           .time__block--orange & {
-            fill: #eb8a00;
+            fill: $color-orange;
           }
           .time__block--grapefruit & {
-            fill: #ef1f0f;
+            fill: $color-grapefruit;
           }
         }
       }
@@ -369,6 +384,14 @@
       align-items: center;
       justify-content: center;
       flex: 0 0 calc(#{$column-width} * 3);
+      width: 100%;
+      @media (min-width: $breakpoint-small) {
+        width: calc(#{$column-width-medium} * 2.5);
+      }
+      @media (min-width: $breakpoint-medium) {
+        width: auto;
+        flex-basis: calc(#{$column-width} * 3);
+      }
 
       .time__block--orange & {
         @media (min-width: $breakpoint-medium) {
@@ -377,17 +400,17 @@
       }
     }
     &-title {
-      margin-bottom: responsive-value(30px, 55px);
+      margin-bottom: responsive-value(25px, 55px);
       text-align: center;
 
       .time__block--lemon & {
-        color: $color-lemon;
+        color: $color-lemon-bg;
       }
       .time__block--orange & {
-        color: $color-orange;
+        color: $color-orange-bg;
       }
       .time__block--grapefruit & {
-        color: $color-grapefruit;
+        color: $color-grapefruit-bg;
       }
     }
     &-text {
