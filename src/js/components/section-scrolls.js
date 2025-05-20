@@ -224,7 +224,7 @@ export let sectionScrolls = () => {
             .fromTo(
               '.section-2__bg',
               { borderRadius: '3.125vw', scale: 0.3 },
-              { duration: 1, borderRadius: 0, scale: 1 },
+              { duration: 0.8, borderRadius: 0, scale: 1 },
               '0'
             )
             .fromTo('.section-2__bg video', { opacity: 0 }, { duration: 0.2, opacity: 1 }, '-=0.2')
@@ -232,10 +232,10 @@ export let sectionScrolls = () => {
               '.section-2__content',
               { opacity: 0, y: 100 },
               { duration: 0.2, opacity: 1, y: 0 },
-              '-=0.1'
+              '+=0.1'
             )
             .fromTo(
-              '.section-2__bottles-item',
+              '.section-2__bottles-item--letter',
               {
                 scale: 0.9,
                 y: 150,
@@ -243,7 +243,7 @@ export let sectionScrolls = () => {
               },
               {
                 duration: 0.5,
-                ease: 'back.out(1.5)',
+                ease: 'back.out(2)',
 
                 scale: 1,
                 y: 1,
@@ -253,10 +253,28 @@ export let sectionScrolls = () => {
               '-=0.2'
             )
             .fromTo(
+              '.section-2__bottles-item--bottle',
+              {
+                scale: 0.9,
+                y: 150,
+                opacity: 0,
+              },
+              {
+                duration: 0.7,
+                ease: 'back.out(1)',
+
+                scale: 1,
+                y: 1,
+                opacity: 1,
+                stagger: 0.05,
+              },
+              '-=0.3'
+            )
+            .fromTo(
               '.section-2__text',
               { opacity: 0, y: 20 },
               { duration: 0.5, opacity: 1, y: 0 },
-              '+=0.3'
+              '-=0.2'
             )
             .call(allowScroll, [true]);
           // .to('.section-3__bottle', { duration: 0.2, opacity: 0 });
@@ -298,8 +316,8 @@ export let sectionScrolls = () => {
             .fromTo(
               '.section-3__bottle > div',
               { opacity: 0 },
-              { duration: 0.5, opacity: 1 },
-              '-=1'
+              { duration: 1, opacity: 1 },
+              '-=1.5'
             )
             .fromTo(
               '.section-3__bottle--1 > div',
@@ -307,7 +325,6 @@ export let sectionScrolls = () => {
                 // ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
                 y: deltaY,
                 x: '-' + deltaX,
-                // stagger: -0.09,
               },
               {
                 duration: 1.5,
@@ -316,7 +333,7 @@ export let sectionScrolls = () => {
                 x: '0',
                 stagger: -0.09,
               },
-              '-=1.3'
+              '-=1.5'
             )
             .fromTo(
               '.section-3__bottle--2 > div',
@@ -330,10 +347,9 @@ export let sectionScrolls = () => {
                 // ease: CustomEase.create('custom', 'M0,0,C0.302,0,1,0.702,1,1'),
                 y: '0',
                 x: '0',
-
                 stagger: -0.09,
               },
-              '-=1.9'
+              '-=2.2'
             )
             .call(allowScroll, [true]);
         }

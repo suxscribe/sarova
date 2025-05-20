@@ -136,6 +136,8 @@
         margin-top: 15%;
         z-index: 1;
 
+        transition: none;
+
         @media (min-width: $breakpoint-small) {
           margin-top: 15%;
         }
@@ -150,28 +152,13 @@
 
         & img {
           object-fit: contain;
-          height: responsive-value(
-            200px,
-            332px,
-            $mobile-min-width,
-            $tablet-width
-          );
+          height: responsive-value(200px, 332px, $mobile-min-width, $tablet-width);
 
           @media (min-width: $breakpoint-small) and (orientation: landscape) {
-            height: responsive-value(
-              200px,
-              477px,
-              $mobile-min-width,
-              $fhd-width
-            );
+            height: responsive-value(200px, 477px, $mobile-min-width, $fhd-width);
           }
           @media (min-width: $breakpoint-medium) {
-            height: responsive-value(
-              200px,
-              477px,
-              $mobile-min-width,
-              $fhd-width
-            );
+            height: responsive-value(200px, 477px, $mobile-min-width, $fhd-width);
           }
         }
 
@@ -213,31 +200,16 @@
         mix-blend-mode: multiply;
         & img,
         & svg {
-          height: responsive-value(
-            138px,
-            243px,
-            $mobile-min-width,
-            $tablet-width
-          );
+          height: responsive-value(138px, 243px, $mobile-min-width, $tablet-width);
           opacity: 0.3;
           filter: brightness(0.7);
           transition: all var(--transition);
 
           @media (min-width: $breakpoint-small) and (orientation: landscape) {
-            height: responsive-value(
-              70px,
-              180px,
-              $mobile-min-width,
-              $fhd-width
-            );
+            height: responsive-value(70px, 180px, $mobile-min-width, $fhd-width);
           }
           @media (min-width: $breakpoint-medium) {
-            height: responsive-value(
-              70px,
-              180px,
-              $mobile-min-width,
-              $fhd-width
-            );
+            height: responsive-value(70px, 180px, $mobile-min-width, $fhd-width);
           }
         }
 
