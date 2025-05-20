@@ -3,6 +3,10 @@
     // background: #fff;
     // opacity: 0;
     transition: all var(--transition);
+
+    &:before {
+      background: $color-white;
+    }
   }
   &__button {
     position: fixed;
@@ -52,6 +56,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: 0;
     padding-bottom: percent-view(54px, $mobile-min-height, 'h');
     opacity: 0;
     scale: 0.9;

@@ -23,28 +23,16 @@ $alert-color: $global-color !default;
 $alert-close-top: $alert-padding + 5px !default;
 $alert-close-right: $alert-padding !default;
 $global-primary-background: #0074d3 !default;
-$alert-primary-background: lighten(
-  mix(white, $global-primary-background, 40%),
-  20%
-) !default;
+$alert-primary-background: lighten(mix(white, $global-primary-background, 40%), 20%) !default;
 $alert-primary-color: $global-primary-background !default;
 $global-success-background: #32d296 !default;
-$alert-success-background: lighten(
-  mix(white, $global-success-background, 40%),
-  25%
-) !default;
+$alert-success-background: lighten(mix(white, $global-success-background, 40%), 25%) !default;
 $alert-success-color: $global-success-background !default;
 $global-warning-background: #faa05a !default;
-$alert-warning-background: lighten(
-  mix(white, $global-warning-background, 45%),
-  15%
-) !default;
+$alert-warning-background: lighten(mix(white, $global-warning-background, 45%), 15%) !default;
 $alert-warning-color: $global-warning-background !default;
 $global-danger-background: #f0506e !default;
-$alert-danger-background: lighten(
-  mix(white, $global-danger-background, 40%),
-  20%
-) !default;
+$alert-danger-background: lighten(mix(white, $global-danger-background, 40%), 20%) !default;
 $alert-danger-color: $global-danger-background !default;
 $global-gutter: 2.91667vw !default;
 $align-margin-horizontal: $global-gutter !default;
@@ -93,9 +81,8 @@ $inverse-badge-color: $inverse-global-inverse-color !default;
 $inverse-badge-hover-color: $inverse-global-inverse-color !default;
 $base-body-background: $global-background !default;
 
-$global-font-family: 'PT Sans', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji' !default;
+$global-font-family: 'PT Sans', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 $base-body-font-family: $global-font-family !default;
 $base-body-font-weight: normal !default;
 $global-font-size: var(--font-size) !default;
@@ -188,11 +175,9 @@ $global-control-height: 40px !default;
 $button-border-width: $global-border-width !default;
 $button-line-height: $global-control-height - ($button-border-width * 2) !default;
 $global-control-small-height: 30px !default;
-$button-small-line-height: $global-control-small-height -
-  ($button-border-width * 2) !default;
+$button-small-line-height: $global-control-small-height - ($button-border-width * 2) !default;
 $global-control-large-height: 55px !default;
-$button-large-line-height: $global-control-large-height -
-  ($button-border-width * 2) !default;
+$button-large-line-height: $global-control-large-height - ($button-border-width * 2) !default;
 $button-font-size: $global-small-font-size !default;
 $button-small-font-size: $global-small-font-size !default;
 $button-large-font-size: $global-small-font-size !default;
@@ -207,36 +192,21 @@ $button-default-active-background: transparent !default;
 $button-default-active-color: $global-emphasis-color !default;
 $button-primary-background: $global-primary-background !default;
 $button-primary-color: $global-inverse-color !default;
-$button-primary-hover-background: darken(
-  $button-primary-background,
-  5%
-) !default;
+$button-primary-hover-background: darken($button-primary-background, 5%) !default;
 $button-primary-hover-color: $global-inverse-color !default;
-$button-primary-active-background: darken(
-  $button-primary-background,
-  10%
-) !default;
+$button-primary-active-background: darken($button-primary-background, 10%) !default;
 $button-primary-active-color: $global-inverse-color !default;
 $button-secondary-background: $global-secondary-background !default;
 $button-secondary-color: $global-inverse-color !default;
-$button-secondary-hover-background: darken(
-  $button-secondary-background,
-  5%
-) !default;
+$button-secondary-hover-background: darken($button-secondary-background, 5%) !default;
 $button-secondary-hover-color: $global-inverse-color !default;
-$button-secondary-active-background: darken(
-  $button-secondary-background,
-  10%
-) !default;
+$button-secondary-active-background: darken($button-secondary-background, 10%) !default;
 $button-secondary-active-color: $global-inverse-color !default;
 $button-danger-background: $global-danger-background !default;
 $button-danger-color: $global-inverse-color !default;
 $button-danger-hover-background: darken($button-danger-background, 5%) !default;
 $button-danger-hover-color: $global-inverse-color !default;
-$button-danger-active-background: darken(
-  $button-danger-background,
-  10%
-) !default;
+$button-danger-active-background: darken($button-danger-background, 10%) !default;
 $button-danger-active-color: $global-inverse-color !default;
 $button-disabled-background: transparent !default;
 $button-disabled-color: $global-muted-color !default;
@@ -257,15 +227,9 @@ $inverse-button-default-active-background: transparent !default;
 $inverse-button-default-active-color: $inverse-global-emphasis-color !default;
 $inverse-button-primary-background: $inverse-global-primary-background !default;
 $inverse-button-primary-color: $inverse-global-inverse-color !default;
-$inverse-button-primary-hover-background: darken(
-  $inverse-button-primary-background,
-  5%
-) !default;
+$inverse-button-primary-hover-background: darken($inverse-button-primary-background, 5%) !default;
 $inverse-button-primary-hover-color: $inverse-global-inverse-color !default;
-$inverse-button-primary-active-background: darken(
-  $inverse-button-primary-background,
-  10%
-) !default;
+$inverse-button-primary-active-background: darken($inverse-button-primary-background, 10%) !default;
 $inverse-button-primary-active-color: $inverse-global-inverse-color !default;
 $inverse-button-secondary-background: $inverse-global-primary-background !default;
 $inverse-button-secondary-color: $inverse-global-inverse-color !default;
@@ -397,18 +361,9 @@ $dotnav-item-hover-background: rgba($global-color, 0.6) !default;
 $dotnav-item-onclick-background: rgba($global-color, 0.2) !default;
 $dotnav-item-active-background: rgba($global-color, 0.6) !default;
 $inverse-dotnav-item-background: transparent !default;
-$inverse-dotnav-item-hover-background: rgba(
-  $inverse-global-color,
-  0.9
-) !default;
-$inverse-dotnav-item-onclick-background: rgba(
-  $inverse-global-color,
-  0.5
-) !default;
-$inverse-dotnav-item-active-background: rgba(
-  $inverse-global-color,
-  0.9
-) !default;
+$inverse-dotnav-item-hover-background: rgba($inverse-global-color, 0.9) !default;
+$inverse-dotnav-item-onclick-background: rgba($inverse-global-color, 0.5) !default;
+$inverse-dotnav-item-active-background: rgba($inverse-global-color, 0.9) !default;
 $global-z-index: 1000 !default;
 $drop-z-index: $global-z-index + 20 !default;
 $drop-width: 300px !default;
@@ -431,10 +386,7 @@ $form-range-thumb-border-radius: 500px !default;
 $form-range-thumb-background: $global-background !default;
 $form-range-track-height: 3px !default;
 $form-range-track-background: darken($global-muted-background, 5%) !default;
-$form-range-track-focus-background: darken(
-  $global-muted-background,
-  15%
-) !default;
+$form-range-track-focus-background: darken($global-muted-background, 15%) !default;
 $form-height: $global-control-height !default;
 $form-border-width: $global-border-width !default;
 $form-line-height: $form-height - (2 * $form-border-width) !default;
@@ -499,10 +451,7 @@ $inverse-form-focus-color: $inverse-global-color !default;
 $inverse-form-placeholder-color: $inverse-global-muted-color !default;
 $inverse-form-select-icon-color: $inverse-global-color !default;
 $inverse-form-datalist-icon-color: $inverse-global-color !default;
-$inverse-form-radio-background: darken(
-  $inverse-global-muted-background,
-  5%
-) !default;
+$inverse-form-radio-background: darken($inverse-global-muted-background, 5%) !default;
 $inverse-form-radio-checked-background: $inverse-global-primary-background !default;
 $inverse-form-radio-checked-icon-color: $inverse-global-inverse-color !default;
 $inverse-form-radio-checked-focus-background: darken(
@@ -593,15 +542,9 @@ $inverse-icon-link-hover-color: $inverse-global-color !default;
 $inverse-icon-link-active-color: $inverse-global-color !default;
 $inverse-icon-button-background: $inverse-global-muted-background !default;
 $inverse-icon-button-color: $inverse-global-muted-color !default;
-$inverse-icon-button-hover-background: darken(
-  $inverse-icon-button-background,
-  5%
-) !default;
+$inverse-icon-button-hover-background: darken($inverse-icon-button-background, 5%) !default;
 $inverse-icon-button-hover-color: $inverse-global-color !default;
-$inverse-icon-button-active-background: darken(
-  $inverse-icon-button-background,
-  10%
-) !default;
+$inverse-icon-button-active-background: darken($inverse-icon-button-background, 10%) !default;
 $inverse-icon-button-active-color: $inverse-global-color !default;
 $iconnav-margin-horizontal: $global-small-margin !default;
 $iconnav-margin-vertical: $iconnav-margin-horizontal !default;
@@ -779,6 +722,8 @@ $navbar-nav-item-font-family: $global-font-family !default;
 $navbar-nav-item-hover-color: $global-color !default;
 $navbar-nav-item-onclick-color: $global-emphasis-color !default;
 $navbar-nav-item-active-color: $global-emphasis-color !default;
+$navbar-parent-icon-margin-left: 4px !default;
+$navbar-item-padding-horizontal: 0 !default;
 $navbar-item-color: $global-color !default;
 $navbar-toggle-color: $global-muted-color !default;
 $navbar-toggle-hover-color: $global-color !default;
@@ -786,12 +731,11 @@ $navbar-subtitle-font-size: $global-small-font-size !default;
 $navbar-dropdown-z-index: $global-z-index + 20 !default;
 $navbar-dropdown-width: 200px !default;
 $navbar-dropdown-margin: 15px !default;
+$navbar-dropdown-shift-margin: 0 !default;
 $navbar-dropdown-padding: 25px !default;
 $navbar-dropdown-background: $global-background !default;
 $navbar-dropdown-color: $global-color !default;
-$navbar-dropdown-grid-gutter-horizontal: (
-  $navbar-dropdown-padding * 2
-) !default;
+$navbar-dropdown-grid-gutter-horizontal: ($navbar-dropdown-padding * 2) !default;
 $navbar-dropdown-grid-gutter-vertical: $navbar-dropdown-grid-gutter-horizontal !default;
 $navbar-dropdown-dropbar-margin-top: 0 !default;
 $navbar-dropdown-dropbar-margin-bottom: $navbar-dropdown-dropbar-margin-top !default;
@@ -843,6 +787,7 @@ $offcanvas-overlay-background: $color-white !default;
 $overlay-padding-horizontal: $global-gutter !default;
 $overlay-padding-vertical: $global-gutter !default;
 $overlay-default-background: rgba($global-background, 0.8) !default;
+$overlay-default-color-mode: dark !default;
 $overlay-primary-background: rgba($global-secondary-background, 0.8) !default;
 $overlay-primary-color-mode: light !default;
 $padding-padding: $global-gutter !default;
@@ -909,9 +854,7 @@ $section-small-padding-vertical: $global-medium-margin !default;
 $section-large-padding-vertical: $global-large-margin !default;
 $section-large-padding-vertical-m: $global-xlarge-margin !default;
 $section-xlarge-padding-vertical: $global-xlarge-margin !default;
-$section-xlarge-padding-vertical-m: (
-  $global-large-margin + $global-xlarge-margin
-) !default;
+$section-xlarge-padding-vertical-m: ($global-large-margin + $global-xlarge-margin) !default;
 $section-default-background: $global-background !default;
 $section-muted-background: $global-muted-background !default;
 $section-primary-background: $global-primary-background !default;
@@ -1005,10 +948,7 @@ $table-large-cell-padding-horizontal: 12px !default;
 $table-expand-min-width: 150px !default;
 $inverse-table-header-cell-color: $inverse-global-color !default;
 $inverse-table-caption-color: $inverse-global-muted-color !default;
-$inverse-table-row-active-background: fade-out(
-  $inverse-global-muted-background,
-  0.02
-) !default;
+$inverse-table-row-active-background: fade-out($inverse-global-muted-background, 0.02) !default;
 $inverse-table-divider-border: $inverse-global-border !default;
 $inverse-table-striped-row-background: $inverse-global-muted-background !default;
 $inverse-table-hover-row-background: $inverse-table-row-active-background !default;
@@ -1048,9 +988,7 @@ $tile-small-padding-vertical: $global-medium-margin !default;
 $tile-large-padding-vertical: $global-large-margin !default;
 $tile-large-padding-vertical-m: $global-xlarge-margin !default;
 $tile-xlarge-padding-vertical: $global-xlarge-margin !default;
-$tile-xlarge-padding-vertical-m: (
-  $global-large-margin + $global-xlarge-margin
-) !default;
+$tile-xlarge-padding-vertical-m: ($global-large-margin + $global-xlarge-margin) !default;
 $tile-default-background: $global-background !default;
 $tile-muted-background: $global-muted-background !default;
 $tile-primary-background: $global-primary-background !default;

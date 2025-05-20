@@ -5,7 +5,7 @@
 @import 'abstract/variables'; //base vars and styles
 
 // 2. Import default variables and available mixins.
-// @import "uikit/src/scss/variables-theme.scss";
+@import 'uikit/src/scss/variables-theme.scss';
 
 @import 'uikit/src/scss/mixins-theme.scss';
 
@@ -35,7 +35,7 @@ $offcanvas-bar-background: #fff;
 // @import 'uikit/src/scss/components/table.scss';
 @import 'uikit/src/scss/components/icon.scss';
 // @import 'uikit/src/scss/components/form-range.scss';
-@import 'uikit/src/scss/components/form.scss'; // After: Icon, Form Range
+// @import 'uikit/src/scss/components/form.scss'; // After: Icon, Form Range
 // @import 'uikit/src/scss/components/button.scss';
 
 // Layout
@@ -53,10 +53,10 @@ $offcanvas-bar-background: #fff;
 // @import 'uikit/src/scss/components/alert.scss'; // After: Close
 // @import "uikit/src/scss/components/badge.scss";
 // @import 'uikit/src/scss/components/label.scss';
-@import 'uikit/src/scss/components/overlay.scss'; // After: Icon
+// @import 'uikit/src/scss/components/overlay.scss'; // After: Icon
 // @import 'uikit/src/scss/components/article.scss'; // After: Subnav
 // @import 'uikit/src/scss/components/comment.scss'; // After: Subnav
-@import 'uikit/src/scss/components/search.scss'; // After: Icon
+// @import 'uikit/src/scss/components/search.scss'; // After: Icon
 
 // Navs
 // @import "uikit/src/scss/components/nav.scss";

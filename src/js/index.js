@@ -21,12 +21,7 @@ import {
 } from './components/helpers';
 
 import { section1Slider } from './components/swipers';
-import {
-  sectionsInit,
-  sectionScrolls,
-  classicInit,
-  redInit,
-} from './components/section-scrolls';
+import { sectionsInit, sectionScrolls, classicInit, redInit } from './components/section-scrolls';
 import { redParallax } from './components/red';
 
 // import Splitting from 'splitting';
@@ -61,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   section1Slider();
 
-  setVh();
-  window.addEventListener('resize', setVh); // recalc browser height on resize
+  // setVh();
+  // window.addEventListener('resize', setVh); // recalc browser height on resize
 
   sectionScrolls();
 

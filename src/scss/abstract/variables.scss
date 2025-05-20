@@ -41,6 +41,7 @@ $fhd-height: 992px;
 $base-font-size: 10px; //1 rem
 
 :root {
+  --vh: 1svh;
   --margin: 16px; //small
   --margin-m: 24px;
   --margin-2: calc(var(--margin) * 2);
