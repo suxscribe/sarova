@@ -25,9 +25,7 @@ const autoprefixer = require('autoprefixer');
 // }
 
 const PAGES_DIR = './src/pug/pages/';
-const PAGES = fs
-  .readdirSync(PAGES_DIR)
-  .filter((fileName) => fileName.endsWith('.pug'));
+const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.pug'));
 // const htmlPlugins = generateHtmlPlugins('./src/html/views');
 
 const config = {
@@ -39,13 +37,12 @@ const config = {
   resolve: {
     modules: ['node_modules'],
     alias: {
-      'debug.addIndicators':
-        'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js',
+      'debug.addIndicators': 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js',
     },
   },
   devtool: 'source-map',
   devServer: {
-    host: '127.0.0.1', //192.168.88.222', //'127.0.0.1' your ip address
+    host: '0.0.0.0', // Changed from '127.0.0.1' to allow external access
     port: 8080,
     disableHostCheck: true,
   },
