@@ -34,10 +34,7 @@ let fired4 = false;
 let firedRed = false;
 
 const isResponsive = () => {
-  if (
-    window.innerWidth < breakpointWidth ||
-    window.innerHeight < breakpointHeight
-  ) {
+  if (window.innerWidth < breakpointWidth || window.innerHeight < breakpointHeight) {
     return true;
   } else return false;
 };
@@ -79,20 +76,12 @@ export let sectionScrolls = () => {
 
         // Not gsap animations
         if (destination.index === 1) {
-          document
-            .querySelector('.header__nav-logo')
-            .classList.add('header__nav-logo--panel');
-          document
-            .querySelector('.header__nav-logo')
-            .classList.remove('header__nav-logo--title');
+          document.querySelector('.header__nav-logo').classList.add('header__nav-logo--panel');
+          document.querySelector('.header__nav-logo').classList.remove('header__nav-logo--title');
         }
         if (destination.index === 0) {
-          document
-            .querySelector('.header__nav-logo')
-            .classList.remove('header__nav-logo--panel');
-          document
-            .querySelector('.header__nav-logo')
-            .classList.add('header__nav-logo--title');
+          document.querySelector('.header__nav-logo').classList.remove('header__nav-logo--panel');
+          document.querySelector('.header__nav-logo').classList.add('header__nav-logo--title');
         }
 
         // Gsap Animations
@@ -111,11 +100,7 @@ export let sectionScrolls = () => {
                 0
               )
               .to('.slider__arrow', { duration: 0.1, opacity: 0 }, 0)
-              .to(
-                '.section-1__title',
-                { duration: 0.5, opacity: 0, scale: 0.2 },
-                0
-              )
+              .to('.section-1__title', { duration: 0.5, opacity: 0, scale: 0.2 }, 0)
               .to('.section-1__slider', { duration: 0.5, y: -300 }, 0);
             // elements.section1Video.pause();
           }
@@ -183,11 +168,7 @@ export let sectionScrolls = () => {
                 { duration: 0.3, scale: 0.3 },
                 '0'
               )
-              .to(
-                '.section-red__content',
-                { duration: 0.3, opacity: 0, scale: 0.8 },
-                '0'
-              );
+              .to('.section-red__content', { duration: 0.3, opacity: 0, scale: 0.8 }, '0');
           }
           // Leaving Bottom
           if (origin.index === 4) {
@@ -246,12 +227,7 @@ export let sectionScrolls = () => {
               { duration: 1, borderRadius: 0, scale: 1 },
               '0'
             )
-            .fromTo(
-              '.section-2__bg video',
-              { opacity: 0 },
-              { duration: 0.2, opacity: 1 },
-              '-=0.2'
-            )
+            .fromTo('.section-2__bg video', { opacity: 0 }, { duration: 0.2, opacity: 1 }, '-=0.2')
             .fromTo(
               '.section-2__content',
               { opacity: 0, y: 100 },
@@ -296,12 +272,7 @@ export let sectionScrolls = () => {
             .call(allowScroll, [false])
 
             .to('.section-3__bottle', { duration: 0.3, opacity: 1 })
-            .fromTo(
-              '.section-3__content',
-              { opacity: 0 },
-              { duration: 0.5, opacity: 1 },
-              '0'
-            )
+            .fromTo('.section-3__content', { opacity: 0 }, { duration: 0.5, opacity: 1 }, '0')
             .fromTo(
               '.section-3__title',
               { scale: 0.5, opacity: 0 },
@@ -320,21 +291,9 @@ export let sectionScrolls = () => {
               { duration: 0.2, scale: 1, y: 0, opacity: 1 },
               '-=0.1'
             )
-            .fromTo(
-              '.section-3__bg',
-              { scale: 0.3 },
-              { duration: 0.5, scale: 1 }
-            )
-            .fromTo(
-              '.section-3__intro-before',
-              { opacity: 0 },
-              { duration: 0.5, opacity: 1 }
-            )
-            .fromTo(
-              '.section-3__bg-image',
-              { opacity: 0 },
-              { duration: 1, opacity: 0.2 }
-            )
+            .fromTo('.section-3__bg', { scale: 0.3 }, { duration: 0.5, scale: 1 })
+            .fromTo('.section-3__intro-before', { opacity: 0 }, { duration: 0.5, opacity: 1 })
+            .fromTo('.section-3__bg-image', { opacity: 0 }, { duration: 1, opacity: 0.2 })
 
             .fromTo(
               '.section-3__bottle > div',
@@ -386,18 +345,8 @@ export let sectionScrolls = () => {
           tweenScrollRed
             .call(allowScroll, [false])
             .set('.section-red__content', { opacity: 1, scale: 1 })
-            .fromTo(
-              '.section-red__bg-color',
-              { scale: 0.2 },
-              { duration: 1, scale: 1 },
-              '1'
-            )
-            .fromTo(
-              '.section-red__bg-blob',
-              { opacity: 0 },
-              { duration: 0.5, opacity: 1 },
-              '-=0.5'
-            )
+            .fromTo('.section-red__bg-color', { scale: 0.2 }, { duration: 1, scale: 1 }, '1')
+            .fromTo('.section-red__bg-blob', { opacity: 0 }, { duration: 0.5, opacity: 1 }, '-=0.5')
             .fromTo(
               '.section-red__logo',
               { opacity: 0, y: 100, scale: 0.5 },
@@ -427,12 +376,7 @@ export let sectionScrolls = () => {
               },
               '-=0.2'
             )
-            .fromTo(
-              '.section-red__shadow',
-              { opacity: 0 },
-              { duration: 1, opacity: 1 },
-              '-=0.5'
-            )
+            .fromTo('.section-red__shadow', { opacity: 0 }, { duration: 1, opacity: 1 }, '-=0.5')
             .fromTo(
               '.section-red__parallax-item',
               {
@@ -473,11 +417,7 @@ export let sectionScrolls = () => {
               { duration: 1, opacity: 1, y: 0 },
               '-=0.5'
             )
-            .from(
-              '.section-4__button-wrap',
-              { duration: 1, opacity: 0, y: -50 },
-              '-=0.5'
-            )
+            .from('.section-4__button-wrap', { duration: 1, opacity: 0, y: -50 }, '-=0.5')
             .call(allowScroll, [true]);
           // .to('.section-3__bottle', { duration: 0.2, opacity: 0 });
         }
@@ -497,16 +437,8 @@ export const sectionsInit = () => {
       .set('.section-1__bg-video', { className: 'section-1__bg-video active' })
       .from('.section-1__title', { duration: 1.5, y: 20, opacity: 0 })
       .from('.section-1__slider', { duration: 1.5, y: 20, opacity: 0 }, '-=0.3')
-      .from(
-        '.section-1__subtitle',
-        { duration: 0.5, y: 10, opacity: 0 },
-        '-=0.3'
-      )
-      .from(
-        '.section-1__button-wrap',
-        { duration: 0.5, y: 10, opacity: 0 },
-        '-=0.3'
-      );
+      .from('.section-1__subtitle', { duration: 0.5, y: 10, opacity: 0 }, '-=0.3')
+      .from('.section-1__button-wrap', { duration: 0.5, y: 10, opacity: 0 }, '-=0.3');
     // .from('.sidenav__item', {
     //   duration: 0.5,
     //   x: -40,
@@ -602,18 +534,8 @@ export const redInit = () => {
     let tweenScrollRed = gsap.timeline();
     tweenScrollRed
       .set('.section-red__content', { opacity: 1, scale: 1 })
-      .fromTo(
-        '.section-red__bg-color',
-        { scale: 0.2 },
-        { duration: 1, scale: 1 },
-        '1'
-      )
-      .fromTo(
-        '.section-red__bg-blob',
-        { opacity: 0 },
-        { duration: 0.5, opacity: 1 },
-        '-=0.5'
-      )
+      .fromTo('.section-red__bg-color', { scale: 0.2 }, { duration: 1, scale: 1 }, '1')
+      .fromTo('.section-red__bg-blob', { opacity: 0 }, { duration: 0.5, opacity: 1 }, '-=0.5')
       .fromTo(
         '.section-red__logo',
         { opacity: 0, y: 100, scale: 0.5 },
@@ -643,12 +565,7 @@ export const redInit = () => {
         },
         '-=0.2'
       )
-      .fromTo(
-        '.section-red__shadow',
-        { opacity: 0 },
-        { duration: 1, opacity: 1 },
-        '-=0.5'
-      )
+      .fromTo('.section-red__shadow', { opacity: 0 }, { duration: 1, opacity: 1 }, '-=0.5')
       .fromTo(
         '.section-red__parallax-item',
         {
