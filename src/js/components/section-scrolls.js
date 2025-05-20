@@ -345,7 +345,7 @@ export let sectionScrolls = () => {
           tweenScrollRed
             .call(allowScroll, [false])
             .set('.section-red__content', { opacity: 1, scale: 1 })
-            .fromTo('.section-red__bg-color', { scale: 0.2 }, { duration: 1, scale: 1 }, '1')
+            .fromTo('.section-red__bg-color', { scale: 0.2 }, { duration: 1, scale: 1 }, '0.5')
             .fromTo('.section-red__bg-blob', { opacity: 0 }, { duration: 0.5, opacity: 1 }, '-=0.5')
             .fromTo(
               '.section-red__logo',
@@ -381,7 +381,6 @@ export let sectionScrolls = () => {
               '.section-red__parallax-item',
               {
                 scale: 0.5,
-
                 opacity: 0,
               },
               {
@@ -391,7 +390,7 @@ export let sectionScrolls = () => {
                 opacity: 1,
                 stagger: 0.1,
               },
-              '-=0.5'
+              '-=0.7'
             )
             .call(allowScroll, [true]);
         }
@@ -415,9 +414,9 @@ export let sectionScrolls = () => {
               '.section-4__image',
               { opacity: 0, y: 50 },
               { duration: 1, opacity: 1, y: 0 },
-              '-=0.5'
+              '-=1.0'
             )
-            .from('.section-4__button-wrap', { duration: 1, opacity: 0, y: -50 }, '-=0.5')
+            .from('.section-4__button-wrap', { duration: 0.5, opacity: 0, y: -50 }, '-=0.5')
             .call(allowScroll, [true]);
           // .to('.section-3__bottle', { duration: 0.2, opacity: 0 });
         }
