@@ -75,20 +75,10 @@
     &-image {
       margin-bottom: percent-view(25px);
 
-      height: responsive-value(
-        200px,
-        330px,
-        $mobile-min-width,
-        $breakpoint-small-max
-      );
+      height: responsive-value(200px, 330px, $mobile-min-width, $breakpoint-small-max);
 
       @media (min-width: $breakpoint-small) and (orientation: portrait) {
-        height: responsive-value(
-          250px,
-          420px,
-          $mobile-min-width,
-          $breakpoint-small-max
-        );
+        height: responsive-value(250px, 420px, $mobile-min-width, $breakpoint-small-max);
       }
 
       @media (min-width: $breakpoint-medium) {
@@ -160,7 +150,7 @@
 
       @media (min-width: $breakpoint-small) {
         flex-direction: row;
-        align-items: flex-start;
+        align-items: end;
       }
     }
 
@@ -207,6 +197,7 @@
       }
       &-label {
         @include font-label;
+        white-space: nowrap;
       }
       &-text {
         text-align: center;
@@ -257,6 +248,7 @@
       &--uncarb-05 {
         @media (max-width: $breakpoint-xsmall-max) {
           width: calc(#{$column-width-small} * 1);
+          margin: 0 10px;
           // height: calc(#{$column-width-small} * 1);
         }
 
@@ -286,20 +278,10 @@
           position: relative;
           z-index: 1;
 
-          height: responsive-value(
-            206px,
-            320px,
-            $mobile-min-width,
-            $breakpoint-small
-          );
+          height: responsive-value(206px, 320px, $mobile-min-width, $breakpoint-small);
 
           @media (min-width: $breakpoint-small) {
-            height: responsive-value(
-              280px,
-              330px,
-              $breakpoint-medium,
-              $breakpoint-medium-max
-            );
+            height: responsive-value(280px, 330px, $breakpoint-medium, $breakpoint-medium-max);
           }
 
           @media (min-width: $breakpoint-medium) {
@@ -318,9 +300,14 @@
       &--uncarb-50 {
         position: absolute;
         bottom: 0;
-        right: 10px;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         @media (max-width: $breakpoint-xsmall-max) {
-          width: responsive-value(140px, 178px);
+          width: $column-width-small;
         }
         @media (min-width: $breakpoint-small) {
           position: static;
@@ -332,6 +319,16 @@
         }
 
         & .water__section-bottle-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        & .water__section-bottle-img {
+          margin-bottom: 0;
+        }
+        & .water__section-bottle-img-wrap {
+          margin-bottom: 30px;
           width: calc(#{$column-width-small} * 0.6);
 
           @media (min-width: $breakpoint-small) {
@@ -364,7 +361,7 @@
       }
 
       &--carb-15 {
-        flex: 0 0 70%;
+        flex: 0 0 60%;
         // margin-bottom: 30px;
 
         @media (min-width: $breakpoint-small) {
@@ -397,12 +394,7 @@
           position: relative;
           z-index: 1;
 
-          height: responsive-value(
-            390px,
-            470px,
-            $mobile-min-width,
-            $breakpoint-small-max
-          );
+          height: responsive-value(390px, 470px, $mobile-min-width, $breakpoint-small-max);
 
           @media (min-width: $breakpoint-medium) {
             height: percent-view(670px);
@@ -453,12 +445,7 @@
           position: relative;
           z-index: 1;
 
-          height: responsive-value(
-            180px,
-            230px,
-            $mobile-min-width,
-            $breakpoint-small-max
-          );
+          height: responsive-value(180px, 230px, $mobile-min-width, $breakpoint-small-max);
 
           @media (min-width: $breakpoint-medium) {
             height: percent-view(328px);
